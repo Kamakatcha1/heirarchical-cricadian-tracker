@@ -1,12 +1,12 @@
 {
   "training_run": "run_001",
-  "timestamp": "2026-02-19T00:00:07.884347",
+  "timestamp": "2026-02-19T13:26:06.972056",
   "experiments": [
     "exp_001_0218"
   ],
   "sigma": 4,
-  "augment": false,
-  "augs_per_image": 0,
+  "augment": true,
+  "augs_per_image": 4,
   "generated": 10,
   "skipped": 0,
   "per_experiment": {

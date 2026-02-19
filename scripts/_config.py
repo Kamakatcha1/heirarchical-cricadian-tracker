@@ -33,6 +33,7 @@ TRAINING_DIR    = rf"{BASE_DIR}\data\training"
 BLEND_METHOD    = "max"     # "max" or "mean"
 EXPECTED_PLANTS = 0         # 0 = no enforcement, or set to expected plant count
 MAX_DISPLAY     = 1100      # max window size for rectangle picking
+MAX_FRAMES      = 0         # 0 = use all frames, or set to limit (first N)
 
 # 02_annotate  (virtual crops, annotation coordinates only)
 IMAGES_PER_FOLDER = 1       # how many images to annotate per plant folder
@@ -45,6 +46,15 @@ DISPLAY_SCALE     = 3       # zoom factor for annotation window
 TRAINING_RUN_ID    = "run_001"
 TRAINING_EXPERIMENTS = ["exp_001_0218"]   # list ALL experiment IDs to include
 SIGMA              = 4                    # gaussian kernel sigma for tip heatmaps
-# Augmentation flags -- placeholder for future implementation
-AUGMENT            = False                # set True to enable augmentation
+# Augmentation
+AUGMENT            = True                # set True to enable augmentation
 AUGS_PER_IMAGE     = 4                   # augmented copies per annotated image
+AUG_MAX_ROTATE     = 15                  # max rotation degrees for affine augmentation
+AUG_MIN_SCALE      = 0.9                 # min scale factor for affine augmentation
+AUG_MAX_SCALE      = 1.1                 # max scale factor for affine augmentation
+AUG_MAX_SHIFT      = 0.05               # max shift as fraction of image size
+AUG_HFLIP_PROB     = 0.5                # horizontal flip probability
+AUG_VFLIP_PROB     = 0.2                # vertical flip probability
+AUG_BRIGHTNESS_ALPHA = (0.9, 1.1)       # brightness multiplier range
+AUG_BRIGHTNESS_BETA  = (-10, 10)        # brightness offset range
+AUG_SEED           = 0                   # random seed for reproducibility (0 = random)

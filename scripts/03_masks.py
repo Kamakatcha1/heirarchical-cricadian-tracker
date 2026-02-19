@@ -7,6 +7,7 @@ _OVERRIDE = {}
 # ============================================================
 
 import json
+import shutil
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -195,6 +196,10 @@ def main() -> None:
     training_dir = Path(TRAINING_DIR)
 
     run_dir = training_dir / TRAINING_RUN_ID
+    if run_dir.exists():
+        print(f"Clearing existing training run folder: {run_dir}")
+        shutil.rmtree(run_dir)
+
     out_img_dir = run_dir / "images"
     out_mask_dir = run_dir / "masks"
     out_img_dir.mkdir(parents=True, exist_ok=True)

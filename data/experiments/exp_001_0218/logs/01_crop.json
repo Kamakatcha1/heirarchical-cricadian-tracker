@@ -2,9 +2,10 @@
   "step": "01_crop",
   "experiment_id": "exp_001_0218",
   "dataset_id": "dataset_001",
-  "timestamp": "2026-02-18T23:41:57.142413",
+  "timestamp": "2026-02-19T13:23:10.671186",
   "raw_dir": "C:\\Users\\shafa\\OneDrive\\Desktop\\Leaf Project\\Hierarchical Circadian Tracker\\data\\raw\\dataset_001",
   "blend_method": "max",
+  "max_frames": 0,
   "frame_count": 151,
   "frames": [
     {
@@ -618,130 +619,131 @@
       "genotype": 1,
       "replicate": 1,
       "bbox": [
-        277,
-        763,
-        570,
-        1011
-      ]
-    },
-    {
-      "id": "g2_r01",
-      "genotype": 2,
-      "replicate": 1,
-      "bbox": [
-        686,
-        745,
-        939,
-        957
-      ]
+        298,
+        748,
+        567,
+        1014
+      ],
+      "crop_uid": "416dad4dfbc84b8a9be410a6cbaba6ae"
     },
     {
       "id": "g1_r02",
       "genotype": 1,
       "replicate": 2,
       "bbox": [
-        1112,
-        701,
-        1312,
-        930
-      ]
+        1127,
+        692,
+        1303,
+        924
+      ],
+      "crop_uid": "0281fea57d9f45b8b9cabc770d1547f7"
+    },
+    {
+      "id": "g2_r01",
+      "genotype": 2,
+      "replicate": 1,
+      "bbox": [
+        1992,
+        698,
+        2242,
+        933
+      ],
+      "crop_uid": "6ec2a7e08f784464a61523d8e9df830d"
+    },
+    {
+      "id": "g2_r02",
+      "genotype": 2,
+      "replicate": 2,
+      "bbox": [
+        2731,
+        641,
+        2994,
+        880
+      ],
+      "crop_uid": "f7b91dcad20841229f6108adeca22e7a"
+    },
+    {
+      "id": "g2_r03",
+      "genotype": 2,
+      "replicate": 3,
+      "bbox": [
+        2278,
+        1223,
+        2502,
+        1464
+      ],
+      "crop_uid": "df30ff4c78934039a707cb8be9406e6c"
     },
     {
       "id": "g1_r03",
       "genotype": 1,
       "replicate": 3,
       "bbox": [
-        1360,
-        763,
-        1476,
-        951
-      ]
-    },
-    {
-      "id": "g1_r04",
-      "genotype": 1,
-      "replicate": 4,
-      "bbox": [
-        1545,
-        781,
-        1673,
-        930
-      ]
-    },
-    {
-      "id": "g1_r05",
-      "genotype": 1,
-      "replicate": 5,
-      "bbox": [
-        1530,
-        1318,
-        1682,
-        1446
-      ]
+        737,
+        1121,
+        963,
+        1327
+      ],
+      "crop_uid": "42e3fc61179c44e895f24a3ca162813d"
     },
     {
       "id": "g3_r01",
       "genotype": 3,
       "replicate": 1,
       "bbox": [
-        1718,
-        1464,
-        1902,
-        1622
-      ]
+        1345,
+        751,
+        1482,
+        954
+      ],
+      "crop_uid": "0a8ab7014a5449fb9c194bfce3fad9ed"
     },
     {
       "id": "g3_r02",
       "genotype": 3,
       "replicate": 2,
       "bbox": [
-        1545,
-        1706,
-        1744,
-        1870
-      ]
+        1527,
+        1115,
+        1682,
+        1261
+      ],
+      "crop_uid": "c7fd0aac569140c0b6efbebe550d01ad"
     },
     {
       "id": "g3_r03",
       "genotype": 3,
       "replicate": 3,
       "bbox": [
-        1876,
-        1655,
-        2069,
-        1810
-      ]
+        1718,
+        1076,
+        1858,
+        1255
+      ],
+      "crop_uid": "263630cf4b694c71a7c0968bfbe9ed42"
     },
     {
-      "id": "g3_r04",
-      "genotype": 3,
+      "id": "g1_r04",
+      "genotype": 1,
       "replicate": 4,
       "bbox": [
-        1876,
-        1094,
-        2037,
-        1223
-      ]
-    },
-    {
-      "id": "g3_r05",
-      "genotype": 3,
-      "replicate": 5,
-      "bbox": [
-        1330,
-        1097,
-        1503,
-        1264
-      ]
+        1133,
+        1479,
+        1372,
+        1750
+      ],
+      "crop_uid": "851257ca241b4928a05cdba091ebd91f"
     }
   ],
   "sanity": {
-    "plant_count": 11,
+    "plant_count": 10,
     "has_plants": true,
     "all_genotypes_valid": true,
-    "min_crop_area_px": 19072,
+    "min_crop_area_px": 22630,
     "no_zero_area": true,
     "no_duplicate_ids": true,
+    "all_have_crop_uid": true,
+    "no_duplicate_crop_uid": true,
     "frame_count": 151,
     "has_frames": true,
     "all_passed": true
