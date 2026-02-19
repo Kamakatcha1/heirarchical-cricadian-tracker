@@ -1,0 +1,749 @@
+{
+  "step": "01_crop",
+  "experiment_id": "exp_001_0218",
+  "dataset_id": "dataset_001",
+  "timestamp": "2026-02-18T23:41:57.142413",
+  "raw_dir": "C:\\Users\\shafa\\OneDrive\\Desktop\\Leaf Project\\Hierarchical Circadian Tracker\\data\\raw\\dataset_001",
+  "blend_method": "max",
+  "frame_count": 151,
+  "frames": [
+    {
+      "index": 0,
+      "filename": "3d_0000.jpg"
+    },
+    {
+      "index": 1,
+      "filename": "3d_0001.jpg"
+    },
+    {
+      "index": 2,
+      "filename": "3d_0002.jpg"
+    },
+    {
+      "index": 3,
+      "filename": "3d_0003.jpg"
+    },
+    {
+      "index": 4,
+      "filename": "3d_0004.jpg"
+    },
+    {
+      "index": 5,
+      "filename": "3d_0005.jpg"
+    },
+    {
+      "index": 6,
+      "filename": "3d_0006.jpg"
+    },
+    {
+      "index": 7,
+      "filename": "3d_0007.jpg"
+    },
+    {
+      "index": 8,
+      "filename": "3d_0008.jpg"
+    },
+    {
+      "index": 9,
+      "filename": "3d_0009.jpg"
+    },
+    {
+      "index": 10,
+      "filename": "3d_0010.jpg"
+    },
+    {
+      "index": 11,
+      "filename": "3d_0011.jpg"
+    },
+    {
+      "index": 12,
+      "filename": "3d_0012.jpg"
+    },
+    {
+      "index": 13,
+      "filename": "3d_0013.jpg"
+    },
+    {
+      "index": 14,
+      "filename": "3d_0014.jpg"
+    },
+    {
+      "index": 15,
+      "filename": "3d_0015.jpg"
+    },
+    {
+      "index": 16,
+      "filename": "3d_0016.jpg"
+    },
+    {
+      "index": 17,
+      "filename": "3d_0017.jpg"
+    },
+    {
+      "index": 18,
+      "filename": "3d_0018.jpg"
+    },
+    {
+      "index": 19,
+      "filename": "3d_0019.jpg"
+    },
+    {
+      "index": 20,
+      "filename": "3d_0020.jpg"
+    },
+    {
+      "index": 21,
+      "filename": "3d_0021.jpg"
+    },
+    {
+      "index": 22,
+      "filename": "3d_0022.jpg"
+    },
+    {
+      "index": 23,
+      "filename": "3d_0023.jpg"
+    },
+    {
+      "index": 24,
+      "filename": "3d_0024.jpg"
+    },
+    {
+      "index": 25,
+      "filename": "3d_0025.jpg"
+    },
+    {
+      "index": 26,
+      "filename": "3d_0026.jpg"
+    },
+    {
+      "index": 27,
+      "filename": "3d_0027.jpg"
+    },
+    {
+      "index": 28,
+      "filename": "3d_0028.jpg"
+    },
+    {
+      "index": 29,
+      "filename": "3d_0029.jpg"
+    },
+    {
+      "index": 30,
+      "filename": "3d_0030.jpg"
+    },
+    {
+      "index": 31,
+      "filename": "3d_0031.jpg"
+    },
+    {
+      "index": 32,
+      "filename": "3d_0032.jpg"
+    },
+    {
+      "index": 33,
+      "filename": "3d_0033.jpg"
+    },
+    {
+      "index": 34,
+      "filename": "3d_0034.jpg"
+    },
+    {
+      "index": 35,
+      "filename": "3d_0035.jpg"
+    },
+    {
+      "index": 36,
+      "filename": "3d_0036.jpg"
+    },
+    {
+      "index": 37,
+      "filename": "3d_0037.jpg"
+    },
+    {
+      "index": 38,
+      "filename": "3d_0038.jpg"
+    },
+    {
+      "index": 39,
+      "filename": "3d_0039.jpg"
+    },
+    {
+      "index": 40,
+      "filename": "3d_0040.jpg"
+    },
+    {
+      "index": 41,
+      "filename": "3d_0041.jpg"
+    },
+    {
+      "index": 42,
+      "filename": "3d_0042.jpg"
+    },
+    {
+      "index": 43,
+      "filename": "3d_0043.jpg"
+    },
+    {
+      "index": 44,
+      "filename": "3d_0044.jpg"
+    },
+    {
+      "index": 45,
+      "filename": "3d_0045.jpg"
+    },
+    {
+      "index": 46,
+      "filename": "3d_0046.jpg"
+    },
+    {
+      "index": 47,
+      "filename": "3d_0047.jpg"
+    },
+    {
+      "index": 48,
+      "filename": "3d_0048.jpg"
+    },
+    {
+      "index": 49,
+      "filename": "3d_0049.jpg"
+    },
+    {
+      "index": 50,
+      "filename": "3d_0050.jpg"
+    },
+    {
+      "index": 51,
+      "filename": "3d_0051.jpg"
+    },
+    {
+      "index": 52,
+      "filename": "3d_0052.jpg"
+    },
+    {
+      "index": 53,
+      "filename": "3d_0053.jpg"
+    },
+    {
+      "index": 54,
+      "filename": "3d_0054.jpg"
+    },
+    {
+      "index": 55,
+      "filename": "3d_0055.jpg"
+    },
+    {
+      "index": 56,
+      "filename": "3d_0056.jpg"
+    },
+    {
+      "index": 57,
+      "filename": "3d_0057.jpg"
+    },
+    {
+      "index": 58,
+      "filename": "3d_0058.jpg"
+    },
+    {
+      "index": 59,
+      "filename": "3d_0059.jpg"
+    },
+    {
+      "index": 60,
+      "filename": "3d_0060.jpg"
+    },
+    {
+      "index": 61,
+      "filename": "3d_0061.jpg"
+    },
+    {
+      "index": 62,
+      "filename": "3d_0062.jpg"
+    },
+    {
+      "index": 63,
+      "filename": "3d_0063.jpg"
+    },
+    {
+      "index": 64,
+      "filename": "3d_0064.jpg"
+    },
+    {
+      "index": 65,
+      "filename": "3d_0065.jpg"
+    },
+    {
+      "index": 66,
+      "filename": "3d_0066.jpg"
+    },
+    {
+      "index": 67,
+      "filename": "3d_0067.jpg"
+    },
+    {
+      "index": 68,
+      "filename": "3d_0068.jpg"
+    },
+    {
+      "index": 69,
+      "filename": "3d_0069.jpg"
+    },
+    {
+      "index": 70,
+      "filename": "3d_0070.jpg"
+    },
+    {
+      "index": 71,
+      "filename": "3d_0071.jpg"
+    },
+    {
+      "index": 72,
+      "filename": "3d_0072.jpg"
+    },
+    {
+      "index": 73,
+      "filename": "3d_0073.jpg"
+    },
+    {
+      "index": 74,
+      "filename": "3d_0074.jpg"
+    },
+    {
+      "index": 75,
+      "filename": "3d_0075.jpg"
+    },
+    {
+      "index": 76,
+      "filename": "3d_0076.jpg"
+    },
+    {
+      "index": 77,
+      "filename": "3d_0077.jpg"
+    },
+    {
+      "index": 78,
+      "filename": "3d_0078.jpg"
+    },
+    {
+      "index": 79,
+      "filename": "3d_0079.jpg"
+    },
+    {
+      "index": 80,
+      "filename": "3d_0080.jpg"
+    },
+    {
+      "index": 81,
+      "filename": "3d_0081.jpg"
+    },
+    {
+      "index": 82,
+      "filename": "3d_0082.jpg"
+    },
+    {
+      "index": 83,
+      "filename": "3d_0083.jpg"
+    },
+    {
+      "index": 84,
+      "filename": "3d_0084.jpg"
+    },
+    {
+      "index": 85,
+      "filename": "3d_0085.jpg"
+    },
+    {
+      "index": 86,
+      "filename": "3d_0086.jpg"
+    },
+    {
+      "index": 87,
+      "filename": "3d_0087.jpg"
+    },
+    {
+      "index": 88,
+      "filename": "3d_0088.jpg"
+    },
+    {
+      "index": 89,
+      "filename": "3d_0089.jpg"
+    },
+    {
+      "index": 90,
+      "filename": "3d_0090.jpg"
+    },
+    {
+      "index": 91,
+      "filename": "3d_0091.jpg"
+    },
+    {
+      "index": 92,
+      "filename": "3d_0092.jpg"
+    },
+    {
+      "index": 93,
+      "filename": "3d_0093.jpg"
+    },
+    {
+      "index": 94,
+      "filename": "3d_0094.jpg"
+    },
+    {
+      "index": 95,
+      "filename": "3d_0095.jpg"
+    },
+    {
+      "index": 96,
+      "filename": "3d_0096.jpg"
+    },
+    {
+      "index": 97,
+      "filename": "3d_0097.jpg"
+    },
+    {
+      "index": 98,
+      "filename": "3d_0098.jpg"
+    },
+    {
+      "index": 99,
+      "filename": "3d_0099.jpg"
+    },
+    {
+      "index": 100,
+      "filename": "3d_0100.jpg"
+    },
+    {
+      "index": 101,
+      "filename": "3d_0101.jpg"
+    },
+    {
+      "index": 102,
+      "filename": "3d_0102.jpg"
+    },
+    {
+      "index": 103,
+      "filename": "3d_0103.jpg"
+    },
+    {
+      "index": 104,
+      "filename": "3d_0104.jpg"
+    },
+    {
+      "index": 105,
+      "filename": "3d_0105.jpg"
+    },
+    {
+      "index": 106,
+      "filename": "3d_0106.jpg"
+    },
+    {
+      "index": 107,
+      "filename": "3d_0107.jpg"
+    },
+    {
+      "index": 108,
+      "filename": "3d_0108.jpg"
+    },
+    {
+      "index": 109,
+      "filename": "3d_0109.jpg"
+    },
+    {
+      "index": 110,
+      "filename": "3d_0110.jpg"
+    },
+    {
+      "index": 111,
+      "filename": "3d_0111.jpg"
+    },
+    {
+      "index": 112,
+      "filename": "3d_0112.jpg"
+    },
+    {
+      "index": 113,
+      "filename": "3d_0113.jpg"
+    },
+    {
+      "index": 114,
+      "filename": "3d_0114.jpg"
+    },
+    {
+      "index": 115,
+      "filename": "3d_0115.jpg"
+    },
+    {
+      "index": 116,
+      "filename": "3d_0116.jpg"
+    },
+    {
+      "index": 117,
+      "filename": "3d_0117.jpg"
+    },
+    {
+      "index": 118,
+      "filename": "3d_0118.jpg"
+    },
+    {
+      "index": 119,
+      "filename": "3d_0119.jpg"
+    },
+    {
+      "index": 120,
+      "filename": "3d_0120.jpg"
+    },
+    {
+      "index": 121,
+      "filename": "3d_0121.jpg"
+    },
+    {
+      "index": 122,
+      "filename": "3d_0122.jpg"
+    },
+    {
+      "index": 123,
+      "filename": "3d_0123.jpg"
+    },
+    {
+      "index": 124,
+      "filename": "3d_0124.jpg"
+    },
+    {
+      "index": 125,
+      "filename": "3d_0125.jpg"
+    },
+    {
+      "index": 126,
+      "filename": "3d_0126.jpg"
+    },
+    {
+      "index": 127,
+      "filename": "3d_0127.jpg"
+    },
+    {
+      "index": 128,
+      "filename": "3d_0128.jpg"
+    },
+    {
+      "index": 129,
+      "filename": "3d_0129.jpg"
+    },
+    {
+      "index": 130,
+      "filename": "3d_0130.jpg"
+    },
+    {
+      "index": 131,
+      "filename": "3d_0131.jpg"
+    },
+    {
+      "index": 132,
+      "filename": "3d_0132.jpg"
+    },
+    {
+      "index": 133,
+      "filename": "3d_0133.jpg"
+    },
+    {
+      "index": 134,
+      "filename": "3d_0134.jpg"
+    },
+    {
+      "index": 135,
+      "filename": "3d_0135.jpg"
+    },
+    {
+      "index": 136,
+      "filename": "3d_0136.jpg"
+    },
+    {
+      "index": 137,
+      "filename": "3d_0137.jpg"
+    },
+    {
+      "index": 138,
+      "filename": "3d_0138.jpg"
+    },
+    {
+      "index": 139,
+      "filename": "3d_0139.jpg"
+    },
+    {
+      "index": 140,
+      "filename": "3d_0140.jpg"
+    },
+    {
+      "index": 141,
+      "filename": "3d_0141.jpg"
+    },
+    {
+      "index": 142,
+      "filename": "3d_0142.jpg"
+    },
+    {
+      "index": 143,
+      "filename": "3d_0143.jpg"
+    },
+    {
+      "index": 144,
+      "filename": "3d_0144.jpg"
+    },
+    {
+      "index": 145,
+      "filename": "3d_0145.jpg"
+    },
+    {
+      "index": 146,
+      "filename": "3d_0146.jpg"
+    },
+    {
+      "index": 147,
+      "filename": "3d_0147.jpg"
+    },
+    {
+      "index": 148,
+      "filename": "3d_0148.jpg"
+    },
+    {
+      "index": 149,
+      "filename": "3d_0149.jpg"
+    },
+    {
+      "index": 150,
+      "filename": "3d_0150.jpg"
+    }
+  ],
+  "plants": [
+    {
+      "id": "g1_r01",
+      "genotype": 1,
+      "replicate": 1,
+      "bbox": [
+        277,
+        763,
+        570,
+        1011
+      ]
+    },
+    {
+      "id": "g2_r01",
+      "genotype": 2,
+      "replicate": 1,
+      "bbox": [
+        686,
+        745,
+        939,
+        957
+      ]
+    },
+    {
+      "id": "g1_r02",
+      "genotype": 1,
+      "replicate": 2,
+      "bbox": [
+        1112,
+        701,
+        1312,
+        930
+      ]
+    },
+    {
+      "id": "g1_r03",
+      "genotype": 1,
+      "replicate": 3,
+      "bbox": [
+        1360,
+        763,
+        1476,
+        951
+      ]
+    },
+    {
+      "id": "g1_r04",
+      "genotype": 1,
+      "replicate": 4,
+      "bbox": [
+        1545,
+        781,
+        1673,
+        930
+      ]
+    },
+    {
+      "id": "g1_r05",
+      "genotype": 1,
+      "replicate": 5,
+      "bbox": [
+        1530,
+        1318,
+        1682,
+        1446
+      ]
+    },
+    {
+      "id": "g3_r01",
+      "genotype": 3,
+      "replicate": 1,
+      "bbox": [
+        1718,
+        1464,
+        1902,
+        1622
+      ]
+    },
+    {
+      "id": "g3_r02",
+      "genotype": 3,
+      "replicate": 2,
+      "bbox": [
+        1545,
+        1706,
+        1744,
+        1870
+      ]
+    },
+    {
+      "id": "g3_r03",
+      "genotype": 3,
+      "replicate": 3,
+      "bbox": [
+        1876,
+        1655,
+        2069,
+        1810
+      ]
+    },
+    {
+      "id": "g3_r04",
+      "genotype": 3,
+      "replicate": 4,
+      "bbox": [
+        1876,
+        1094,
+        2037,
+        1223
+      ]
+    },
+    {
+      "id": "g3_r05",
+      "genotype": 3,
+      "replicate": 5,
+      "bbox": [
+        1330,
+        1097,
+        1503,
+        1264
+      ]
+    }
+  ],
+  "sanity": {
+    "plant_count": 11,
+    "has_plants": true,
+    "all_genotypes_valid": true,
+    "min_crop_area_px": 19072,
+    "no_zero_area": true,
+    "no_duplicate_ids": true,
+    "frame_count": 151,
+    "has_frames": true,
+    "all_passed": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "experiment_id": "exp_001_0218",
+  "created": "",
+  "description": "",
+  "dataset_id": "dataset_001",
+  "source_experiments": [],
+  "steps_completed": [],
+  "crop": {
+    "blend_method": "max",
+    "expected_plants": 0,
+    "max_display": 1100
+  },
+  "annotate": {
+    "images_per_folder": 5,
+    "display_scale": 3
+  },
+  "masks": {
+    "sigma": 4,
+    "augment": false,
+    "augs_per_image": 4
+  }
+}

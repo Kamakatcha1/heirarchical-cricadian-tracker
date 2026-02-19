@@ -1,0 +1,331 @@
+{
+  "step": "02_annotate",
+  "experiment_id": "exp_001_0218",
+  "dataset_id": "dataset_001",
+  "timestamp": "2026-02-18T23:46:34.236208",
+  "images_per_folder": 1,
+  "display_scale": 3,
+  "new_this_session": 10,
+  "total_annotations": 10,
+  "plants_annotated": 10,
+  "plants_total": 11,
+  "annotations": [
+    {
+      "plant_id": "g1_r01",
+      "genotype": 1,
+      "replicate": 1,
+      "frame_index": 49,
+      "frame_filename": "3d_0049.jpg",
+      "crop_bbox": [
+        277,
+        763,
+        570,
+        1011
+      ],
+      "crop_size": [
+        293,
+        248
+      ],
+      "points": {
+        "leaf_tip_1": [
+          81,
+          63
+        ],
+        "center_stem": [
+          138,
+          96
+        ],
+        "leaf_tip_2": [
+          206,
+          151
+        ]
+      }
+    },
+    {
+      "plant_id": "g2_r01",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 8,
+      "frame_filename": "3d_0008.jpg",
+      "crop_bbox": [
+        686,
+        745,
+        939,
+        957
+      ],
+      "crop_size": [
+        253,
+        212
+      ],
+      "points": {
+        "leaf_tip_1": [
+          70,
+          143
+        ],
+        "center_stem": [
+          113,
+          157
+        ],
+        "leaf_tip_2": [
+          147,
+          190
+        ]
+      }
+    },
+    {
+      "plant_id": "g1_r02",
+      "genotype": 1,
+      "replicate": 2,
+      "frame_index": 116,
+      "frame_filename": "3d_0116.jpg",
+      "crop_bbox": [
+        1112,
+        701,
+        1312,
+        930
+      ],
+      "crop_size": [
+        200,
+        229
+      ],
+      "points": {
+        "leaf_tip_1": [
+          72,
+          191
+        ],
+        "center_stem": [
+          120,
+          125
+        ],
+        "leaf_tip_2": [
+          129,
+          28
+        ]
+      }
+    },
+    {
+      "plant_id": "g1_r03",
+      "genotype": 1,
+      "replicate": 3,
+      "frame_index": 66,
+      "frame_filename": "3d_0066.jpg",
+      "crop_bbox": [
+        1360,
+        763,
+        1476,
+        951
+      ],
+      "crop_size": [
+        116,
+        188
+      ],
+      "points": {
+        "leaf_tip_1": [
+          63,
+          148
+        ],
+        "center_stem": [
+          59,
+          113
+        ],
+        "leaf_tip_2": [
+          40,
+          78
+        ]
+      }
+    },
+    {
+      "plant_id": "g1_r04",
+      "genotype": 1,
+      "replicate": 4,
+      "frame_index": 133,
+      "frame_filename": "3d_0133.jpg",
+      "crop_bbox": [
+        1545,
+        781,
+        1673,
+        930
+      ],
+      "crop_size": [
+        128,
+        149
+      ],
+      "points": {
+        "leaf_tip_1": [
+          56,
+          125
+        ],
+        "center_stem": [
+          86,
+          79
+        ],
+        "leaf_tip_2": [
+          118,
+          35
+        ]
+      }
+    },
+    {
+      "plant_id": "g1_r05",
+      "genotype": 1,
+      "replicate": 5,
+      "frame_index": 148,
+      "frame_filename": "3d_0148.jpg",
+      "crop_bbox": [
+        1530,
+        1318,
+        1682,
+        1446
+      ],
+      "crop_size": [
+        152,
+        128
+      ],
+      "points": {
+        "leaf_tip_1": [
+          36,
+          111
+        ],
+        "center_stem": [
+          93,
+          81
+        ],
+        "leaf_tip_2": [
+          136,
+          42
+        ]
+      }
+    },
+    {
+      "plant_id": "g3_r02",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 67,
+      "frame_filename": "3d_0067.jpg",
+      "crop_bbox": [
+        1545,
+        1706,
+        1744,
+        1870
+      ],
+      "crop_size": [
+        199,
+        164
+      ],
+      "points": {
+        "leaf_tip_1": [
+          66,
+          66
+        ],
+        "center_stem": [
+          89,
+          98
+        ],
+        "leaf_tip_2": [
+          127,
+          122
+        ]
+      }
+    },
+    {
+      "plant_id": "g3_r03",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 78,
+      "frame_filename": "3d_0078.jpg",
+      "crop_bbox": [
+        1876,
+        1655,
+        2069,
+        1810
+      ],
+      "crop_size": [
+        193,
+        155
+      ],
+      "points": {
+        "leaf_tip_1": [
+          59,
+          100
+        ],
+        "center_stem": [
+          105,
+          94
+        ],
+        "leaf_tip_2": [
+          152,
+          81
+        ]
+      }
+    },
+    {
+      "plant_id": "g3_r04",
+      "genotype": 3,
+      "replicate": 4,
+      "frame_index": 87,
+      "frame_filename": "3d_0087.jpg",
+      "crop_bbox": [
+        1876,
+        1094,
+        2037,
+        1223
+      ],
+      "crop_size": [
+        161,
+        129
+      ],
+      "points": {
+        "leaf_tip_1": [
+          27,
+          71
+        ],
+        "center_stem": [
+          70,
+          74
+        ],
+        "leaf_tip_2": [
+          104,
+          58
+        ]
+      }
+    },
+    {
+      "plant_id": "g3_r05",
+      "genotype": 3,
+      "replicate": 5,
+      "frame_index": 113,
+      "frame_filename": "3d_0113.jpg",
+      "crop_bbox": [
+        1330,
+        1097,
+        1503,
+        1264
+      ],
+      "crop_size": [
+        173,
+        167
+      ],
+      "points": {
+        "leaf_tip_1": [
+          113,
+          53
+        ],
+        "center_stem": [
+          119,
+          92
+        ],
+        "leaf_tip_2": [
+          138,
+          133
+        ]
+      }
+    }
+  ],
+  "sanity": {
+    "total_annotations": 10,
+    "malformed_indices": [],
+    "all_valid": true,
+    "plants_annotated": 10,
+    "all_passed": true
+  }
+}

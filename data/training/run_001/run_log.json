@@ -1,0 +1,29 @@
+{
+  "training_run": "run_001",
+  "timestamp": "2026-02-19T00:00:07.884347",
+  "experiments": [
+    "exp_001_0218"
+  ],
+  "sigma": 4,
+  "augment": false,
+  "augs_per_image": 0,
+  "generated": 10,
+  "skipped": 0,
+  "per_experiment": {
+    "exp_001_0218": 10
+  },
+  "out_img_dir": "C:\\Users\\shafa\\OneDrive\\Desktop\\Leaf Project\\Hierarchical Circadian Tracker\\data\\training\\run_001\\images",
+  "out_mask_dir": "C:\\Users\\shafa\\OneDrive\\Desktop\\Leaf Project\\Hierarchical Circadian Tracker\\data\\training\\run_001\\masks",
+  "sanity": {
+    "image_count": 10,
+    "mask_count": 10,
+    "counts_match": true,
+    "unmatched_images": [],
+    "unmatched_masks": [],
+    "all_paired": true,
+    "spot_check_passed": true,
+    "spot_check_detail": "Sample max=255, mean=0.7",
+    "at_least_one_pair": true,
+    "all_passed": true
+  }
+}
