@@ -28,22 +28,25 @@ MODEL_PATH     = _config.MODEL_PATH
 IMG_SIZE       = _config.IMG_SIZE
 NUM_TIPS       = _config.NUM_TIPS
 MIN_DIST       = _config.MIN_DIST
-TRACK_RADIUS   = _config.TRACK_RADIUS
 INTERVAL_MIN   = _config.INTERVAL_MIN
 
 
 # ---- Peak detection ----
 
+PEAK_THRESH = 0.05  # ignore peaks weaker than this
+MIN_DIST_FLOOR = 5  # smallest min_dist before giving up
 
-def find_peaks_global(heatmap: np.ndarray, n: int, min_dist: int) -> list[tuple[int, int, float]]:
-    """Find the n strongest peaks in the heatmap, each separated by at least min_dist."""
+
+def _find_candidates_at(heatmap: np.ndarray, max_n: int, min_dist: int) -> list[tuple[int, int, float]]:
+    """Find up to max_n peaks in the heatmap, each separated by min_dist."""
     hmap = heatmap.copy()
     peaks = []
-    for _ in range(n):
+    for _ in range(max_n):
         y, x = np.unravel_index(np.argmax(hmap), hmap.shape)
         val = float(hmap[y, x])
+        if val < PEAK_THRESH:
+            break
         peaks.append((int(x), int(y), val))
-        # Zero out area around found peak
         y0 = max(0, y - min_dist)
         y1 = min(hmap.shape[0], y + min_dist + 1)
         x0 = max(0, x - min_dist)
@@ -52,40 +55,43 @@ def find_peaks_global(heatmap: np.ndarray, n: int, min_dist: int) -> list[tuple[
     return peaks
 
 
-def find_peak_near(heatmap: np.ndarray, prev_x: int, prev_y: int,
-                   radius: int) -> tuple[int, int, float]:
-    """Find the strongest peak within radius of (prev_x, prev_y)."""
-    h, w = heatmap.shape
-    r = radius if radius > 0 else max(h, w) // 2
-    y0 = max(0, prev_y - r)
-    y1 = min(h, prev_y + r + 1)
-    x0 = max(0, prev_x - r)
-    x1 = min(w, prev_x + r + 1)
-    region = heatmap[y0:y1, x0:x1]
-    ry, rx = np.unravel_index(np.argmax(region), region.shape)
-    val = float(region[ry, rx])
-    return (int(rx + x0), int(ry + y0), val)
+def find_candidates(heatmap: np.ndarray, max_n: int, min_dist: int) -> list[tuple[int, int, float]]:
+    """Find max_n peaks, shrinking min_dist if not enough are found.
 
-
-def find_peaks_tracked(heatmap: np.ndarray, prev_peaks: list[tuple[int, int, float]],
-                       radius: int, min_dist: int) -> list[tuple[int, int, float]]:
-    """Find peaks near previous frame's peak locations.
-
-    Searches locally around each previous peak. Zeros out found peaks
-    to prevent two tracks from collapsing onto the same peak.
+    Tries at min_dist first. If fewer than max_n peaks found, halves the
+    distance and retries, down to MIN_DIST_FLOOR. Gives up below that.
     """
-    hmap = heatmap.copy()
-    peaks = []
+    dist = min_dist
+    while dist >= MIN_DIST_FLOOR:
+        peaks = _find_candidates_at(heatmap, max_n, dist)
+        if len(peaks) >= max_n:
+            return peaks
+        dist = dist // 2
+    # Last attempt at floor
+    return _find_candidates_at(heatmap, max_n, MIN_DIST_FLOOR)
+
+
+def find_peaks(heatmap: np.ndarray, n: int, min_dist: int,
+               prev_peaks: list | None = None) -> list[tuple[int, int, float]]:
+    """Find n peaks. If more than n distinct peaks exist and prev_peaks
+    is provided, favor candidates nearest to previous positions.
+    Otherwise just takes the top n by intensity.
+    """
+    candidates = find_candidates(heatmap, n * 2, min_dist)
+
+    if len(candidates) <= n or prev_peaks is None:
+        return candidates[:n]
+
+    # More candidates than needed + we have history: pick closest to previous
+    chosen = []
+    remaining = list(candidates)
     for px, py, _ in prev_peaks:
-        x, y, val = find_peak_near(hmap, px, py, radius)
-        peaks.append((x, y, val))
-        # Zero out so next track can't land on same peak
-        zy0 = max(0, y - min_dist)
-        zy1 = min(hmap.shape[0], y + min_dist + 1)
-        zx0 = max(0, x - min_dist)
-        zx1 = min(hmap.shape[1], x + min_dist + 1)
-        hmap[zy0:zy1, zx0:zx1] = 0.0
-    return peaks
+        if not remaining:
+            break
+        best_i = min(range(len(remaining)),
+                     key=lambda i: (remaining[i][0] - px) ** 2 + (remaining[i][1] - py) ** 2)
+        chosen.append(remaining.pop(best_i))
+    return chosen
 
 
 # ---- Main ----
@@ -191,11 +197,8 @@ def main() -> None:
             pred = model.predict(crop_norm, verbose=0)
             heatmap = pred[0, :, :, 0].astype(np.float32)
 
-            # Find peaks -- first frame uses global search, subsequent frames track
-            if prev_peaks is None:
-                peaks = find_peaks_global(heatmap, n_tips, min_dist=MIN_DIST)
-            else:
-                peaks = find_peaks_tracked(heatmap, prev_peaks, radius=TRACK_RADIUS, min_dist=MIN_DIST)
+            # Find peaks -- favors previous positions when ambiguous
+            peaks = find_peaks(heatmap, n_tips, MIN_DIST, prev_peaks)
             prev_peaks = peaks
 
             # Scale back to original crop dimensions

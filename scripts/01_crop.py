@@ -165,7 +165,11 @@ def select_rectangles(
                 (int(x1 * scale), int(y1 * scale)),
                 color, thickness,
             )
-            label = f"G{geno}" if geno > 0 else "G?"
+            if geno > 0:
+                rep = sum(1 for _, g in rects[:i+1] if g == geno)
+                label = f"g{geno}_r{rep:02d}"
+            else:
+                label = "G?"
             cv2.putText(
                 canvas, label,
                 (int(x0 * scale) + 4, int(y0 * scale) + 18),
