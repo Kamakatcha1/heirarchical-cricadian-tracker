@@ -2,6 +2,10 @@
 # OVERRIDE -- leave empty to use values from _config.py
 # Set keys here to override specific config values for this
 # script only.  e.g. {"EXPERIMENT_ID": "exp_002_0301"}
+#
+# For EXISTING experiments, settings are restored from the
+# saved 01_crop.json automatically.  Only use _OVERRIDE if
+# you want to CHANGE a saved setting (e.g. switch dataset).
 # ============================================================
 _OVERRIDE = {}
 # ============================================================
@@ -10,7 +14,6 @@ _OVERRIDE = {}
 import json
 import sys
 from collections import Counter
-from datetime import datetime
 from pathlib import Path
 from typing import List, Tuple
 from uuid import uuid4
@@ -58,13 +61,7 @@ def collect_raw_frames(raw_dir: Path, max_frames: int = 0) -> list[Path]:
 
 
 def blend_composite(image_paths: list[Path], method: str) -> np.ndarray:
-    """Blend raw frames into a single composite in memory.
-
-    Exact logic from original grid.py blend_images():
-    - 'max': per-pixel maximum across all frames
-    - 'mean': per-pixel average across all frames
-    Frames that differ in size from the first are resized to match.
-    """
+    """Blend raw frames into a single composite in memory."""
     first = cv2.imread(str(image_paths[0]))
     if first is None:
         raise RuntimeError(f"Failed to read first image: {image_paths[0]}")
@@ -97,25 +94,19 @@ def blend_composite(image_paths: list[Path], method: str) -> np.ndarray:
     raise ValueError(f"Unknown blend method: {method}")
 
 
-def load_existing_crops(experiment_dir: Path) -> list[dict] | None:
-    """Load previously saved crop definitions if they exist.
-
-    Returns the plants list from the existing 01_crop.json, or None
-    if no previous crop log exists.
-    """
+def load_existing_crop_log(experiment_dir: Path) -> dict | None:
+    """Load the full existing crop JSON if it exists."""
     crop_path = experiment_dir / "logs" / "01_crop.json"
     if not crop_path.exists():
         return None
     with open(crop_path) as f:
-        data = json.load(f)
-    return data.get("plants", None)
+        return json.load(f)
 
 
 def plants_to_rects(
     plants: list[dict],
 ) -> List[Tuple[Tuple[int, int, int, int], int]]:
-    """Convert plant dicts back to the (bbox, genotype) tuple format used by
-    the rectangle selection GUI."""
+    """Convert plant dicts back to the (bbox, genotype) tuple format."""
     rects = []
     for p in plants:
         x0, y0, x1, y1 = p["bbox"]
@@ -138,12 +129,10 @@ def select_rectangles(
     - d = delete the selected (yellow) rectangle.
     - u = undo last drawn rectangle.
     - c = clear ALL rectangles.
-    - w = wipe ALL crops (same as clear, explicit reset hotkey).
     - s / Enter = save (won't save until all rects have a genotype).
     - q / Esc = cancel (discards everything).
 
-    If existing_rects is provided, they are pre-loaded onto the canvas so you
-    can add to, modify, or delete previous crops.
+    If existing_rects is provided, they are pre-loaded onto the canvas.
     """
     h, w = img.shape[:2]
     scale = 1.0
@@ -152,7 +141,7 @@ def select_rectangles(
         scale = max_display / float(max_side)
     preview = img if scale == 1.0 else cv2.resize(img, (int(w * scale), int(h * scale)))
 
-    window = "Draw rects | 1-4=genotype | d=delete | u=undo | c=clear | w=wipe all | s=save | q=quit"
+    window = "Draw rects | 1-4=genotype | d=delete | u=undo | c=clear | s=save | q=quit"
     rects: List[Tuple[Tuple[int, int, int, int], int]] = []
     if existing_rects:
         rects.extend(existing_rects)
@@ -160,10 +149,9 @@ def select_rectangles(
     drawing = False
     start = (0, 0)
     current = (0, 0)
-    selected_idx = -1  # index of currently selected (yellow) rectangle
+    selected_idx = -1
 
-    def _point_in_rect(px: int, py: int, rx0: int, ry0: int, rx1: int, ry1: int) -> bool:
-        """Check if a display-space point is inside a rectangle (display-space)."""
+    def _point_in_rect(px, py, rx0, ry0, rx1, ry1):
         return rx0 <= px <= rx1 and ry0 <= py <= ry1
 
     def redraw():
@@ -175,18 +163,13 @@ def select_rectangles(
                 canvas,
                 (int(x0 * scale), int(y0 * scale)),
                 (int(x1 * scale), int(y1 * scale)),
-                color,
-                thickness,
+                color, thickness,
             )
             label = f"G{geno}" if geno > 0 else "G?"
             cv2.putText(
-                canvas,
-                label,
+                canvas, label,
                 (int(x0 * scale) + 4, int(y0 * scale) + 18),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.6,
-                color,
-                2,
+                cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2,
             )
         if drawing:
             cv2.rectangle(canvas, start, current, (0, 0, 255), 2)
@@ -198,7 +181,7 @@ def select_rectangles(
             drawing = True
             start = (x, y)
             current = (x, y)
-            selected_idx = -1  # deselect on new draw
+            selected_idx = -1
         elif event == cv2.EVENT_MOUSEMOVE and drawing:
             current = (x, y)
         elif event == cv2.EVENT_LBUTTONUP and drawing:
@@ -206,33 +189,20 @@ def select_rectangles(
             x0, y0 = start
             x1, y1 = current
             if abs(x0 - x1) < 3 and abs(y0 - y1) < 3:
-                # Tiny drag = treat as a click to select existing rect
-                for i, ((rx0, ry0, rx1, ry1), _geno) in enumerate(rects):
-                    sx0 = int(rx0 * scale)
-                    sy0 = int(ry0 * scale)
-                    sx1 = int(rx1 * scale)
-                    sy1 = int(ry1 * scale)
-                    if _point_in_rect(x, y, sx0, sy0, sx1, sy1):
+                for i, ((rx0, ry0, rx1, ry1), _g) in enumerate(rects):
+                    if _point_in_rect(x, y, int(rx0*scale), int(ry0*scale), int(rx1*scale), int(ry1*scale)):
                         selected_idx = i
                         return
                 selected_idx = -1
                 return
             x0, x1 = sorted([x0, x1])
             y0, y1 = sorted([y0, y1])
-            ox0 = int(round(x0 / scale))
-            oy0 = int(round(y0 / scale))
-            ox1 = int(round(x1 / scale))
-            oy1 = int(round(y1 / scale))
-            rects.append(((ox0, oy0, ox1, oy1), 0))
-            selected_idx = len(rects) - 1  # auto-select the new rect
+            rects.append(((int(round(x0/scale)), int(round(y0/scale)),
+                           int(round(x1/scale)), int(round(y1/scale))), 0))
+            selected_idx = len(rects) - 1
         elif event == cv2.EVENT_RBUTTONDOWN:
-            # Right-click to select an existing rectangle
-            for i, ((rx0, ry0, rx1, ry1), _geno) in enumerate(rects):
-                sx0 = int(rx0 * scale)
-                sy0 = int(ry0 * scale)
-                sx1 = int(rx1 * scale)
-                sy1 = int(ry1 * scale)
-                if _point_in_rect(x, y, sx0, sy0, sx1, sy1):
+            for i, ((rx0, ry0, rx1, ry1), _g) in enumerate(rects):
+                if _point_in_rect(x, y, int(rx0*scale), int(ry0*scale), int(rx1*scale), int(ry1*scale)):
                     selected_idx = i
                     return
             selected_idx = -1
@@ -248,30 +218,22 @@ def select_rectangles(
         if key in (ord("q"), ord("Q"), 27):
             cancelled = True
             break
-        if key in (ord("d"), ord("D")):
-            # Delete the selected rectangle
-            if 0 <= selected_idx < len(rects):
-                rects.pop(selected_idx)
-                selected_idx = -1
+        if key in (ord("d"), ord("D")) and 0 <= selected_idx < len(rects):
+            rects.pop(selected_idx)
+            selected_idx = -1
         if key in (ord("u"), ord("U")) and rects:
             rects.pop()
             selected_idx = -1
         if key in (ord("c"), ord("C")):
             rects.clear()
             selected_idx = -1
-        if key in (ord("w"), ord("W")):
-            rects.clear()
-            selected_idx = -1
-            print("All crops wiped. Draw new rectangles, then save.")
         if key in (ord("1"), ord("2"), ord("3"), ord("4")):
             geno = int(chr(key))
-            # Assign genotype to selected rect, or last rect if none selected
             target = selected_idx if 0 <= selected_idx < len(rects) else (len(rects) - 1 if rects else -1)
             if target >= 0:
                 rect, _ = rects[target]
                 rects[target] = (rect, geno)
         if key in (ord("s"), ord("S"), 13):
-            # Allow an explicit empty save (e.g., after wipe-all), regardless of expected count.
             if expected and rects and len(rects) != expected:
                 print(f"Expected {expected} rectangles, got {len(rects)}. Keep drawing.")
                 continue
@@ -290,10 +252,7 @@ def select_rectangles(
 def assign_replicate_numbers(
     rects: List[Tuple[Tuple[int, int, int, int], int]],
 ) -> list[dict]:
-    """Assign replicate numbers per genotype in draw order.
-
-    Returns list of plant dicts ready for JSON serialization.
-    """
+    """Assign replicate numbers per genotype in draw order."""
     genotype_counter: Counter = Counter()
     plants = []
     for (x0, y0, x1, y1), geno in rects:
@@ -312,19 +271,15 @@ def assign_stable_crop_uids(
     plants: list[dict],
     existing_plants: list[dict] | None,
 ) -> list[dict]:
-    """Attach stable crop_uids, preserving IDs for unchanged existing crops.
-
-    Matching is by exact (genotype, bbox). This keeps identity stable when
-    crops are deleted/reordered, and only assigns new IDs to genuinely new crops.
-    """
-    existing_key_to_uids: dict[tuple[int, tuple[int, int, int, int]], list[str]] = {}
+    """Attach stable crop_uids, preserving IDs for unchanged existing crops."""
+    existing_key_to_uids: dict[tuple, list[str]] = {}
     if existing_plants:
         for p in existing_plants:
-            crop_uid = p.get("crop_uid")
-            if not crop_uid:
+            uid = p.get("crop_uid")
+            if not uid:
                 continue
             key = (int(p["genotype"]), tuple(p["bbox"]))
-            existing_key_to_uids.setdefault(key, []).append(crop_uid)
+            existing_key_to_uids.setdefault(key, []).append(uid)
 
     for p in plants:
         key = (int(p["genotype"]), tuple(p["bbox"]))
@@ -335,22 +290,14 @@ def assign_stable_crop_uids(
     return plants
 
 
-def write_log(log_path: Path, log_data: dict) -> None:
-    """Write a JSON log for this step."""
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(log_path, "w") as f:
-        json.dump(log_data, f, indent=2)
+def write_json(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
 
 
-def sync_annotation_log_with_crops(
-    experiment_dir: Path,
-    plants: list[dict],
-) -> dict | None:
-    """Prune/relabel existing annotations so they match current crops.
-
-    This keeps 02_annotate.json free of dead annotations immediately after
-    crop edits, even before running 02_annotate.py again.
-    """
+def sync_annotation_log(experiment_id: str, experiment_dir: Path, plants: list[dict]) -> dict | None:
+    """Prune/relabel existing annotations so they match current crops."""
     ann_path = experiment_dir / "logs" / "02_annotate.json"
     if not ann_path.exists():
         return None
@@ -359,127 +306,107 @@ def sync_annotation_log_with_crops(
         ann_log = json.load(f)
 
     annotations = ann_log.get("annotations", [])
-    if not isinstance(annotations, list):
-        annotations = []
-
     by_uid = {p.get("crop_uid"): p for p in plants if p.get("crop_uid")}
-    key_to_plants: dict[tuple[int, tuple[int, int, int, int]], list[dict]] = {}
+    key_to_plants: dict[tuple, list[dict]] = {}
     for p in plants:
         key = (int(p["genotype"]), tuple(p["bbox"]))
         key_to_plants.setdefault(key, []).append(p)
 
-    kept: list[dict] = []
-    dropped = 0
+    kept, dropped = [], 0
     for ann in annotations:
         if not isinstance(ann, dict):
             dropped += 1
             continue
-
         ann2 = dict(ann)
         matched = None
-
         uid = ann2.get("crop_uid")
         if uid and uid in by_uid:
             matched = by_uid[uid]
         elif not uid:
             bbox = ann2.get("crop_bbox")
-            genotype = ann2.get("genotype")
-            if bbox is not None and genotype is not None:
-                key = (int(genotype), tuple(bbox))
-                candidates = key_to_plants.get(key, [])
+            geno = ann2.get("genotype")
+            if bbox is not None and geno is not None:
+                candidates = key_to_plants.get((int(geno), tuple(bbox)), [])
                 if len(candidates) == 1:
                     matched = candidates[0]
-
         if matched is None:
             dropped += 1
             continue
-
         ann2["crop_uid"] = matched.get("crop_uid", matched["id"])
         ann2["plant_id"] = matched["id"]
         ann2["replicate"] = matched["replicate"]
         ann2["genotype"] = matched["genotype"]
         kept.append(ann2)
 
-    dedup: dict[tuple[str, int], dict] = {}
+    # Deduplicate same crop/frame pairs
+    dedup: dict[tuple, dict] = {}
     for ann in kept:
-        frame_index = ann.get("frame_index")
-        if not isinstance(frame_index, int):
+        fi = ann.get("frame_index")
+        if isinstance(fi, int):
+            dedup[(ann["crop_uid"], fi)] = ann
+        else:
             dropped += 1
-            continue
-        dedup[(ann["crop_uid"], frame_index)] = ann
-
     kept = list(dedup.values())
 
-    ann_log["annotations"] = kept
-    ann_log["timestamp"] = datetime.now().isoformat()
-    ann_log["total_annotations"] = len(kept)
-    ann_log["plants_total"] = len(plants)
-    ann_log["plants_annotated"] = len({a.get("crop_uid", a.get("plant_id")) for a in kept})
-
-    with open(ann_path, "w") as f:
-        json.dump(ann_log, f, indent=2)
-
-    return {
-        "path": str(ann_path),
-        "kept": len(kept),
-        "dropped": dropped,
-    }
-
-
-def sanity_check(plants: list[dict], frame_count: int) -> dict:
-    """Verify the crop definitions are valid."""
-    checks = {}
-
-    checks["plant_count"] = len(plants)
-    checks["has_plants"] = len(plants) > 0
-
-    # All genotypes valid (1-4)
-    genotypes = [p["genotype"] for p in plants]
-    checks["all_genotypes_valid"] = all(1 <= g <= 4 for g in genotypes)
-
-    # No zero-area rectangles
-    areas = [(p["bbox"][2] - p["bbox"][0]) * (p["bbox"][3] - p["bbox"][1]) for p in plants]
-    checks["min_crop_area_px"] = min(areas) if areas else 0
-    checks["no_zero_area"] = all(a > 0 for a in areas)
-
-    # No duplicate plant IDs
-    ids = [p["id"] for p in plants]
-    checks["no_duplicate_ids"] = len(ids) == len(set(ids))
-
-    # Stable crop_uids are required and unique
-    crop_uids = [p.get("crop_uid") for p in plants]
-    checks["all_have_crop_uid"] = all(isinstance(uid, str) and len(uid) > 0 for uid in crop_uids)
-    checks["no_duplicate_crop_uid"] = len(crop_uids) == len(set(crop_uids))
-
-    # Frame count is reasonable
-    checks["frame_count"] = frame_count
-    checks["has_frames"] = frame_count >= 1
-
-    checks["all_passed"] = all([
-        checks["all_genotypes_valid"],
-        checks["no_zero_area"],
-        checks["no_duplicate_ids"],
-        checks["all_have_crop_uid"],
-        checks["no_duplicate_crop_uid"],
-        checks["has_frames"],
-    ])
-    return checks
+    # Preserve any extra keys (images_per_folder, display_scale) from the existing log
+    out = {k: v for k, v in ann_log.items() if k != "annotations"}
+    out["experiment_id"] = experiment_id
+    out["annotations"] = kept
+    write_json(ann_path, out)
+    return {"kept": len(kept), "dropped": dropped}
 
 
 def main() -> None:
-    raw_dir = Path(RAW_DIR)
+    global DATASET_ID, RAW_DIR, MAX_FRAMES, BLEND_METHOD
+
     experiment_dir = Path(EXPERIMENT_DIR)
     log_path = experiment_dir / "logs" / "01_crop.json"
 
-    # Collect raw frames (with optional frame limiting)
+    # --- Restore settings from existing experiment ---
+    existing_log = load_existing_crop_log(experiment_dir)
+    existing_plants = None
+
+    if existing_log is not None:
+        existing_plants = existing_log.get("plants")
+        restored = []
+
+        # Restore dataset_id + raw_dir (unless explicitly overridden)
+        if "DATASET_ID" not in _OVERRIDE:
+            saved_ds = existing_log.get("dataset_id")
+            if saved_ds and saved_ds != DATASET_ID:
+                DATASET_ID = saved_ds
+                RAW_DIR = existing_log.get("raw_dir", RAW_DIR)
+                restored.append(f"dataset_id={DATASET_ID}")
+
+        # Restore max_frames
+        if "MAX_FRAMES" not in _OVERRIDE:
+            saved_mf = existing_log.get("max_frames", 0)
+            if saved_mf != MAX_FRAMES:
+                MAX_FRAMES = saved_mf
+                restored.append(f"max_frames={MAX_FRAMES}")
+
+        # Restore blend_method
+        if "BLEND_METHOD" not in _OVERRIDE:
+            saved_bm = existing_log.get("blend_method")
+            if saved_bm and saved_bm != BLEND_METHOD:
+                BLEND_METHOD = saved_bm
+                restored.append(f"blend_method={BLEND_METHOD}")
+
+        if restored:
+            print(f"Restored from existing experiment: {', '.join(restored)}")
+            print("  (use _OVERRIDE to change these)")
+
+    raw_dir = Path(RAW_DIR)
+
+    # Collect raw frames
     raw_frames = collect_raw_frames(raw_dir, MAX_FRAMES)
+    print(f"Experiment: {EXPERIMENT_ID}")
     print(f"Dataset: {DATASET_ID}")
     if MAX_FRAMES > 0:
         print(f"Frame limit: first {MAX_FRAMES} frames")
     print(f"Using {len(raw_frames)} raw frames from {raw_dir}")
 
-    # Check for existing crop definitions
-    existing_plants = load_existing_crops(experiment_dir)
+    # Show existing crops if any
     existing_rects = None
     if existing_plants:
         print(f"\nFound {len(existing_plants)} existing crop definitions:")
@@ -494,15 +421,15 @@ def main() -> None:
     composite = blend_composite(raw_frames, BLEND_METHOD)
     print(f"Composite: {composite.shape[1]}x{composite.shape[0]} (WxH)")
 
-    # Interactive rectangle selection (with existing rects pre-loaded)
+    # Interactive rectangle selection
     print("\nDraw bounding rectangles on the composite.")
     print("  Drag to draw, right-click or tiny-drag to select existing")
     print("  1-4 = assign genotype (to selected or last drawn)")
-    print("  d = delete selected, u = undo last, c = clear all, w = wipe all crops")
+    print("  d = delete selected, u = undo last, c = clear all")
     print("  s or Enter to save, q or Esc to cancel")
     rects = select_rectangles(composite, MAX_DISPLAY, EXPECTED_PLANTS, existing_rects)
 
-    # Assign replicate numbers per genotype
+    # Assign replicate numbers + stable UIDs
     plants = assign_replicate_numbers(rects)
     plants = assign_stable_crop_uids(plants, existing_plants)
 
@@ -511,44 +438,36 @@ def main() -> None:
         x0, y0, x1, y1 = p["bbox"]
         print(f"  {p['id']}: ({x0},{y0})-({x1},{y1})  {x1-x0}x{y1-y0}px")
 
-    # Build frame index (filename -> index mapping)
-    frames = [
-        {"index": i, "filename": p.name}
-        for i, p in enumerate(raw_frames)
-    ]
+    # Validate
+    genotypes = [p["genotype"] for p in plants]
+    areas = [(p["bbox"][2]-p["bbox"][0])*(p["bbox"][3]-p["bbox"][1]) for p in plants]
+    ids = [p["id"] for p in plants]
+    if not all(1 <= g <= 4 for g in genotypes):
+        print("ERROR: Invalid genotype found."); sys.exit(1)
+    if any(a <= 0 for a in areas):
+        print("ERROR: Zero-area rectangle found."); sys.exit(1)
+    if len(ids) != len(set(ids)):
+        print("ERROR: Duplicate plant IDs."); sys.exit(1)
+    print("Validation passed.")
 
-    # Sanity check
-    checks = sanity_check(plants, len(raw_frames))
-    if not checks["all_passed"]:
-        print("\n*** SANITY CHECK FAILED ***")
-        for k, v in checks.items():
-            print(f"  {k}: {v}")
-        print("Aborting.")
-        sys.exit(1)
-    print("Sanity checks passed.")
-
-    # Write crop definitions JSON
+    # Write JSON: data + the settings that produced it
     log_data = {
-        "step": "01_crop",
         "experiment_id": EXPERIMENT_ID,
         "dataset_id": DATASET_ID,
-        "timestamp": datetime.now().isoformat(),
         "raw_dir": str(raw_dir),
-        "blend_method": BLEND_METHOD,
         "max_frames": MAX_FRAMES,
-        "frame_count": len(raw_frames),
-        "frames": frames,
+        "blend_method": BLEND_METHOD,
+        "frames": [p.name for p in raw_frames],
         "plants": plants,
-        "sanity": checks,
     }
-    write_log(log_path, log_data)
+    write_json(log_path, log_data)
     print(f"\nCrop definitions saved to: {log_path}")
-    sync_result = sync_annotation_log_with_crops(experiment_dir, plants)
+
+    # Sync annotation log if it exists
+    sync_result = sync_annotation_log(EXPERIMENT_ID, experiment_dir, plants)
     if sync_result is not None:
-        print(
-            f"Synced annotations: kept={sync_result['kept']}, dropped={sync_result['dropped']}"
-            f" ({sync_result['path']})"
-        )
+        print(f"Synced annotations: kept={sync_result['kept']}, dropped={sync_result['dropped']}")
+
     print("No images were written -- coordinates only.")
 
 

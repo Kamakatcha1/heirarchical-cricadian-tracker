@@ -14,7 +14,7 @@ def resolve_dirs(run_dir: Path | None, images_dir: Path | None, masks_dir: Path 
         return images_dir, masks_dir
 
     if run_dir is None:
-        run_dir = Path("data/training/run_001")
+        run_dir = Path("data/training")
 
     return run_dir / "images", run_dir / "masks"
 
@@ -31,7 +31,7 @@ def make_overlay(image_bgr: np.ndarray, mask_gray: np.ndarray, alpha: float) -> 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Temporary sanity check viewer for image/mask overlays.")
-    parser.add_argument("--run-dir", type=Path, default=Path("data/training/run_001"), help="Training run dir containing images/ and masks/")
+    parser.add_argument("--run-dir", type=Path, default=Path("data/training"), help="Training run dir containing images/ and masks/")
     parser.add_argument("--images-dir", type=Path, default=None, help="Optional explicit images dir")
     parser.add_argument("--masks-dir", type=Path, default=None, help="Optional explicit masks dir")
     parser.add_argument("--alpha", type=float, default=0.45, help="Mask overlay opacity (0.0-1.0)")
