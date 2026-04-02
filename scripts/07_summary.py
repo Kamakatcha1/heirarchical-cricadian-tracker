@@ -123,14 +123,14 @@ def summarize(replicates: list[np.ndarray]) -> tuple[np.ndarray, np.ndarray]:
 # ---- Plotting ----
 
 def plot_one(name: str, hours: np.ndarray, mean: np.ndarray, spread: np.ndarray,
-             color: str, out_dir: Path) -> None:
+             color: str, n_reps: int, out_dir: Path) -> None:
     spread_label = "STD" if USE_STD else "SEM"
     plt.figure(figsize=(9, 4))
     plt.plot(hours, mean, color=color, linewidth=2, label=name)
     plt.fill_between(hours, mean - spread, mean + spread, color=color, alpha=0.2)
     plt.xlabel("Hours")
     plt.ylabel("Detrended value")
-    plt.title(f"{name}: mean +/- {spread_label}")
+    plt.title(f"{name}: mean +/- {spread_label} (n={n_reps})")
     plt.grid(True, alpha=0.3)
     plt.legend()
     plt.tight_layout()
@@ -143,9 +143,10 @@ def plot_one(name: str, hours: np.ndarray, mean: np.ndarray, spread: np.ndarray,
 def plot_all(all_data: dict, hours: np.ndarray, out_dir: Path) -> None:
     spread_label = "STD" if USE_STD else "SEM"
     plt.figure(figsize=(10, 5))
-    for name, (mean, spread) in all_data.items():
+    for name, (mean, spread, n_reps) in all_data.items():
         color = COLORS.get(name, "tab:gray")
-        plt.plot(hours, mean, color=color, linewidth=2, label=name)
+        plt.plot(hours, mean, color=color, linewidth=2,
+                 label=f"{name} (n={n_reps})")
         plt.fill_between(hours, mean - spread, mean + spread, color=color, alpha=0.2)
     plt.xlabel("Hours")
     plt.ylabel("Detrended value")
@@ -178,13 +179,14 @@ def main() -> None:
     hours, grouped = parse_biodare_csv(csv_path)
     print(f"Timepoints: {len(hours)} ({hours[0]:.1f}h - {hours[-1]:.1f}h)")
 
-    all_data: dict[str, tuple[np.ndarray, np.ndarray]] = {}
+    all_data: dict[str, tuple[np.ndarray, np.ndarray, int]] = {}
     for name, reps in grouped.items():
-        print(f"\n  {name}: {len(reps)} replicates")
+        n_reps = len(reps)
+        print(f"\n  {name}: {n_reps} replicates")
         mean, spread = summarize(reps)
-        all_data[name] = (mean, spread)
+        all_data[name] = (mean, spread, n_reps)
         color = COLORS.get(name, "tab:gray")
-        plot_one(name, hours, mean, spread, color, summary_dir)
+        plot_one(name, hours, mean, spread, color, n_reps, summary_dir)
 
     print()
     plot_all(all_data, hours, summary_dir)

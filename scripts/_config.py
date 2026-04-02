@@ -14,7 +14,7 @@ EXPERIMENT_ID   = "3_genotypes_run1"
 BASE_DIR        = r"C:\Users\shafa\OneDrive\Desktop\Leaf Project\Hierarchical Circadian Tracker"
 
 # Which raw image dataset to use (subfolder name under data/raw/)
-DATASET_ID      = "3_genotype_combined_01"
+DATASET_ID      = "F2_001"
 
 # ============================================================
 # Derived paths -- do not edit below this line
@@ -36,7 +36,7 @@ MAX_DISPLAY     = 1100      # max window size for rectangle picking
 MAX_FRAMES      = 196         # 0 = use all frames, or set to limit (first N)
 
 # 02_annotate  (virtual crops, annotation coordinates only)
-IMAGES_PER_FOLDER = 10       # how many images to annotate per plant 
+IMAGES_PER_FOLDER = 5       # how many images to annotate per plant 
 DISPLAY_SCALE     = 3       # zoom factor for annotation window
 
 # 03_masks  (reads experiment JSONs, generates images + masks into data/training/)
@@ -74,8 +74,8 @@ MIN_DIST           = 20                  # min distance between peaks (model pix
 INTERVAL_MIN       = 30                  # minutes between frames
 
 # 06_export  (export formatted CSV from tip_distances)
-GENOTYPE_NAMES     = {1: "M82", 2: "Penelli", 3: "pimpi"}  # map genotype number to name
-EXCLUDE_PLANTS     = ["g1_r04", "g2_r06", "g2_r08", "g2_r011", "g2_12", "g2_15", "g2_18", "g2_19", "g3_17", "g3_16", "g3_13", "g3_15", "g3_14", "g3_10", "g3_2"]                  # labels to exclude, e.g. ["g1_r03", "g2_r01"]
+GENOTYPE_NAMES     = {1: "M82", 2: "Penelli", 3: "pimpi", 4: "F2"}  # map genotype number to name
+EXCLUDE_PLANTS     = []                  # labels to exclude, e.g. ["g1_r03", "g2_r01"]
 
 # 07_summary  (Biodare detrended summary plots)
 EXCLUDE_SAMPLES    = [1, 2, 3, 5, 8, 9, 12, 17, 18, 20, 22, 23, 25]                    # sample numbers to exclude from summary, e.g. [3, 15, 22]
