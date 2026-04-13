@@ -33,6 +33,7 @@ PATIENCE       = _config.PATIENCE
 SEED           = _config.TRAIN_SEED
 WMSE_ALPHA     = _config.WMSE_ALPHA
 DICE_WEIGHT    = _config.DICE_WEIGHT
+FN_WEIGHT      = _config.FN_WEIGHT
 
 
 # ---- Data loading ----
@@ -156,6 +157,15 @@ def soft_dice_loss(eps=1e-6):
     return loss
 
 
+def false_negative_loss(eps=1e-6):
+    """Penalize missed tips: mean squared error only at tip pixels (y_true > 0)."""
+    def loss(y_true, y_pred):
+        mask = tf.cast(y_true > 0.1, tf.float32)
+        n_pos = tf.reduce_sum(mask) + eps
+        return tf.reduce_sum(mask * tf.square(y_true - y_pred)) / n_pos
+    return loss
+
+
 def dice_coef(eps=1e-6):
     def metric(y_true, y_pred):
         y_true_f = tf.reshape(y_true, [tf.shape(y_true)[0], -1])
@@ -232,6 +242,7 @@ def main() -> None:
     loss_fn = lambda y_true, y_pred: (
         weighted_mse(alpha=WMSE_ALPHA)(y_true, y_pred)
         + DICE_WEIGHT * soft_dice_loss()(y_true, y_pred)
+        + FN_WEIGHT * false_negative_loss()(y_true, y_pred)
     )
     model.compile(
         optimizer=tf.keras.optimizers.Adam(LR),
@@ -306,6 +317,7 @@ def main() -> None:
         "learning_rate": LR,
         "wmse_alpha": WMSE_ALPHA,
         "dice_weight": DICE_WEIGHT,
+        "fn_weight": FN_WEIGHT,
         "train_images": len(train_images),
         "val_images": len(val_images),
     }

@@ -6,6 +6,7 @@ _OVERRIDE = {}
 
 import csv
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -21,14 +22,17 @@ import _config
 for _k, _v in _OVERRIDE.items():
     setattr(_config, _k, _v)
 
-EXPERIMENT_ID  = _config.EXPERIMENT_ID
-EXPERIMENT_DIR = _config.EXPERIMENT_DIR
-EXPERIMENTS_DIR = _config.EXPERIMENTS_DIR
-MODEL_PATH     = _config.MODEL_PATH
-IMG_SIZE       = _config.IMG_SIZE
-NUM_TIPS       = _config.NUM_TIPS
-MIN_DIST       = _config.MIN_DIST
-INTERVAL_MIN   = _config.INTERVAL_MIN
+EXPERIMENT_ID      = _config.EXPERIMENT_ID
+EXPERIMENT_DIR     = _config.EXPERIMENT_DIR
+EXPERIMENTS_DIR    = _config.EXPERIMENTS_DIR
+MODEL_PATH         = _config.MODEL_PATH
+MODEL_MODE         = _config.MODEL_MODE
+IMG_SIZE           = _config.IMG_SIZE
+NUM_TIPS           = _config.NUM_TIPS
+MIN_DIST           = _config.MIN_DIST
+INTERVAL_MIN       = _config.INTERVAL_MIN
+MEASURE_EXPERIMENTS = _config.MEASURE_EXPERIMENTS
+MEASURE_MAX_FRAMES  = _config.MEASURE_MAX_FRAMES
 
 
 # ---- Peak detection ----
@@ -94,12 +98,35 @@ def find_peaks(heatmap: np.ndarray, n: int, min_dist: int,
     return chosen
 
 
-# ---- Main ----
+def find_model_file(experiment_dir: Path) -> Path:
+    """Find best.keras in an experiment's models/ folder (latest run)."""
+    models_root = experiment_dir / "models"
+    if not models_root.exists():
+        raise FileNotFoundError(f"No models folder: {models_root}\nRun 04_train.py first.")
+    runs = sorted([d for d in models_root.iterdir() if d.is_dir()])
+    if not runs:
+        raise FileNotFoundError(f"No training runs in {models_root}\nRun 04_train.py first.")
+    model_file = runs[-1] / "best.keras"
+    if not model_file.exists():
+        raise FileNotFoundError(f"Model not found: {model_file}\nRun 04_train.py first.")
+    return model_file
 
-def main() -> None:
-    experiment_dir = Path(EXPERIMENT_DIR)
 
-    # Load crop log for this experiment
+def load_model_from_path(model_file: Path) -> tuple:
+    """Load a model from a specific path. Returns (model, img_size, model_file)."""
+    if not model_file.exists():
+        raise FileNotFoundError(f"Model not found: {model_file}")
+    model = tf.keras.models.load_model(str(model_file), compile=False)
+    shp = model.input_shape
+    img_size = shp[1] if shp[1] is not None else IMG_SIZE
+    return model, img_size, model_file
+
+
+def measure_experiment(exp_id: str, experiments_dir: Path, model, img_size: int) -> list:
+    """Run measurement for a single experiment. Returns list of CSV rows."""
+    experiment_dir = experiments_dir / exp_id
+
+    # Load crop log
     crop_path = experiment_dir / "logs" / "01_crop.json"
     if not crop_path.exists():
         raise FileNotFoundError(f"Crop log not found: {crop_path}\nRun 01_crop.py first.")
@@ -108,34 +135,10 @@ def main() -> None:
 
     # Validate experiment ID
     log_eid = crop_log.get("experiment_id", "")
-    if log_eid and log_eid != EXPERIMENT_ID:
+    if log_eid and log_eid != exp_id:
         raise RuntimeError(
-            f"Experiment ID mismatch! Config: {EXPERIMENT_ID}, JSON: {log_eid}"
+            f"Experiment ID mismatch! Expected: {exp_id}, JSON: {log_eid}"
         )
-
-    # Find model -- use MODEL_PATH if set, otherwise find latest run's best.keras
-    if MODEL_PATH:
-        model_file = Path(MODEL_PATH)
-    else:
-        models_root = experiment_dir / "models"
-        if not models_root.exists():
-            raise FileNotFoundError(f"No models folder: {models_root}\nRun 04_train.py first.")
-        runs = sorted([d for d in models_root.iterdir() if d.is_dir()])
-        if not runs:
-            raise FileNotFoundError(f"No training runs in {models_root}\nRun 04_train.py first.")
-        model_file = runs[-1] / "best.keras"  # latest run
-    if not model_file.exists():
-        raise FileNotFoundError(f"Model not found: {model_file}\nRun 04_train.py first.")
-
-    print(f"Experiment: {EXPERIMENT_ID}")
-    print(f"Model: {model_file}")
-
-    model = tf.keras.models.load_model(str(model_file), compile=False)
-
-    # Determine model input size
-    shp = model.input_shape
-    img_size = shp[1] if shp[1] is not None else IMG_SIZE
-    print(f"Model input size: {img_size}")
 
     # Get raw dir and frames from crop log
     raw_dir = Path(crop_log["raw_dir"])
@@ -143,15 +146,19 @@ def main() -> None:
         raise FileNotFoundError(f"Raw directory not found: {raw_dir}")
 
     frames = crop_log.get("frames", [])
+    if MEASURE_MAX_FRAMES > 0:
+        frames = frames[:MEASURE_MAX_FRAMES]
     plants = crop_log.get("plants", [])
     if not frames:
-        raise ValueError("No frames in crop log.")
+        raise ValueError(f"No frames in crop log for {exp_id}.")
     if not plants:
-        raise ValueError("No plants in crop log.")
+        raise ValueError(f"No plants in crop log for {exp_id}.")
 
+    print(f"\n{'='*50}")
+    print(f"Experiment: {exp_id}")
     print(f"Frames: {len(frames)}, Plants: {len(plants)}")
 
-    # Output directory
+    # Output directory for this experiment
     output_dir = experiment_dir / "output"
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -175,13 +182,13 @@ def main() -> None:
             frame_path = raw_dir / frame_name
             if not frame_path.exists():
                 distances.append(float("nan"))
-                all_rows.append([EXPERIMENT_ID, plant_id, label, genotype, replicate, frame_idx, frame_name, "nan"])
+                all_rows.append([exp_id, plant_id, label, genotype, replicate, frame_idx, frame_name, "nan"])
                 continue
 
             full_img = cv2.imread(str(frame_path), cv2.IMREAD_COLOR)
             if full_img is None:
                 distances.append(float("nan"))
-                all_rows.append([EXPERIMENT_ID, plant_id, label, genotype, replicate, frame_idx, frame_name, "nan"])
+                all_rows.append([exp_id, plant_id, label, genotype, replicate, frame_idx, frame_name, "nan"])
                 continue
 
             # Virtual crop
@@ -221,7 +228,7 @@ def main() -> None:
                 dist = float(np.hypot(dx, dy))
 
             distances.append(dist)
-            all_rows.append([EXPERIMENT_ID, plant_id, label, genotype, replicate, frame_idx, frame_name, f"{dist:.3f}"])
+            all_rows.append([exp_id, plant_id, label, genotype, replicate, frame_idx, frame_name, f"{dist:.3f}"])
 
         # Plot this plant
         times_min = np.arange(len(distances)) * INTERVAL_MIN
@@ -229,7 +236,7 @@ def main() -> None:
         plt.plot(times_min, distances, marker=".", markersize=3, linewidth=1)
         plt.xlabel("Time (minutes)")
         plt.ylabel("Tip distance (px)")
-        plt.title(f"Leaf tip distance - {label}")
+        plt.title(f"Leaf tip distance - {exp_id} / {label}")
         plt.grid(True, alpha=0.3)
         plt.tight_layout()
         plot_path = output_dir / f"{label}_tip_distance.png"
@@ -237,17 +244,79 @@ def main() -> None:
         plt.close()
         print(f"    {len(distances)} frames, plot -> {plot_path.name}")
 
-    # Save CSV
+    # Save per-experiment CSV
     csv_path = output_dir / "tip_distances.csv"
     with open(csv_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["experiment_id", "plant_id", "label", "genotype", "replicate", "frame_index", "frame_filename", "tip_distance_px"])
         writer.writerows(all_rows)
 
-    print(f"\n{'='*50}")
-    print(f"CSV -> {csv_path}")
-    print(f"Plots -> {output_dir}")
-    print(f"Plants measured: {len(plants)}, Frames per plant: {len(frames)}")
+    print(f"\n  CSV -> {csv_path}")
+    print(f"  Plots -> {output_dir}")
+    print(f"  Plants measured: {len(plants)}, Frames per plant: {len(frames)}")
+
+    return all_rows
+
+
+# ---- Main ----
+
+def main() -> None:
+    experiments_dir = Path(EXPERIMENTS_DIR)
+
+    # Determine which experiments to process
+    exp_ids = MEASURE_EXPERIMENTS if MEASURE_EXPERIMENTS else [EXPERIMENT_ID]
+    use_auto = MODEL_MODE == "auto" and len(exp_ids) > 1
+
+    print(f"Experiments to process: {exp_ids}")
+    print(f"Model mode: {MODEL_MODE}")
+
+    # In shared mode, load model once up front
+    shared_model = None
+    shared_img_size = None
+    if not use_auto:
+        if MODEL_PATH:
+            model_file = Path(MODEL_PATH)
+        else:
+            model_file = find_model_file(Path(EXPERIMENT_DIR))
+        shared_model, shared_img_size, model_file = load_model_from_path(model_file)
+        print(f"Shared model: {model_file}")
+        print(f"Model input size: {shared_img_size}")
+
+    # Process each experiment
+    combined_rows = []
+    for exp_id in exp_ids:
+        if use_auto:
+            # Each experiment uses its own best.keras
+            exp_model_file = find_model_file(experiments_dir / exp_id)
+            model, img_size, _ = load_model_from_path(exp_model_file)
+            print(f"\n  Model for {exp_id}: {exp_model_file}")
+        else:
+            model, img_size = shared_model, shared_img_size
+
+        rows = measure_experiment(exp_id, experiments_dir, model, img_size)
+        combined_rows.extend(rows)
+
+    # If multiple experiments, write combined CSV with prefixed labels
+    if len(exp_ids) > 1:
+        combined_dir = experiments_dir / exp_ids[0] / "output" / "combined"
+        combined_dir.mkdir(parents=True, exist_ok=True)
+
+        # Prefix labels with experiment ID to avoid collisions
+        prefixed_rows = []
+        for row in combined_rows:
+            row = list(row)
+            row[2] = f"{row[0]} | {row[2]}"  # label = experiment_id | label
+            prefixed_rows.append(row)
+
+        combined_csv = combined_dir / "combined_tip_distances.csv"
+        with open(combined_csv, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["experiment_id", "plant_id", "label", "genotype", "replicate", "frame_index", "frame_filename", "tip_distance_px"])
+            writer.writerows(prefixed_rows)
+
+        print(f"\n{'='*50}")
+        print(f"Combined CSV -> {combined_csv}")
+        print(f"Total rows: {len(combined_rows)} across {len(exp_ids)} experiments")
 
 
 if __name__ == "__main__":

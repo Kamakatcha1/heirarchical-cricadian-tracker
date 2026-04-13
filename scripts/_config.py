@@ -7,11 +7,14 @@
 # _OVERRIDE dict at the top of that script instead.
 # ============================================================
 
-EXPERIMENT_ID   = "3_genotypes_run1"
+EXPERIMENT_ID   = "F2_1"
 
 # Project root -- the Hierarchical Circadian Tracker folder itself.
 # Everything else is derived from this.
-BASE_DIR        = r"C:\Users\shafa\OneDrive\Desktop\Leaf Project\Hierarchical Circadian Tracker"
+# Set HCT_BASE_DIR env var to override (e.g. in Docker).
+import os as _os
+BASE_DIR        = _os.environ.get("HCT_BASE_DIR",
+                    r"/storage1/fs1/bmansfeld/Active/work/shafay/hct")
 
 # Which raw image dataset to use (subfolder name under data/raw/)
 DATASET_ID      = "F2_001"
@@ -19,10 +22,10 @@ DATASET_ID      = "F2_001"
 # ============================================================
 # Derived paths -- do not edit below this line
 # ============================================================
-EXPERIMENTS_DIR = rf"{BASE_DIR}\data\experiments"
-EXPERIMENT_DIR  = rf"{EXPERIMENTS_DIR}\{EXPERIMENT_ID}"
-RAW_DIR         = rf"{BASE_DIR}\data\raw\{DATASET_ID}"
-TRAINING_DIR    = rf"{BASE_DIR}\data\training"
+EXPERIMENTS_DIR = _os.path.join(BASE_DIR, "data", "experiments")
+EXPERIMENT_DIR  = _os.path.join(EXPERIMENTS_DIR, EXPERIMENT_ID)
+RAW_DIR         = _os.path.join(BASE_DIR, "data", "raw", DATASET_ID)
+TRAINING_DIR    = _os.path.join(BASE_DIR, "data", "training")
 
 # ============================================================
 # Per-step defaults
@@ -33,14 +36,14 @@ TRAINING_DIR    = rf"{BASE_DIR}\data\training"
 BLEND_METHOD    = "max"     # "max" or "mean"
 EXPECTED_PLANTS = 0         # 0 = no enforcement, or set to expected plant count
 MAX_DISPLAY     = 1100      # max window size for rectangle picking
-MAX_FRAMES      = 196         # 0 = use all frames, or set to limit (first N)
+MAX_FRAMES      = 180         # 0 = use all frames, or set to limit (first N)
 
 # 02_annotate  (virtual crops, annotation coordinates only)
 IMAGES_PER_FOLDER = 5       # how many images to annotate per plant 
-DISPLAY_SCALE     = 3       # zoom factor for annotation window
+DISPLAY_SCALE     = 2       # zoom factor for annotation window
 
 # 03_masks  (reads experiment JSONs, generates images + masks into data/training/)
-TRAINING_EXPERIMENTS = ["3_genotypes_run1"]   # list ALL experiment IDs to include
+TRAINING_EXPERIMENTS = ["F2_2_2",  "F2_2_1"]   # list ALL experiment IDs to include
 GENOTYPE_FILTER    = []                  # empty = all genotypes, or e.g. [1, 3] for only those
 SIGMA              = 4                    # gaussian kernel sigma for tip heatmaps
 # Augmentation
@@ -66,16 +69,38 @@ PATIENCE           = 10                  # early stopping patience (epochs)
 TRAIN_SEED         = 1337                # seed for train/val split reproducibility
 WMSE_ALPHA         = 50.0               # weighted MSE alpha (upweight heatmap pixels)
 DICE_WEIGHT        = 0.5                # weight of soft dice in combined loss
+FN_WEIGHT          = 2.0                # weight of false-negative (missed tip) penalty
+
+# 05_measure + 06_export  (multi-experiment support)
+MEASURE_EXPERIMENTS = ["F2_1","F2_2_1", "F2_2_2"]                 # list of experiment IDs to process together, e.g. ["F2_2_1", "F2_2_2"]
+                                         # empty = just use EXPERIMENT_ID
 
 # 05_measure  (runs model across crops, outputs tip distance graphs)
-MODEL_PATH         = ""                  # path to .keras model, empty = auto-find best.keras in experiment
+MODEL_PATH         = ""                  # path to .keras model, empty = auto-find best.keras
+                                         # "shared" = use this one model for all experiments
+                                         # "auto"   = each experiment uses its own best.keras
+                                         # (only matters when MEASURE_EXPERIMENTS has multiple entries)
+MODEL_MODE         = "auto"            # "shared" = one model for all, "auto" = each experiment's own
+MEASURE_MAX_FRAMES = 134                   # 0 = use all frames, or set to limit (first N)
 NUM_TIPS           = 2                   # number of peaks to detect per plant
 MIN_DIST           = 20                  # min distance between peaks (model pixels)
 INTERVAL_MIN       = 30                  # minutes between frames
 
 # 06_export  (export formatted CSV from tip_distances)
 GENOTYPE_NAMES     = {1: "M82", 2: "Penelli", 3: "pimpi", 4: "F2"}  # map genotype number to name
-EXCLUDE_PLANTS     = []                  # labels to exclude, e.g. ["g1_r03", "g2_r01"]
+EXCLUDE_PLANTS     = {                   # plants to exclude from export
+    "*":      [],                        # exclude from ALL experiments
+    "F2_1":   ["g4_2", "g4_3","g4_8", "g4_12", "g4_16"],                        # exclude only from this experiment
+    "F2_2_1": ["g4_2", "g4_22", "g4_26"],
+    "F2_2_2": ["g4_1", "g4_2", "g4_3", "g4_4", "g4_5", "g4_6", "g4_8", "g4_10", "g4_11", "g4_16", "g4_18", "g4_20", "g4_21", "g4_22", "g4_28", "g4_27", "g4_26", "g4_23"],
+    # Format:  "g4_2"  = genotype 4 replicate 2
+    #          "g3_*"  = ALL of genotype 3
+    #          "g4_2"  = just that one plant
+    # Examples:
+    #   "*":      ["g3_*"],              # exclude all genotype 3 from every experiment
+    #   "*":      ["g4_2", "g4_8"],      # exclude specific plants from all experiments
+    #   "F2_2_1": ["g3_*", "g4_14"],     # mix: all g3 + specific g4 from one experiment
+}
 
 # 07_summary  (Biodare detrended summary plots)
-EXCLUDE_SAMPLES    = [1, 2, 3, 5, 8, 9, 12, 17, 18, 20, 22, 23, 25]                    # sample numbers to exclude from summary, e.g. [3, 15, 22]
+EXCLUDE_SAMPLES    = []                    # sample numbers to exclude from summary, e.g. [3, 15, 22]

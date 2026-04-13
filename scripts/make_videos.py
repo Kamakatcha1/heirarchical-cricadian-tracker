@@ -75,6 +75,8 @@ def find_peaks(heatmap, n, min_dist, prev_peaks=None):
 # -- main --
 
 def main():
+
+    
     experiment_dir = Path(EXPERIMENT_DIR)
 
     # Load crop log
