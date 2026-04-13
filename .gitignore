@@ -1,0 +1,33 @@
+# Ignore everything by default
+*
+
+# Keep folders traversable
+!*/
+
+# Keep JSON files
+!*.json
+
+# Keep script/code files
+!*.py
+!*.ipynb
+!*.ps1
+!*.sh
+!*.bat
+!*.cmd
+!*.js
+!*.ts
+!*.mjs
+!*.cjs
+
+# Keep project config files
+!*.txt
+!*.md
+!Dockerfile
+!.gitignore
+
+# Exclude generated/installed directories
+venv/
+python/
+__pycache__/
+*.pyc
+node_modules/
