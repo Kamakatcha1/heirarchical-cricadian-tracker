@@ -19,6 +19,9 @@
 !*.mjs
 !*.cjs
 
+# Keep Models
+!*.keras
+
 # Keep project config files
 !*.txt
 !*.md
