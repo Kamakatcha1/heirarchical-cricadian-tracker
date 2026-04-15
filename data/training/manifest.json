@@ -1,0 +1,41 @@
+{
+  "generated": "2026-04-14T15:50:43",
+  "datasets": [
+    "F2_001"
+  ],
+  "sigma": 4,
+  "augment": true,
+  "augmentations_per_image": 4,
+  "genotype_filter": [],
+  "total_pairs": 100,
+  "original_pairs": 20,
+  "augmented_pairs": 80,
+  "datasets_info": {
+    "F2_001": {
+      "raw_dir": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/F2_001/raw",
+      "annotations": 20,
+      "genotypes": [
+        4
+      ],
+      "frame_count": 180,
+      "plant_count": 5
+    }
+  },
+  "settings": {
+    "sigma": 4,
+    "augment": true,
+    "augmentations_per_image": 4,
+    "genotype_filter": [],
+    "aug_max_rotate": 15.0,
+    "aug_min_scale": 0.9,
+    "aug_max_scale": 1.1,
+    "aug_max_shift": 0.05,
+    "aug_hflip_prob": 0.5,
+    "aug_vflip_prob": 0.2,
+    "aug_brightness_alpha_min": 0.9,
+    "aug_brightness_alpha_max": 1.1,
+    "aug_brightness_beta_min": -10.0,
+    "aug_brightness_beta_max": 10.0,
+    "aug_seed": 0
+  }
+}

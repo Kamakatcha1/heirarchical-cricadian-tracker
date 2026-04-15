@@ -1,51 +1,43 @@
-# ============================================================
-# OVERRIDE -- leave empty to use values from _config.py
-# ============================================================
-_OVERRIDE = {}
-# ============================================================
+from __future__ import annotations
 
-import json
+import argparse
 import os
 import random
 import re
-import sys
+import shutil
 from datetime import datetime
 from pathlib import Path
+from typing import Any
 
 import cv2
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers, models
 
-# --- Load central config, apply overrides ---
-import _config
-for _k, _v in _OVERRIDE.items():
-    setattr(_config, _k, _v)
-
-TRAINING_DIR   = _config.TRAINING_DIR
-EXPERIMENT_DIR = _config.EXPERIMENT_DIR
-IMG_SIZE       = _config.IMG_SIZE
-BATCH_SIZE     = _config.BATCH_SIZE
-EPOCHS         = _config.EPOCHS
-LR             = _config.LEARNING_RATE
-VAL_SPLIT      = _config.VAL_SPLIT
-PATIENCE       = _config.PATIENCE
-SEED           = _config.TRAIN_SEED
-WMSE_ALPHA     = _config.WMSE_ALPHA
-DICE_WEIGHT    = _config.DICE_WEIGHT
+import hct_runtime as rt
 
 
-# ---- Data loading ----
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Train a model from generated training data.")
+    parser.add_argument("--batch", action="store_true", help="Disable prompts and require explicit CLI values.")
+    parser.add_argument("--model-name", help="Optional model folder name under data/models/.")
+    parser.add_argument("--epochs", type=int, help="Maximum training epochs.")
+    parser.add_argument("--batch-size", type=int, help="Batch size.")
+    parser.add_argument("--learning-rate", type=float, help="Learning rate.")
+    parser.add_argument("--val-split", type=float, help="Validation split fraction.")
+    parser.add_argument("--patience", type=int, help="Early stopping patience.")
+    parser.add_argument("--img-size", type=int, help="Square image size.")
+    parser.add_argument("--wmse-alpha", type=float, help="Weighted MSE alpha.")
+    parser.add_argument("--dice-weight", type=float, help="Soft dice loss weight.")
+    parser.add_argument("--fn-weight", type=float, help="False negative penalty weight.")
+    parser.add_argument("--train-seed", type=int, help="Train/validation split seed.")
+    parser.add_argument("--overwrite", action="store_true", help="Overwrite an existing model folder for today.")
+    return parser
 
-IMG_DIR  = str(Path(TRAINING_DIR) / "images")
-MASK_DIR = str(Path(TRAINING_DIR) / "masks")
 
-
-def load_sample_np(img_path_str: str):
-    """Load one image+mask pair, resize to IMG_SIZE, normalise to [0,1]."""
+def load_sample_np(img_path_str: str, img_dir: str, mask_dir: str, img_size: int) -> tuple[np.ndarray, np.ndarray]:
     base = os.path.basename(img_path_str).replace(".png", "")
-    mask_path = os.path.join(MASK_DIR, f"{base}.png")
-
+    mask_path = os.path.join(mask_dir, f"{base}.png")
     if not os.path.exists(mask_path):
         raise FileNotFoundError(mask_path)
 
@@ -58,266 +50,263 @@ def load_sample_np(img_path_str: str):
     if mask is None:
         raise FileNotFoundError(mask_path)
 
-    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE), interpolation=cv2.INTER_AREA)
+    img = cv2.resize(img, (img_size, img_size), interpolation=cv2.INTER_AREA)
     img = img.astype(np.float32) / 255.0
 
-    # INTER_LINEAR preserves Gaussian shape better than INTER_AREA for masks
-    mask = cv2.resize(mask, (IMG_SIZE, IMG_SIZE), interpolation=cv2.INTER_LINEAR)
+    mask = cv2.resize(mask, (img_size, img_size), interpolation=cv2.INTER_LINEAR)
     mask = mask.astype(np.float32) / 255.0
     mask = np.clip(mask, 0.0, 1.0)
     mask = np.expand_dims(mask, axis=-1)
-
     if mask.max() < 0.05:
         raise ValueError(f"Mask too faint after resize for {base}: max={mask.max()}")
-
     return img, mask
 
 
-def tf_load_sample(path):
+def tf_load_sample(path: tf.Tensor, img_dir: str, mask_dir: str, img_size: int) -> tuple[tf.Tensor, tf.Tensor]:
     img, mask = tf.numpy_function(
-        func=lambda p: load_sample_np(p.decode("utf-8")),
+        func=lambda p: load_sample_np(p.decode("utf-8"), img_dir, mask_dir, img_size),
         inp=[path],
         Tout=[tf.float32, tf.float32],
     )
-    img.set_shape([IMG_SIZE, IMG_SIZE, 3])
-    mask.set_shape([IMG_SIZE, IMG_SIZE, 1])
+    img.set_shape([img_size, img_size, 3])
+    mask.set_shape([img_size, img_size, 1])
     return img, mask
 
 
-def make_dataset(paths, training: bool):
+def make_dataset(paths: list[str], training: bool, batch_size: int, seed: int, img_dir: str, mask_dir: str, img_size: int) -> tf.data.Dataset:
     ds = tf.data.Dataset.from_tensor_slices(paths)
     if training:
-        ds = ds.shuffle(min(len(paths), 2000), seed=SEED, reshuffle_each_iteration=True)
-    ds = ds.map(tf_load_sample, num_parallel_calls=tf.data.AUTOTUNE)
-    ds = ds.batch(BATCH_SIZE, drop_remainder=False)
+        ds = ds.shuffle(min(len(paths), 2000), seed=seed, reshuffle_each_iteration=True)
+    ds = ds.map(lambda path: tf_load_sample(path, img_dir, mask_dir, img_size), num_parallel_calls=tf.data.AUTOTUNE)
+    ds = ds.batch(batch_size, drop_remainder=False)
     ds = ds.prefetch(tf.data.AUTOTUNE)
     return ds
 
 
-# ---- Model ----
-
-def conv_block(x, f):
-    x = layers.Conv2D(f, 3, padding="same")(x)
+def conv_block(x: tf.Tensor, filters: int) -> tf.Tensor:
+    x = layers.Conv2D(filters, 3, padding="same")(x)
     x = layers.BatchNormalization()(x)
     x = layers.ReLU()(x)
-    x = layers.Conv2D(f, 3, padding="same")(x)
+    x = layers.Conv2D(filters, 3, padding="same")(x)
     x = layers.BatchNormalization()(x)
     x = layers.ReLU()(x)
     return x
 
 
-def unet():
-    inputs = layers.Input((IMG_SIZE, IMG_SIZE, 3))
-
+def unet(img_size: int) -> tf.keras.Model:
+    inputs = layers.Input((img_size, img_size, 3))
     c1 = conv_block(inputs, 64)
     p1 = layers.MaxPool2D()(c1)
-
     c2 = conv_block(p1, 128)
     p2 = layers.MaxPool2D()(c2)
-
     c3 = conv_block(p2, 256)
     p3 = layers.MaxPool2D()(c3)
-
     c4 = conv_block(p3, 512)
-
     u3 = layers.UpSampling2D()(c4)
     u3 = layers.Concatenate()([u3, c3])
     c5 = conv_block(u3, 256)
-
     u2 = layers.UpSampling2D()(c5)
     u2 = layers.Concatenate()([u2, c2])
     c6 = conv_block(u2, 128)
-
     u1 = layers.UpSampling2D()(c6)
     u1 = layers.Concatenate()([u1, c1])
     c7 = conv_block(u1, 64)
-
     outputs = layers.Conv2D(1, 1, activation="sigmoid")(c7)
     return models.Model(inputs, outputs)
 
 
-# ---- Loss / Metrics ----
+def weighted_mse(alpha: float) -> Any:
+    def loss(y_true: tf.Tensor, y_pred: tf.Tensor) -> tf.Tensor:
+        weights = 1.0 + alpha * y_true
+        return tf.reduce_mean(weights * tf.square(y_true - y_pred))
 
-def weighted_mse(alpha=50.0):
-    def loss(y_true, y_pred):
-        w = 1.0 + alpha * y_true
-        return tf.reduce_mean(w * tf.square(y_true - y_pred))
     return loss
 
 
-def soft_dice_loss(eps=1e-6):
-    def loss(y_true, y_pred):
+def soft_dice_loss(eps: float = 1e-6) -> Any:
+    def loss(y_true: tf.Tensor, y_pred: tf.Tensor) -> tf.Tensor:
         y_true_f = tf.reshape(y_true, [tf.shape(y_true)[0], -1])
         y_pred_f = tf.reshape(y_pred, [tf.shape(y_pred)[0], -1])
         inter = tf.reduce_sum(y_true_f * y_pred_f, axis=1)
         denom = tf.reduce_sum(y_true_f, axis=1) + tf.reduce_sum(y_pred_f, axis=1)
         dice = (2.0 * inter + eps) / (denom + eps)
         return tf.reduce_mean(1.0 - dice)
+
     return loss
 
 
-def dice_coef(eps=1e-6):
-    def metric(y_true, y_pred):
+def false_negative_loss(eps: float = 1e-6) -> Any:
+    def loss(y_true: tf.Tensor, y_pred: tf.Tensor) -> tf.Tensor:
+        mask = tf.cast(y_true > 0.1, tf.float32)
+        n_pos = tf.reduce_sum(mask) + eps
+        return tf.reduce_sum(mask * tf.square(y_true - y_pred)) / n_pos
+
+    return loss
+
+
+def dice_coef(eps: float = 1e-6) -> Any:
+    def metric(y_true: tf.Tensor, y_pred: tf.Tensor) -> tf.Tensor:
         y_true_f = tf.reshape(y_true, [tf.shape(y_true)[0], -1])
         y_pred_f = tf.reshape(y_pred, [tf.shape(y_pred)[0], -1])
         inter = tf.reduce_sum(y_true_f * y_pred_f, axis=1)
         denom = tf.reduce_sum(y_true_f, axis=1) + tf.reduce_sum(y_pred_f, axis=1)
         dice = (2.0 * inter + eps) / (denom + eps)
         return tf.reduce_mean(dice)
+
     return metric
 
 
-# ---- Helpers ----
+def resolve_hparam(args: argparse.Namespace, name: str, prompt: str) -> Any:
+    value = getattr(args, name)
+    default = rt.TRAIN_DEFAULTS[name]
+    if value is not None:
+        return value
+    return default
 
-# ---- Main ----
 
 def main() -> None:
-    experiment_dir = Path(EXPERIMENT_DIR)
-    run_name = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_dir = experiment_dir / "models" / run_name
-    model_dir.mkdir(parents=True, exist_ok=True)
-    print(f"Model run: {run_name}")
+    args = build_parser().parse_args()
+    rt.ensure_layout()
 
-    # Collect image files from training folder
-    if not os.path.isdir(IMG_DIR):
-        raise FileNotFoundError(f"Training images not found: {IMG_DIR}\nRun 03_masks.py first.")
-    if not os.path.isdir(MASK_DIR):
-        raise FileNotFoundError(f"Training masks not found: {MASK_DIR}\nRun 03_masks.py first.")
+    manifest_path = rt.training_dir() / "manifest.json"
+    if not manifest_path.exists():
+        raise FileNotFoundError(f"Training manifest not found: {manifest_path}\nRun 03_masks.py first.")
+    manifest = rt.load_json(manifest_path, {})
 
-    images = sorted(
-        os.path.join(IMG_DIR, f)
-        for f in os.listdir(IMG_DIR)
-        if f.lower().endswith(".png")
-    )
+    img_dir = str(rt.training_dir() / "images")
+    mask_dir = str(rt.training_dir() / "masks")
+    if not os.path.isdir(img_dir):
+        raise FileNotFoundError(f"Training images not found: {img_dir}\nRun 03_masks.py first.")
+    if not os.path.isdir(mask_dir):
+        raise FileNotFoundError(f"Training masks not found: {mask_dir}\nRun 03_masks.py first.")
 
+    images = sorted(os.path.join(img_dir, name) for name in os.listdir(img_dir) if name.lower().endswith(".png"))
     if len(images) < 2:
         raise ValueError(f"Not enough images found ({len(images)}). Need at least 2.")
 
-    print(f"Training data: {IMG_DIR}")
-    print(f"  {len(images)} image+mask pairs")
-    print(f"  IMG_SIZE={IMG_SIZE}, BATCH_SIZE={BATCH_SIZE}, EPOCHS={EPOCHS}")
-    print(f"  LR={LR}, VAL_SPLIT={VAL_SPLIT}, PATIENCE={PATIENCE}")
-    print(f"  WMSE_ALPHA={WMSE_ALPHA}, DICE_WEIGHT={DICE_WEIGHT}")
+    img_size = resolve_hparam(args, "img_size", "Image size")
+    batch_size = resolve_hparam(args, "batch_size", "Batch size")
+    epochs = resolve_hparam(args, "epochs", "Epochs")
+    learning_rate = resolve_hparam(args, "learning_rate", "Learning rate")
+    val_split = resolve_hparam(args, "val_split", "Validation split")
+    patience = resolve_hparam(args, "patience", "Patience")
+    wmse_alpha = resolve_hparam(args, "wmse_alpha", "WMSE alpha")
+    dice_weight = resolve_hparam(args, "dice_weight", "Dice loss weight")
+    fn_weight = resolve_hparam(args, "fn_weight", "False negative weight")
+    train_seed = args.train_seed if args.train_seed is not None else rt.TRAIN_DEFAULTS["train_seed"]
 
-    # Group by base name (strip _augNN suffix) to prevent data leakage
+    default_model_name = datetime.now().strftime("%Y%m%d_%H%M%S")
+    cli_model_name = args.model_name or os.environ.get("model_name")
+    if cli_model_name:
+        model_name = cli_model_name.strip()
+        if not model_name:
+            raise SystemExit("Model name cannot be empty.")
+    else:
+        model_name = default_model_name
+    model_dir = rt.models_dir() / model_name
+    if model_dir.exists():
+        if args.batch and not args.overwrite:
+            raise SystemExit(f"Model folder already exists: {model_dir}. Re-run with --overwrite.")
+        if not args.batch and not args.overwrite:
+            if not rt.prompt_yes_no(f"Model folder {model_name} already exists. Overwrite?", default=False):
+                raise SystemExit("Cancelled.")
+        shutil.rmtree(model_dir)
+    model_dir.mkdir(parents=True, exist_ok=True)
+
+    print(f"Training data: {len(images)} pairs in {rt.training_dir()}")
+    print(f"Trained from: {', '.join(manifest.get('datasets', []))}")
+    print(f"Saving model to: {model_dir}")
+
     aug_re = re.compile(r"_aug\d+$")
     groups: dict[str, list[str]] = {}
     for path in images:
         stem = os.path.splitext(os.path.basename(path))[0]
         base = aug_re.sub("", stem)
         groups.setdefault(base, []).append(path)
-
     group_keys = sorted(groups.keys())
     if len(group_keys) < 2:
         raise ValueError("Not enough unique base images for train/val split.")
 
-    # Split by base group so augmented variants stay together
-    rng = random.Random(SEED)
+    rng = random.Random(train_seed)
     rng.shuffle(group_keys)
-    val_count = max(1, int(len(group_keys) * VAL_SPLIT))
+    val_count = max(1, int(len(group_keys) * val_split))
     val_groups = set(group_keys[:val_count])
+    train_images = [path for base, paths in groups.items() if base not in val_groups for path in paths]
+    val_images = [path for base, paths in groups.items() if base in val_groups for path in paths]
 
-    train_images = [p for base, paths in groups.items() if base not in val_groups for p in paths]
-    val_images = [p for base, paths in groups.items() if base in val_groups for p in paths]
+    print(f"Base groups: {len(group_keys)} ({len(group_keys) - val_count} train, {val_count} val)")
+    print(f"Train images: {len(train_images)}")
+    print(f"Val images: {len(val_images)}")
 
-    print(f"\n  Base groups: {len(group_keys)} ({len(group_keys) - val_count} train, {val_count} val)")
-    print(f"  Train images: {len(train_images)}")
-    print(f"  Val images:   {len(val_images)}")
+    train_ds = make_dataset(train_images, True, batch_size, train_seed, img_dir, mask_dir, img_size)
+    val_ds = make_dataset(val_images, False, batch_size, train_seed, img_dir, mask_dir, img_size)
 
-    train_ds = make_dataset(train_images, training=True)
-    val_ds = make_dataset(val_images, training=False)
-
-    # Build model
-    model = unet()
+    model = unet(img_size)
     loss_fn = lambda y_true, y_pred: (
-        weighted_mse(alpha=WMSE_ALPHA)(y_true, y_pred)
-        + DICE_WEIGHT * soft_dice_loss()(y_true, y_pred)
+        weighted_mse(wmse_alpha)(y_true, y_pred)
+        + dice_weight * soft_dice_loss()(y_true, y_pred)
+        + fn_weight * false_negative_loss()(y_true, y_pred)
     )
-    model.compile(
-        optimizer=tf.keras.optimizers.Adam(LR),
-        loss=loss_fn,
-        metrics=[dice_coef()],
-    )
+    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate), loss=loss_fn, metrics=[dice_coef()])
     model.summary()
 
-    # Callbacks
     best_path = str(model_dir / "best.keras")
     callbacks = [
-        tf.keras.callbacks.ModelCheckpoint(
-            best_path,
-            monitor="val_dice_coef",
-            mode="max",
-            save_best_only=True,
-        ),
+        tf.keras.callbacks.ModelCheckpoint(best_path, monitor="val_dice_coef", mode="max", save_best_only=True),
         tf.keras.callbacks.EarlyStopping(
             monitor="val_dice_coef",
             mode="max",
-            patience=PATIENCE,
+            patience=patience,
             restore_best_weights=True,
         ),
         tf.keras.callbacks.ReduceLROnPlateau(
             monitor="val_dice_coef",
             mode="max",
             factor=0.5,
-            patience=max(2, PATIENCE // 3),
+            patience=max(2, patience // 3),
             min_lr=1e-6,
             verbose=1,
         ),
     ]
 
-    # Train
-    print(f"\nTraining for up to {EPOCHS} epochs (patience={PATIENCE})...")
-    history = model.fit(
-        train_ds,
-        validation_data=val_ds,
-        epochs=EPOCHS,
-        callbacks=callbacks,
-    )
+    print(f"\nTraining for up to {epochs} epochs (patience={patience})...")
+    history = model.fit(train_ds, validation_data=val_ds, epochs=epochs, callbacks=callbacks)
 
-    # Save final model
-    final_path = str(model_dir / "final.keras")
-    model.save(final_path)
-    print(f"\nModels saved to: {model_dir}")
-    print(f"  Best:  {best_path}")
-    print(f"  Final: {final_path}")
-
-    # Extract metrics from history
     hist = history.history
-    best_epoch = int(np.argmax(hist.get("val_dice_coef", [0])))
-    best_val_dice = float(hist["val_dice_coef"][best_epoch]) if "val_dice_coef" in hist else None
-    final_train_loss = float(hist["loss"][-1]) if "loss" in hist else None
-    final_val_loss = float(hist["val_loss"][-1]) if "val_loss" in hist else None
+    best_epoch = int(np.argmax(hist.get("val_dice_coef", [0]))) if hist.get("val_dice_coef") else 0
+    best_val_dice = float(hist["val_dice_coef"][best_epoch]) if hist.get("val_dice_coef") else None
+    final_train_loss = float(hist["loss"][-1]) if hist.get("loss") else None
+    final_val_loss = float(hist["val_loss"][-1]) if hist.get("val_loss") else None
 
-    print(f"\n  Best val dice: {best_val_dice:.4f} (epoch {best_epoch + 1})")
-    print(f"  Final train loss: {final_train_loss:.4f}")
-    print(f"  Final val loss:   {final_val_loss:.4f}")
-
-    # Save training info (provenance + metrics) alongside models
     training_info = {
         "trained": datetime.now().isoformat(timespec="seconds"),
-        "experiment_id": _config.EXPERIMENT_ID,
-        "img_size": IMG_SIZE,
-        "batch_size": BATCH_SIZE,
+        "model_name": model_name,
+        "best_model": "best.keras",
+        "img_size": img_size,
+        "batch_size": batch_size,
+        "epochs_requested": epochs,
         "epochs_run": len(hist.get("loss", [])),
         "best_epoch": best_epoch + 1,
         "best_val_dice": best_val_dice,
         "final_train_loss": final_train_loss,
         "final_val_loss": final_val_loss,
-        "learning_rate": LR,
-        "wmse_alpha": WMSE_ALPHA,
-        "dice_weight": DICE_WEIGHT,
+        "learning_rate": learning_rate,
+        "val_split": val_split,
+        "patience": patience,
+        "train_seed": train_seed,
+        "wmse_alpha": wmse_alpha,
+        "dice_weight": dice_weight,
+        "fn_weight": fn_weight,
         "train_images": len(train_images),
         "val_images": len(val_images),
+        "training_manifest": manifest,
     }
-    # Copy training manifest from training folder if it exists
-    manifest_path = Path(TRAINING_DIR) / "training_manifest.json"
-    if manifest_path.exists():
-        with open(manifest_path) as f:
-            training_info["training_data"] = json.load(f)
-    info_path = model_dir / "training_info.json"
-    with open(info_path, "w") as f:
-        json.dump(training_info, f, indent=2)
-    print(f"  Info:  {info_path}")
+    rt.write_json(model_dir / "training_info.json", training_info)
+
+    print(f"\nBest model: {best_path}")
+    print(f"Training info: {model_dir / 'training_info.json'}")
+    if best_val_dice is not None:
+        print(f"Best val dice: {best_val_dice:.4f} (epoch {best_epoch + 1})")
 
 
 if __name__ == "__main__":
