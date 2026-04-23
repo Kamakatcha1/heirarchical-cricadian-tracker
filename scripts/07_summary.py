@@ -14,16 +14,34 @@ import matplotlib.pyplot as plt
 import hct_runtime as rt
 
 
-USE_STD = True
-COLORS = {"M82": "tab:blue", "Penelli": "tab:orange", "Pimpi": "tab:green"}
+DEFAULT_COLORS = {"M82": "tab:blue", "Penelli": "tab:orange", "Pimpi": "tab:green"}
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Generate summary plots from a Biodare detrended CSV.")
-    parser.add_argument("--batch", action="store_true", help="Disable prompts and require explicit CLI values.")
+    parser.add_argument("--batch", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--input", help="Specific detrended CSV filename or path.")
     parser.add_argument("--exclude-samples", help='Comma-separated sample numbers like "3,15,22".')
+    parser.add_argument("--use-sem", action="store_true", help="Plot SEM bands instead of STD bands.")
+    parser.add_argument(
+        "--colors",
+        help='Comma-separated color mappings like "M82=tab:blue,Penelli=#ff8800". Unmapped names use tab:gray.',
+    )
     return parser
+
+
+def parse_color_mapping(text: str) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for item in rt.parse_csv_items(text):
+        if "=" not in item:
+            raise argparse.ArgumentTypeError(f"expected color mappings like Name=color, got: {item}")
+        key, value = item.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if not key or not value:
+            raise argparse.ArgumentTypeError(f"invalid color mapping: {item}")
+        mapping[key] = value
+    return mapping
 
 
 def parse_biodare_csv(path: Path, exclude_samples: list[int]) -> tuple[np.ndarray, dict[str, list[np.ndarray]]]:
@@ -78,19 +96,28 @@ def parse_biodare_csv(path: Path, exclude_samples: list[int]) -> tuple[np.ndarra
     return np.array(times), grouped
 
 
-def summarize(replicates: list[np.ndarray]) -> tuple[np.ndarray, np.ndarray]:
+def summarize(replicates: list[np.ndarray], use_std: bool) -> tuple[np.ndarray, np.ndarray]:
     stacked = np.array(replicates)
     mean = np.nanmean(stacked, axis=0)
     std = np.nanstd(stacked, axis=0)
-    if USE_STD:
+    if use_std:
         return mean, std
     n = np.sum(np.isfinite(stacked), axis=0).astype(float)
     n[n == 0] = 1
     return mean, std / np.sqrt(n)
 
 
-def plot_one(name: str, hours: np.ndarray, mean: np.ndarray, spread: np.ndarray, color: str, n_reps: int, out_dir: Path) -> None:
-    spread_label = "STD" if USE_STD else "SEM"
+def plot_one(
+    name: str,
+    hours: np.ndarray,
+    mean: np.ndarray,
+    spread: np.ndarray,
+    color: str,
+    n_reps: int,
+    out_dir: Path,
+    use_std: bool,
+) -> None:
+    spread_label = "STD" if use_std else "SEM"
     plt.figure(figsize=(9, 4))
     plt.plot(hours, mean, color=color, linewidth=2, label=name)
     plt.fill_between(hours, mean - spread, mean + spread, color=color, alpha=0.2)
@@ -106,11 +133,17 @@ def plot_one(name: str, hours: np.ndarray, mean: np.ndarray, spread: np.ndarray,
     print(f"  {out_path.name}")
 
 
-def plot_all(all_data: dict[str, tuple[np.ndarray, np.ndarray, int]], hours: np.ndarray, out_dir: Path) -> None:
-    spread_label = "STD" if USE_STD else "SEM"
+def plot_all(
+    all_data: dict[str, tuple[np.ndarray, np.ndarray, int]],
+    hours: np.ndarray,
+    out_dir: Path,
+    use_std: bool,
+    colors: dict[str, str],
+) -> None:
+    spread_label = "STD" if use_std else "SEM"
     plt.figure(figsize=(10, 5))
     for name, (mean, spread, n_reps) in all_data.items():
-        color = COLORS.get(name, "tab:gray")
+        color = colors.get(name, "tab:gray")
         plt.plot(hours, mean, color=color, linewidth=2, label=f"{name} (n={n_reps})")
         plt.fill_between(hours, mean - spread, mean + spread, color=color, alpha=0.2)
     plt.xlabel("Hours")
@@ -151,10 +184,15 @@ def main() -> None:
 
     csv_path = resolve_input(args)
     exclude_samples = rt.parse_int_csv(args.exclude_samples) if args.exclude_samples else []
+    use_std = not args.use_sem
+    colors = dict(DEFAULT_COLORS)
+    if args.colors:
+        colors.update(parse_color_mapping(args.colors))
 
     print(f"Input: {csv_path.name}")
     if exclude_samples:
         print(f"Excluding samples: {sorted(exclude_samples)}")
+    print(f"Spread: {'STD' if use_std else 'SEM'}")
 
     summary_dir = rt.exports_dir() / "summary"
     summary_dir.mkdir(parents=True, exist_ok=True)
@@ -166,12 +204,12 @@ def main() -> None:
     for name, reps in grouped.items():
         n_reps = len(reps)
         print(f"\n  {name}: {n_reps} replicates")
-        mean, spread = summarize(reps)
+        mean, spread = summarize(reps, use_std)
         all_data[name] = (mean, spread, n_reps)
-        plot_one(name, hours, mean, spread, COLORS.get(name, "tab:gray"), n_reps, summary_dir)
+        plot_one(name, hours, mean, spread, colors.get(name, "tab:gray"), n_reps, summary_dir, use_std)
 
     print()
-    plot_all(all_data, hours, summary_dir)
+    plot_all(all_data, hours, summary_dir, use_std, colors)
     print(f"\nSaved: {summary_dir}")
 
 

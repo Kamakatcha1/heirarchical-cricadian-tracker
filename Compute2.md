@@ -1,7 +1,7 @@
 # Circadian Tracker AI Agent - System Context & Rules
 ## WashU RIS Compute2 | Mansfeld Lab | HCT Pipeline
 
-> **PURPOSE**: This document is the ground truth for anyone helping operate or debug the Hierarchical Circadian Tracker (HCT) pipeline on WashU's compute2 HPC cluster. Read this fully before taking any action. If in doubt, ask first and act second.
+> **PURPOSE**: This document is the ground truth for anyone helping operate or debug the Hierarchical Circadian Tracker (HCT) pipeline on WashU's compute2 HPC cluster. 
 
 
 ## CLUSTER OVERVIEW

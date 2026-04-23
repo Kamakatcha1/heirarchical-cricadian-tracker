@@ -1,0 +1,65 @@
+{
+  "trained": "2026-04-16T20:38:47",
+  "model_name": "20260416_172107",
+  "best_model": "best.keras",
+  "img_size": 128,
+  "batch_size": 8,
+  "epochs_requested": 30,
+  "epochs_run": 30,
+  "best_epoch": 1,
+  "best_val_dice": null,
+  "final_train_loss": 0.247185617685318,
+  "final_val_loss": 0.48694419860839844,
+  "learning_rate": 0.0001,
+  "val_split": 0.2,
+  "patience": 10,
+  "train_seed": 1337,
+  "wmse_alpha": 50.0,
+  "dice_weight": 0.5,
+  "fn_weight": 2.0,
+  "train_images": 900,
+  "val_images": 220,
+  "training_manifest": {
+    "generated": "2026-04-16T17:16:25",
+    "datasets": [
+      "3t_003"
+    ],
+    "sigma": 4,
+    "augment": true,
+    "augmentations_per_image": 4,
+    "genotype_filter": [],
+    "total_pairs": 1120,
+    "original_pairs": 224,
+    "augmented_pairs": 896,
+    "datasets_info": {
+      "3t_003": {
+        "raw_dir": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/raw",
+        "annotations": 224,
+        "genotypes": [
+          1,
+          2,
+          3
+        ],
+        "frame_count": 147,
+        "plant_count": 45
+      }
+    },
+    "settings": {
+      "sigma": 4,
+      "augment": true,
+      "augmentations_per_image": 4,
+      "genotype_filter": [],
+      "aug_max_rotate": 15.0,
+      "aug_min_scale": 0.9,
+      "aug_max_scale": 1.1,
+      "aug_max_shift": 0.05,
+      "aug_hflip_prob": 0.5,
+      "aug_vflip_prob": 0.2,
+      "aug_brightness_alpha_min": 0.9,
+      "aug_brightness_alpha_max": 1.1,
+      "aug_brightness_beta_min": -10.0,
+      "aug_brightness_beta_max": 10.0,
+      "aug_seed": null
+    }
+  }
+}

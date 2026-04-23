@@ -33,17 +33,17 @@ def build_parser() -> argparse.ArgumentParser:
         epilog=(
             "Examples:\n"
             "  ./hct masks --augment false\n"
-            "  ./hct masks --batch --datasets F2_001,F2_002 --augment true --augmentations-per-image 4\n"
-            "  ./hct masks --batch --datasets F2_001,F2_002 --genotype-filter 0,4,7"
+            "  ./hct masks --datasets F2_001,F2_002 --augment true --augmentations-per-image 4\n"
+            "  ./hct masks --datasets F2_001,F2_002 --genotype-filter 0,4,7"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    parser.add_argument("--batch", action="store_true", help="Disable prompts and require CLI values.")
+    parser.add_argument("--batch", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--datasets", type=rt.parse_dataset_ids_arg, help="Comma-separated dataset ids to include.")
     parser.add_argument("--augment", type=rt.parse_bool_flag, help="Enable or disable augmentation.")
     parser.add_argument("--augmentations-per-image", type=int, help="Augmented copies per base image.")
     parser.add_argument("--genotype-filter", type=rt.parse_int_csv, help="Comma-separated genotype ids to keep.")
-    parser.add_argument("--aug-seed", type=int, help="Random seed (0 means random).")
+    parser.add_argument("--aug-seed", type=int, help="Optional random seed for deterministic augmentation.")
     return parser
 
 
@@ -88,8 +88,7 @@ def augment_pair(img: np.ndarray, mask: np.ndarray, settings: dict[str, Any]) ->
     return aug_img, aug_mask
 
 
-def generate_pair(annotation: dict[str, Any], raw_dir: Path, sigma: float) -> tuple[np.ndarray, np.ndarray] | None:
-    bbox = annotation["crop_bbox"]
+def generate_pair(annotation: dict[str, Any], raw_dir: Path, sigma: float, bbox: list[int]) -> tuple[np.ndarray, np.ndarray] | None:
     crop_size = annotation["crop_size"]
     frame_path = raw_dir / annotation["frame_filename"]
     if not frame_path.exists():
@@ -171,7 +170,7 @@ def main() -> None:
         "aug_seed": args.aug_seed if args.aug_seed is not None else rt.MASK_DEFAULTS["aug_seed"],
     }
 
-    if settings["aug_seed"] and settings["aug_seed"] > 0:
+    if settings["aug_seed"] is not None:
         random.seed(settings["aug_seed"])
         np.random.seed(settings["aug_seed"])
 
@@ -208,6 +207,11 @@ def main() -> None:
             continue
 
         annotations = ann_log.get("annotations", [])
+        plant_by_uid = {
+            str(plant.get("crop_uid")): plant
+            for plant in crop_log.get("plants", [])
+            if isinstance(plant, dict) and plant.get("crop_uid")
+        }
         if settings["genotype_filter"]:
             annotations = [ann for ann in annotations if ann.get("genotype") in settings["genotype_filter"]]
         if not annotations:
@@ -219,7 +223,22 @@ def main() -> None:
         print(f"\n  Processing {dataset.dataset_id} ({len(annotations)} annotations)...")
         for ann in annotations:
             genotypes_used.add(int(ann.get("genotype", 0)))
-            result = generate_pair(ann, raw_dir, settings["sigma"])
+            bbox = ann.get("crop_bbox")
+            crop_uid = str(ann.get("crop_uid", ""))
+            current_plant = plant_by_uid.get(crop_uid)
+            if current_plant is not None:
+                current_bbox = list(current_plant.get("bbox", []))
+                if bbox is not None and current_bbox and list(bbox) != current_bbox:
+                    print(f"    WARNING: crop changed since annotation for {ann.get('plant_id', '?')} ({crop_uid}); skipping")
+                    skipped += 1
+                    continue
+                bbox = current_bbox
+            if not isinstance(bbox, list) or len(bbox) != 4:
+                print(f"    WARNING: missing or invalid crop bbox for {ann.get('plant_id', '?')}, skipping")
+                skipped += 1
+                continue
+
+            result = generate_pair(ann, raw_dir, settings["sigma"], bbox)
             if result is None:
                 skipped += 1
                 continue

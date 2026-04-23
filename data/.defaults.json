@@ -1,7 +1,20 @@
 {
-  "last_dataset": "F2_001",
-  "last_model": "mF2_1",
+  "last_dataset": "F2_003_5",
+  "last_model": "mF2_001",
   "interval_min": 30,
   "num_tips": 2,
-  "measure_max_frames": 0
+  "measure_max_frames": 0,
+  "genotype_names": {
+    "0": "G0",
+    "1": "G1",
+    "2": "G2",
+    "3": "G3",
+    "4": "G4",
+    "5": "G5",
+    "6": "G6",
+    "7": "G7",
+    "8": "G8",
+    "9": "G9"
+  },
+  "export_max_hours": 67.0
 }

@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import random
 import sys
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -12,15 +13,17 @@ import numpy as np
 import hct_runtime as rt
 
 
-points: list[list[int]] = []
-display_img: np.ndarray | None = None
-orig_img: np.ndarray | None = None
-display_scale_value = rt.ANNOTATE_DEFAULTS["display_scale"]
+@dataclass
+class AnnotatorState:
+    display_scale: int = rt.ANNOTATE_DEFAULTS["display_scale"]
+    points: list[list[int]] = field(default_factory=list)
+    display_img: np.ndarray | None = None
+    orig_img: np.ndarray | None = None
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Annotate leaf tips for a dataset.")
-    parser.add_argument("--batch", action="store_true", help="Disable prompts and require CLI values.")
+    parser.add_argument("--batch", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--dataset", help="Dataset id under data/datasets/.")
     parser.add_argument("--images-per-plant", type=int, help="Target annotation count per plant.")
     parser.add_argument("--display-scale", type=int, help="Zoom factor for the annotation window.")
@@ -35,18 +38,17 @@ def draw_point(img: np.ndarray, point_xy: list[int], idx: int) -> None:
     cv2.putText(img, str(idx + 1), (point_xy[0] + 8, point_xy[1] - 4), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
 
 
-def mouse_callback(event: int, x: int, y: int, _flags: int, _param: Any) -> None:
-    global points, display_img, orig_img
-    if event != cv2.EVENT_LBUTTONDOWN or orig_img is None or display_img is None:
+def mouse_callback(event: int, x: int, y: int, _flags: int, state: AnnotatorState) -> None:
+    if event != cv2.EVENT_LBUTTONDOWN or state.orig_img is None or state.display_img is None:
         return
-    x0 = int(round(x / display_scale_value))
-    y0 = int(round(y / display_scale_value))
-    h0, w0 = orig_img.shape[:2]
+    x0 = int(round(x / state.display_scale))
+    y0 = int(round(y / state.display_scale))
+    h0, w0 = state.orig_img.shape[:2]
     x0 = max(0, min(w0 - 1, x0))
     y0 = max(0, min(h0 - 1, y0))
-    points.append([x0, y0])
-    draw_point(display_img, [x, y], len(points) - 1)
-    cv2.imshow("annotator", display_img)
+    state.points.append([x0, y0])
+    draw_point(state.display_img, [x, y], len(state.points) - 1)
+    cv2.imshow("annotator", state.display_img)
 
 
 def load_crop_log(path: Path, dataset_id: str) -> dict[str, Any]:
@@ -67,52 +69,13 @@ def load_annotation_log(path: Path, dataset_id: str) -> tuple[list[dict[str, Any
     if stored_id and stored_id != dataset_id:
         raise RuntimeError(f"Dataset id mismatch: selected {dataset_id}, annotations.json says {stored_id}")
     settings = {}
-    if "images_per_folder" in data:
-        settings["images_per_folder"] = data["images_per_folder"]
+    if "images_per_plant" in data:
+        settings["images_per_plant"] = data["images_per_plant"]
+    elif "images_per_folder" in data:
+        settings["images_per_plant"] = data["images_per_folder"]
     if "display_scale" in data:
         settings["display_scale"] = data["display_scale"]
     return data.get("annotations", []), settings
-
-
-def remap_annotations_to_plants(plants: list[dict[str, Any]], annotations: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
-    by_uid = {plant.get("crop_uid"): plant for plant in plants if plant.get("crop_uid")}
-    key_to_plants: dict[tuple[int, tuple[int, ...]], list[dict[str, Any]]] = {}
-    for plant in plants:
-        key = (int(plant["genotype"]), tuple(plant["bbox"]))
-        key_to_plants.setdefault(key, []).append(plant)
-
-    remapped: list[dict[str, Any]] = []
-    dropped = 0
-    for ann in annotations:
-        ann2 = dict(ann)
-        matched = None
-        uid = ann2.get("crop_uid")
-        if uid and uid in by_uid:
-            matched = by_uid[uid]
-        elif not uid:
-            bbox = ann2.get("crop_bbox")
-            geno = ann2.get("genotype")
-            if bbox is not None and geno is not None:
-                matches = key_to_plants.get((int(geno), tuple(bbox)), [])
-                if len(matches) == 1:
-                    matched = matches[0]
-        if matched is None:
-            dropped += 1
-            continue
-        ann2["crop_uid"] = matched.get("crop_uid", matched["id"])
-        ann2["plant_id"] = matched["id"]
-        ann2["replicate"] = matched["replicate"]
-        ann2["genotype"] = matched["genotype"]
-        remapped.append(ann2)
-
-    dedup: dict[tuple[str, int], dict[str, Any]] = {}
-    for ann in remapped:
-        frame_index = ann.get("frame_index")
-        if isinstance(frame_index, int):
-            dedup[(ann["crop_uid"], frame_index)] = ann
-        else:
-            dropped += 1
-    return list(dedup.values()), dropped
 
 
 def detect_crop_changes(plants: list[dict[str, Any]], annotations: list[dict[str, Any]]) -> dict[str, list[str]]:
@@ -189,10 +152,9 @@ def annotate_plant(
     frame_filenames: list[str],
     existing_annotations: list[dict[str, Any]],
     images_per_plant: int,
+    state: AnnotatorState,
     force_new: bool = False,
 ) -> list[dict[str, Any]]:
-    global points, display_img, orig_img
-
     plant_id = plant["id"]
     crop_uid = plant.get("crop_uid", plant_id)
     bbox = plant["bbox"]
@@ -224,19 +186,19 @@ def annotate_plant(
     while idx < len(selected):
         frame_index = selected[idx]
         idx += 1
-        points = []
+        state.points = []
 
         frame_path = raw_dir / frame_filenames[frame_index]
-        orig_img = virtual_crop(frame_path, bbox)
-        if orig_img is None:
+        state.orig_img = virtual_crop(frame_path, bbox)
+        if state.orig_img is None:
             print(f"  Could not read/crop {frame_path}", file=sys.stderr)
             continue
 
-        h0, w0 = orig_img.shape[:2]
-        disp_w, disp_h = int(w0 * display_scale_value), int(h0 * display_scale_value)
-        display_img = cv2.resize(orig_img, (disp_w, disp_h), interpolation=cv2.INTER_NEAREST)
+        h0, w0 = state.orig_img.shape[:2]
+        disp_w, disp_h = int(w0 * state.display_scale), int(h0 * state.display_scale)
+        state.display_img = cv2.resize(state.orig_img, (disp_w, disp_h), interpolation=cv2.INTER_NEAREST)
 
-        cv2.imshow("annotator", display_img)
+        cv2.imshow("annotator", state.display_img)
         cv2.resizeWindow("annotator", disp_w, disp_h)
 
         print(f"\n  Annotating {plant_id} / frame {frame_index:03d} ({frame_filenames[frame_index]})")
@@ -245,9 +207,9 @@ def annotate_plant(
         while True:
             key = cv2.waitKey(1) & 0xFF
             if key == ord("r"):
-                points = []
-                display_img = cv2.resize(orig_img, (disp_w, disp_h), interpolation=cv2.INTER_NEAREST)
-                cv2.imshow("annotator", display_img)
+                state.points = []
+                state.display_img = cv2.resize(state.orig_img, (disp_w, disp_h), interpolation=cv2.INTER_NEAREST)
+                cv2.imshow("annotator", state.display_img)
             if key == ord("n"):
                 if remaining:
                     replacement = random.choice(remaining)
@@ -267,7 +229,7 @@ def annotate_plant(
                         "frame_filename": frame_filenames[frame_index],
                         "crop_bbox": bbox,
                         "crop_size": [w0, h0],
-                        "tips": [pt for pt in points],
+                        "tips": [pt for pt in state.points],
                     }
                 )
                 break
@@ -299,8 +261,6 @@ def select_dataset(args: argparse.Namespace) -> rt.DatasetInfo:
 
 
 def main() -> None:
-    global display_scale_value
-
     args = build_parser().parse_args()
     rt.ensure_layout()
     if args.seed is not None:
@@ -317,19 +277,19 @@ def main() -> None:
     existing, saved_settings = load_annotation_log(dataset.annotation_path, dataset.dataset_id)
     images_per_plant = args.images_per_plant
     if images_per_plant is None:
-        images_per_plant = saved_settings.get("images_per_folder", rt.ANNOTATE_DEFAULTS["images_per_plant"])
+        images_per_plant = saved_settings.get("images_per_plant", rt.ANNOTATE_DEFAULTS["images_per_plant"])
 
     display_scale = args.display_scale
     if display_scale is None:
         display_scale = saved_settings.get("display_scale", rt.ANNOTATE_DEFAULTS["display_scale"])
-    display_scale_value = display_scale
+    state = AnnotatorState(display_scale=display_scale)
 
     print(f"Dataset: {dataset.dataset_id} ({len(frame_filenames)} frames)")
     print(f"Plants: {len(plants)}")
     print(f"Target: {images_per_plant} annotations per plant")
     print(f"Display scale: {display_scale}x")
 
-    existing, dropped_stale = remap_annotations_to_plants(plants, existing)
+    existing, dropped_stale = rt.remap_annotations_to_plants(plants, existing)
     if existing:
         print(f"Existing annotations: {len(existing)}")
     if dropped_stale:
@@ -366,7 +326,7 @@ def main() -> None:
             dataset.annotation_path,
             {
                 "dataset_id": dataset.dataset_id,
-                "images_per_folder": images_per_plant,
+                "images_per_plant": images_per_plant,
                 "display_scale": display_scale,
                 "annotations": existing,
             },
@@ -376,7 +336,7 @@ def main() -> None:
         return
 
     cv2.namedWindow("annotator", cv2.WINDOW_NORMAL)
-    cv2.setMouseCallback("annotator", mouse_callback)
+    cv2.setMouseCallback("annotator", mouse_callback, state)
 
     all_new: list[dict[str, Any]] = []
     for plant in plants:
@@ -389,6 +349,7 @@ def main() -> None:
             frame_filenames,
             existing,
             images_per_plant,
+            state,
             force_new=force,
         )
         all_new.extend(new_annotations)
@@ -416,7 +377,7 @@ def main() -> None:
         dataset.annotation_path,
         {
             "dataset_id": dataset.dataset_id,
-            "images_per_folder": images_per_plant,
+            "images_per_plant": images_per_plant,
             "display_scale": display_scale,
             "annotations": existing,
         },

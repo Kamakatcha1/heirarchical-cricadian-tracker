@@ -19,7 +19,7 @@ import hct_runtime as rt
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Train a model from generated training data.")
-    parser.add_argument("--batch", action="store_true", help="Disable prompts and require explicit CLI values.")
+    parser.add_argument("--batch", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--model-name", help="Optional model folder name under data/models/.")
     parser.add_argument("--epochs", type=int, help="Maximum training epochs.")
     parser.add_argument("--batch-size", type=int, help="Batch size.")
@@ -33,6 +33,55 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--train-seed", type=int, help="Train/validation split seed.")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite an existing model folder for today.")
     return parser
+
+
+def configure_gpu_memory_growth() -> None:
+    for gpu in tf.config.list_physical_devices("GPU"):
+        tf.config.experimental.set_memory_growth(gpu, True)
+
+
+def tensorflow_device_summary() -> dict[str, Any]:
+    gpus = tf.config.list_physical_devices("GPU")
+    cpus = tf.config.list_physical_devices("CPU")
+    details = []
+    for gpu in gpus:
+        detail = {"name": gpu.name, "device_type": gpu.device_type}
+        try:
+            gpu_details = tf.config.experimental.get_device_details(gpu)
+        except Exception:
+            gpu_details = {}
+        device_name = gpu_details.get("device_name")
+        compute_capability = gpu_details.get("compute_capability")
+        if device_name:
+            detail["device_name"] = device_name
+        if compute_capability:
+            detail["compute_capability"] = str(compute_capability)
+        details.append(detail)
+    return {
+        "visible_gpu_count": len(gpus),
+        "visible_gpus": details,
+        "visible_cpu_count": len(cpus),
+        "python_cpu_count": os.cpu_count(),
+        "slurm_cpus_per_task": os.environ.get("SLURM_CPUS_PER_TASK"),
+        "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
+    }
+
+
+def print_device_summary(summary: dict[str, Any]) -> None:
+    print("\nTensorFlow device check:")
+    print(f"  Visible GPUs: {summary['visible_gpu_count']}")
+    if summary["visible_gpus"]:
+        for idx, gpu in enumerate(summary["visible_gpus"], start=1):
+            device_name = gpu.get("device_name") or gpu["name"]
+            compute_capability = gpu.get("compute_capability")
+            suffix = f", compute capability {compute_capability}" if compute_capability else ""
+            print(f"  GPU {idx}: {device_name}{suffix}")
+    else:
+        print("  WARNING: TensorFlow sees no GPUs. Training will run on CPU.")
+    print(f"  Visible CPU devices: {summary['visible_cpu_count']}")
+    print(f"  Python CPU count: {summary['python_cpu_count']}")
+    print(f"  SLURM_CPUS_PER_TASK: {summary['slurm_cpus_per_task'] or 'not set'}")
+    print(f"  CUDA_VISIBLE_DEVICES: {summary['cuda_visible_devices'] or 'not set'}")
 
 
 def load_sample_np(img_path_str: str, img_dir: str, mask_dir: str, img_size: int) -> tuple[np.ndarray, np.ndarray]:
@@ -156,7 +205,17 @@ def dice_coef(eps: float = 1e-6) -> Any:
     return metric
 
 
-def resolve_hparam(args: argparse.Namespace, name: str, prompt: str) -> Any:
+def build_dice_metric(eps: float = 1e-6) -> Any:
+    def dice_coef(y_true: tf.Tensor, y_pred: tf.Tensor) -> tf.Tensor:
+        y_true_f = tf.reshape(y_true, [tf.shape(y_true)[0], -1])
+        y_pred_f = tf.reshape(y_pred, [tf.shape(y_pred)[0], -1])
+        inter = tf.reduce_sum(y_true_f * y_pred_f, axis=1)
+        denom = tf.reduce_sum(y_true_f, axis=1) + tf.reduce_sum(y_pred_f, axis=1)
+        return tf.reduce_mean((2.0 * inter + eps) / (denom + eps))
+    return dice_coef
+
+
+def resolve_hparam(args: argparse.Namespace, name: str) -> Any:
     value = getattr(args, name)
     default = rt.TRAIN_DEFAULTS[name]
     if value is not None:
@@ -167,6 +226,15 @@ def resolve_hparam(args: argparse.Namespace, name: str, prompt: str) -> Any:
 def main() -> None:
     args = build_parser().parse_args()
     rt.ensure_layout()
+    configure_gpu_memory_growth()
+    device_summary = tensorflow_device_summary()
+    print_device_summary(device_summary)
+    if device_summary["visible_gpu_count"] == 0 and device_summary.get("cuda_visible_devices"):
+        raise SystemExit(
+            "SLURM assigned CUDA_VISIBLE_DEVICES but TensorFlow detected 0 GPUs. "
+            "Your container/image is missing required GPU libraries for TensorFlow. "
+            "Use a GPU-enabled image via --container-image or HCT_CONTAINER_IMAGE."
+        )
 
     manifest_path = rt.training_dir() / "manifest.json"
     if not manifest_path.exists():
@@ -181,18 +249,21 @@ def main() -> None:
         raise FileNotFoundError(f"Training masks not found: {mask_dir}\nRun 03_masks.py first.")
 
     images = sorted(os.path.join(img_dir, name) for name in os.listdir(img_dir) if name.lower().endswith(".png"))
-    if len(images) < 2:
-        raise ValueError(f"Not enough images found ({len(images)}). Need at least 2.")
+    original_pairs = int(manifest.get("original_pairs", len(images)))
+    if original_pairs < 20:
+        raise ValueError(
+            f"Training data is too small ({original_pairs} original pairs). Generate at least 20 annotated image/mask pairs first."
+        )
 
-    img_size = resolve_hparam(args, "img_size", "Image size")
-    batch_size = resolve_hparam(args, "batch_size", "Batch size")
-    epochs = resolve_hparam(args, "epochs", "Epochs")
-    learning_rate = resolve_hparam(args, "learning_rate", "Learning rate")
-    val_split = resolve_hparam(args, "val_split", "Validation split")
-    patience = resolve_hparam(args, "patience", "Patience")
-    wmse_alpha = resolve_hparam(args, "wmse_alpha", "WMSE alpha")
-    dice_weight = resolve_hparam(args, "dice_weight", "Dice loss weight")
-    fn_weight = resolve_hparam(args, "fn_weight", "False negative weight")
+    img_size = resolve_hparam(args, "img_size")
+    batch_size = resolve_hparam(args, "batch_size")
+    epochs = resolve_hparam(args, "epochs")
+    learning_rate = resolve_hparam(args, "learning_rate")
+    val_split = resolve_hparam(args, "val_split")
+    patience = resolve_hparam(args, "patience")
+    wmse_alpha = resolve_hparam(args, "wmse_alpha")
+    dice_weight = resolve_hparam(args, "dice_weight")
+    fn_weight = resolve_hparam(args, "fn_weight")
     train_seed = args.train_seed if args.train_seed is not None else rt.TRAIN_DEFAULTS["train_seed"]
 
     default_model_name = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -242,12 +313,15 @@ def main() -> None:
     val_ds = make_dataset(val_images, False, batch_size, train_seed, img_dir, mask_dir, img_size)
 
     model = unet(img_size)
-    loss_fn = lambda y_true, y_pred: (
-        weighted_mse(wmse_alpha)(y_true, y_pred)
-        + dice_weight * soft_dice_loss()(y_true, y_pred)
-        + fn_weight * false_negative_loss()(y_true, y_pred)
-    )
-    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate), loss=loss_fn, metrics=[dice_coef()])
+    dice_metric = build_dice_metric()
+    _wmse = weighted_mse(wmse_alpha)
+    _dice = soft_dice_loss()
+    _fn = false_negative_loss()
+
+    def combined_loss(y_true: tf.Tensor, y_pred: tf.Tensor) -> tf.Tensor:
+        return _wmse(y_true, y_pred) + dice_weight * _dice(y_true, y_pred) + fn_weight * _fn(y_true, y_pred)
+
+    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate), loss=combined_loss, metrics=[dice_metric])
     model.summary()
 
     best_path = str(model_dir / "best.keras")
@@ -273,8 +347,9 @@ def main() -> None:
     history = model.fit(train_ds, validation_data=val_ds, epochs=epochs, callbacks=callbacks)
 
     hist = history.history
-    best_epoch = int(np.argmax(hist.get("val_dice_coef", [0]))) if hist.get("val_dice_coef") else 0
-    best_val_dice = float(hist["val_dice_coef"][best_epoch]) if hist.get("val_dice_coef") else None
+    best_epoch_index = int(np.argmax(hist.get("val_dice_coef", [0]))) if hist.get("val_dice_coef") else 0
+    best_epoch_number = best_epoch_index + 1
+    best_val_dice = float(hist["val_dice_coef"][best_epoch_index]) if hist.get("val_dice_coef") else None
     final_train_loss = float(hist["loss"][-1]) if hist.get("loss") else None
     final_val_loss = float(hist["val_loss"][-1]) if hist.get("val_loss") else None
 
@@ -286,7 +361,7 @@ def main() -> None:
         "batch_size": batch_size,
         "epochs_requested": epochs,
         "epochs_run": len(hist.get("loss", [])),
-        "best_epoch": best_epoch + 1,
+        "best_epoch": best_epoch_number,
         "best_val_dice": best_val_dice,
         "final_train_loss": final_train_loss,
         "final_val_loss": final_val_loss,
@@ -299,6 +374,7 @@ def main() -> None:
         "fn_weight": fn_weight,
         "train_images": len(train_images),
         "val_images": len(val_images),
+        "tensorflow_devices": device_summary,
         "training_manifest": manifest,
     }
     rt.write_json(model_dir / "training_info.json", training_info)
@@ -306,7 +382,7 @@ def main() -> None:
     print(f"\nBest model: {best_path}")
     print(f"Training info: {model_dir / 'training_info.json'}")
     if best_val_dice is not None:
-        print(f"Best val dice: {best_val_dice:.4f} (epoch {best_epoch + 1})")
+        print(f"Best val dice: {best_val_dice:.4f} (epoch {best_epoch_number})")
 
 
 if __name__ == "__main__":

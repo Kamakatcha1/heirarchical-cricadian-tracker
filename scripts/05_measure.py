@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -22,13 +23,16 @@ MIN_DIST_FLOOR = 5
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Measure leaf tip distance for one or more datasets.")
-    parser.add_argument("--batch", action="store_true", help="Disable prompts and require CLI values.")
-    parser.add_argument("--dataset", help="Single dataset id to measure.")
+    parser.add_argument("--batch", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--datasets", type=rt.parse_dataset_ids_arg, help="Comma-separated dataset ids to measure.")
     parser.add_argument("--model", help="Model folder name under data/models/.")
     parser.add_argument("--max-frames", type=int, help="Limit to first N frames (0 = all).")
     parser.add_argument("--num-tips", type=int, help="Number of peaks to detect.")
-    parser.add_argument("--min-dist", type=int, help="Minimum distance between detected peaks in model pixels.")
+    parser.add_argument(
+        "--min-dist",
+        type=int,
+        help="Minimum distance between detected peaks in the resized model input image.",
+    )
     parser.add_argument("--interval-min", type=int, help="Minutes between frames (default: 30).")
     parser.add_argument("--genotype-filter", type=rt.parse_int_csv, help="Comma-separated genotype ids to keep.")
     return parser
@@ -86,21 +90,15 @@ def find_peaks(
 
 def resolve_datasets(args: argparse.Namespace) -> list[rt.DatasetInfo]:
     datasets = [info for info in rt.discover_datasets() if info.has_crops]
-    requested_ids: list[str] = []
     if args.datasets:
-        requested_ids.extend(args.datasets)
-    if args.dataset:
-        requested_ids.append(args.dataset)
-
-    if requested_ids:
         by_id = {info.dataset_id: info for info in datasets}
-        missing = [dataset_id for dataset_id in requested_ids if dataset_id not in by_id]
+        missing = [dataset_id for dataset_id in args.datasets if dataset_id not in by_id]
         if missing:
             raise SystemExit(f"Dataset not found or missing crops: {', '.join(missing)}")
-        return [by_id[dataset_id] for dataset_id in requested_ids]
+        return [by_id[dataset_id] for dataset_id in args.datasets]
 
     if args.batch:
-        raise SystemExit("--batch requires --dataset or --datasets")
+        raise SystemExit("--batch requires --datasets")
 
     last_dataset = rt.get_default("last_dataset")
     default_index = next((idx for idx, info in enumerate(datasets) if info.dataset_id == last_dataset), None)
@@ -163,8 +161,9 @@ def measure_dataset(
         raise ValueError(f"No plants in crops.json for {dataset.dataset_id} after filtering.")
 
     output_dir = dataset.output_dir
-    plots_dir = output_dir / "plots"
-    output_dir.mkdir(parents=True, exist_ok=True)
+    run_output_dir = rt.dataset_measurement_run_dir(dataset.dataset_id, model_name)
+    plots_dir = run_output_dir / "plots"
+    run_output_dir.mkdir(parents=True, exist_ok=True)
     plots_dir.mkdir(parents=True, exist_ok=True)
 
     all_rows: list[list[Any]] = []
@@ -187,12 +186,14 @@ def measure_dataset(
         for frame_idx, frame_name in enumerate(frames):
             frame_path = raw_dir / frame_name
             if not frame_path.exists():
+                print(f"    WARNING: Missing frame {frame_name}; recording NaN")
                 distances.append(float("nan"))
                 all_rows.append([dataset.dataset_id, plant_id, label, genotype, replicate, frame_idx, frame_name, "nan"])
                 continue
 
             full_img = cv2.imread(str(frame_path), cv2.IMREAD_COLOR)
             if full_img is None:
+                print(f"    WARNING: Could not read frame {frame_name}; recording NaN")
                 distances.append(float("nan"))
                 all_rows.append([dataset.dataset_id, plant_id, label, genotype, replicate, frame_idx, frame_name, "nan"])
                 continue
@@ -241,11 +242,29 @@ def measure_dataset(
         plt.close()
         print(f"    {len(distances)} frames, plot -> {plot_path.name}")
 
-    csv_path = output_dir / "tip_distances.csv"
+    csv_path = run_output_dir / "tip_distances.csv"
     with open(csv_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["dataset_id", "plant_id", "label", "genotype", "replicate", "frame_index", "frame_filename", "tip_distance_px"])
         writer.writerows(all_rows)
+
+    rt.write_json(
+        run_output_dir / "measure_info.json",
+        {
+            "measured": datetime.now().isoformat(timespec="seconds"),
+            "dataset_id": dataset.dataset_id,
+            "model_name": model_name,
+            "output_name": model_name,
+            "interval_min": interval_min,
+            "num_tips": num_tips,
+            "min_dist": min_dist,
+            "max_frames": max_frames,
+            "genotype_filter": genotype_filter,
+            "img_size": img_size,
+            "tip_distance_csv": str(csv_path),
+            "plots_dir": str(plots_dir),
+        },
+    )
 
     print(f"\nSaved: {csv_path}")
     print(f"Saved: {plots_dir}")
@@ -254,6 +273,9 @@ def measure_dataset(
 def main() -> None:
     args = build_parser().parse_args()
     rt.ensure_layout()
+
+    for gpu in tf.config.list_physical_devices("GPU"):
+        tf.config.experimental.set_memory_growth(gpu, True)
 
     datasets = resolve_datasets(args)
     model_info = resolve_model(args)
@@ -266,10 +288,6 @@ def main() -> None:
     if num_tips is None:
         num_tips = rt.get_default("num_tips", rt.MEASURE_DEFAULTS["num_tips"])
 
-    min_dist = args.min_dist
-    if min_dist is None:
-        min_dist = rt.MEASURE_DEFAULTS["min_dist"]
-
     interval_min = args.interval_min
     if interval_min is None:
         interval_min = rt.get_default("interval_min", rt.MEASURE_DEFAULTS["interval_min"])
@@ -278,6 +296,9 @@ def main() -> None:
 
     model = tf.keras.models.load_model(str(model_info.model_path), compile=False)
     img_size = int(model.input_shape[1] if model.input_shape[1] is not None else rt.TRAIN_DEFAULTS["img_size"])
+    min_dist = args.min_dist
+    if min_dist is None:
+        min_dist = rt.default_measure_min_dist(img_size)
 
     for dataset in datasets:
         measure_dataset(

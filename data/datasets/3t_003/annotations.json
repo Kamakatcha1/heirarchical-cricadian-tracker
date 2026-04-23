@@ -1,0 +1,6611 @@
+{
+  "dataset_id": "3t_003",
+  "images_per_plant": 5,
+  "display_scale": 2,
+  "annotations": [
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "021b1bcf9ef349a1b33546ad425c57df",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 14,
+      "frame_filename": "5d_0022.jpg",
+      "crop_bbox": [
+        1810,
+        295,
+        2049,
+        498
+      ],
+      "crop_size": [
+        239,
+        203
+      ],
+      "tips": [
+        [
+          77,
+          102
+        ],
+        [
+          132,
+          123
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "021b1bcf9ef349a1b33546ad425c57df",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 52,
+      "frame_filename": "5d_0060.jpg",
+      "crop_bbox": [
+        1810,
+        295,
+        2049,
+        498
+      ],
+      "crop_size": [
+        239,
+        203
+      ],
+      "tips": [
+        [
+          70,
+          109
+        ],
+        [
+          152,
+          129
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "021b1bcf9ef349a1b33546ad425c57df",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 74,
+      "frame_filename": "5d_0082.jpg",
+      "crop_bbox": [
+        1810,
+        295,
+        2049,
+        498
+      ],
+      "crop_size": [
+        239,
+        203
+      ],
+      "tips": [
+        [
+          77,
+          62
+        ],
+        [
+          150,
+          98
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "021b1bcf9ef349a1b33546ad425c57df",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 91,
+      "frame_filename": "5d_0099.jpg",
+      "crop_bbox": [
+        1810,
+        295,
+        2049,
+        498
+      ],
+      "crop_size": [
+        239,
+        203
+      ],
+      "tips": [
+        [
+          82,
+          68
+        ],
+        [
+          153,
+          124
+        ],
+        [
+          95,
+          112
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "021b1bcf9ef349a1b33546ad425c57df",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 143,
+      "frame_filename": "5d_0151.jpg",
+      "crop_bbox": [
+        1810,
+        295,
+        2049,
+        498
+      ],
+      "crop_size": [
+        239,
+        203
+      ],
+      "tips": [
+        [
+          78,
+          66
+        ],
+        [
+          106,
+          170
+        ],
+        [
+          32,
+          152
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "bdcf91be6c5b44f38e774f031b476538",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 4,
+      "frame_filename": "5d_0012.jpg",
+      "crop_bbox": [
+        1586,
+        379,
+        1801,
+        596
+      ],
+      "crop_size": [
+        215,
+        217
+      ],
+      "tips": [
+        [
+          70,
+          148
+        ],
+        [
+          96,
+          208
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "bdcf91be6c5b44f38e774f031b476538",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 49,
+      "frame_filename": "5d_0057.jpg",
+      "crop_bbox": [
+        1586,
+        379,
+        1801,
+        596
+      ],
+      "crop_size": [
+        215,
+        217
+      ],
+      "tips": [
+        [
+          74,
+          120
+        ],
+        [
+          108,
+          208
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "bdcf91be6c5b44f38e774f031b476538",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 63,
+      "frame_filename": "5d_0071.jpg",
+      "crop_bbox": [
+        1586,
+        379,
+        1801,
+        596
+      ],
+      "crop_size": [
+        215,
+        217
+      ],
+      "tips": [
+        [
+          123,
+          180
+        ],
+        [
+          88,
+          100
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "bdcf91be6c5b44f38e774f031b476538",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 110,
+      "frame_filename": "5d_0118.jpg",
+      "crop_bbox": [
+        1586,
+        379,
+        1801,
+        596
+      ],
+      "crop_size": [
+        215,
+        217
+      ],
+      "tips": [
+        [
+          162,
+          152
+        ],
+        [
+          102,
+          52
+        ],
+        [
+          164,
+          72
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "bdcf91be6c5b44f38e774f031b476538",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 122,
+      "frame_filename": "5d_0130.jpg",
+      "crop_bbox": [
+        1586,
+        379,
+        1801,
+        596
+      ],
+      "crop_size": [
+        215,
+        217
+      ],
+      "tips": [
+        [
+          166,
+          128
+        ],
+        [
+          106,
+          42
+        ],
+        [
+          162,
+          50
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "1f7fd61b78b1448580a4c2519c9044e2",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 15,
+      "frame_filename": "5d_0023.jpg",
+      "crop_bbox": [
+        1870,
+        614,
+        2207,
+        817
+      ],
+      "crop_size": [
+        337,
+        203
+      ],
+      "tips": [
+        [
+          126,
+          152
+        ],
+        [
+          60,
+          154
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "1f7fd61b78b1448580a4c2519c9044e2",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 30,
+      "frame_filename": "5d_0038.jpg",
+      "crop_bbox": [
+        1870,
+        614,
+        2207,
+        817
+      ],
+      "crop_size": [
+        337,
+        203
+      ],
+      "tips": [
+        [
+          131,
+          150
+        ],
+        [
+          52,
+          152
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "1f7fd61b78b1448580a4c2519c9044e2",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 71,
+      "frame_filename": "5d_0079.jpg",
+      "crop_bbox": [
+        1870,
+        614,
+        2207,
+        817
+      ],
+      "crop_size": [
+        337,
+        203
+      ],
+      "tips": [
+        [
+          152,
+          132
+        ],
+        [
+          66,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "1f7fd61b78b1448580a4c2519c9044e2",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 103,
+      "frame_filename": "5d_0111.jpg",
+      "crop_bbox": [
+        1870,
+        614,
+        2207,
+        817
+      ],
+      "crop_size": [
+        337,
+        203
+      ],
+      "tips": [
+        [
+          248,
+          124
+        ],
+        [
+          180,
+          77
+        ],
+        [
+          157,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "1f7fd61b78b1448580a4c2519c9044e2",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 120,
+      "frame_filename": "5d_0128.jpg",
+      "crop_bbox": [
+        1870,
+        614,
+        2207,
+        817
+      ],
+      "crop_size": [
+        337,
+        203
+      ],
+      "tips": [
+        [
+          253,
+          104
+        ],
+        [
+          197,
+          56
+        ],
+        [
+          148,
+          102
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r04",
+      "crop_uid": "3b7a36ccf8284c33b2b090b921131d4f",
+      "genotype": 3,
+      "replicate": 4,
+      "frame_index": 23,
+      "frame_filename": "5d_0031.jpg",
+      "crop_bbox": [
+        1601,
+        781,
+        1840,
+        936
+      ],
+      "crop_size": [
+        239,
+        155
+      ],
+      "tips": [
+        [
+          38,
+          74
+        ],
+        [
+          83,
+          40
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r04",
+      "crop_uid": "3b7a36ccf8284c33b2b090b921131d4f",
+      "genotype": 3,
+      "replicate": 4,
+      "frame_index": 54,
+      "frame_filename": "5d_0062.jpg",
+      "crop_bbox": [
+        1601,
+        781,
+        1840,
+        936
+      ],
+      "crop_size": [
+        239,
+        155
+      ],
+      "tips": [
+        [
+          42,
+          133
+        ],
+        [
+          80,
+          67
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r04",
+      "crop_uid": "3b7a36ccf8284c33b2b090b921131d4f",
+      "genotype": 3,
+      "replicate": 4,
+      "frame_index": 61,
+      "frame_filename": "5d_0069.jpg",
+      "crop_bbox": [
+        1601,
+        781,
+        1840,
+        936
+      ],
+      "crop_size": [
+        239,
+        155
+      ],
+      "tips": [
+        [
+          43,
+          130
+        ],
+        [
+          80,
+          67
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r04",
+      "crop_uid": "3b7a36ccf8284c33b2b090b921131d4f",
+      "genotype": 3,
+      "replicate": 4,
+      "frame_index": 110,
+      "frame_filename": "5d_0118.jpg",
+      "crop_bbox": [
+        1601,
+        781,
+        1840,
+        936
+      ],
+      "crop_size": [
+        239,
+        155
+      ],
+      "tips": [
+        [
+          76,
+          138
+        ],
+        [
+          104,
+          56
+        ],
+        [
+          128,
+          108
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r04",
+      "crop_uid": "3b7a36ccf8284c33b2b090b921131d4f",
+      "genotype": 3,
+      "replicate": 4,
+      "frame_index": 146,
+      "frame_filename": "5d_0154.jpg",
+      "crop_bbox": [
+        1601,
+        781,
+        1840,
+        936
+      ],
+      "crop_size": [
+        239,
+        155
+      ],
+      "tips": [
+        [
+          56,
+          154
+        ],
+        [
+          98,
+          66
+        ],
+        [
+          136,
+          138
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r05",
+      "crop_uid": "90b326bb647547a49320a0a9b422ee39",
+      "genotype": 3,
+      "replicate": 5,
+      "frame_index": 7,
+      "frame_filename": "5d_0015.jpg",
+      "crop_bbox": [
+        1643,
+        936,
+        1905,
+        1109
+      ],
+      "crop_size": [
+        262,
+        173
+      ],
+      "tips": [
+        [
+          112,
+          142
+        ],
+        [
+          71,
+          74
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r05",
+      "crop_uid": "90b326bb647547a49320a0a9b422ee39",
+      "genotype": 3,
+      "replicate": 5,
+      "frame_index": 54,
+      "frame_filename": "5d_0062.jpg",
+      "crop_bbox": [
+        1643,
+        936,
+        1905,
+        1109
+      ],
+      "crop_size": [
+        262,
+        173
+      ],
+      "tips": [
+        [
+          156,
+          130
+        ],
+        [
+          86,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r05",
+      "crop_uid": "90b326bb647547a49320a0a9b422ee39",
+      "genotype": 3,
+      "replicate": 5,
+      "frame_index": 85,
+      "frame_filename": "5d_0093.jpg",
+      "crop_bbox": [
+        1643,
+        936,
+        1905,
+        1109
+      ],
+      "crop_size": [
+        262,
+        173
+      ],
+      "tips": [
+        [
+          177,
+          74
+        ],
+        [
+          76,
+          50
+        ],
+        [
+          115,
+          96
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r05",
+      "crop_uid": "90b326bb647547a49320a0a9b422ee39",
+      "genotype": 3,
+      "replicate": 5,
+      "frame_index": 113,
+      "frame_filename": "5d_0121.jpg",
+      "crop_bbox": [
+        1643,
+        936,
+        1905,
+        1109
+      ],
+      "crop_size": [
+        262,
+        173
+      ],
+      "tips": [
+        [
+          190,
+          26
+        ],
+        [
+          92,
+          45
+        ],
+        [
+          152,
+          82
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r05",
+      "crop_uid": "90b326bb647547a49320a0a9b422ee39",
+      "genotype": 3,
+      "replicate": 5,
+      "frame_index": 126,
+      "frame_filename": "5d_0134.jpg",
+      "crop_bbox": [
+        1643,
+        936,
+        1905,
+        1109
+      ],
+      "crop_size": [
+        262,
+        173
+      ],
+      "tips": [
+        [
+          171,
+          27
+        ],
+        [
+          74,
+          54
+        ],
+        [
+          142,
+          92
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r06",
+      "crop_uid": "299ac29154fd4ded82eadd7d17bb643d",
+      "genotype": 3,
+      "replicate": 6,
+      "frame_index": 27,
+      "frame_filename": "5d_0035.jpg",
+      "crop_bbox": [
+        1911,
+        1127,
+        2213,
+        1354
+      ],
+      "crop_size": [
+        302,
+        227
+      ],
+      "tips": [
+        [
+          246,
+          106
+        ],
+        [
+          178,
+          55
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r06",
+      "crop_uid": "299ac29154fd4ded82eadd7d17bb643d",
+      "genotype": 3,
+      "replicate": 6,
+      "frame_index": 44,
+      "frame_filename": "5d_0052.jpg",
+      "crop_bbox": [
+        1911,
+        1127,
+        2213,
+        1354
+      ],
+      "crop_size": [
+        302,
+        227
+      ],
+      "tips": [
+        [
+          246,
+          136
+        ],
+        [
+          161,
+          64
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r06",
+      "crop_uid": "299ac29154fd4ded82eadd7d17bb643d",
+      "genotype": 3,
+      "replicate": 6,
+      "frame_index": 69,
+      "frame_filename": "5d_0077.jpg",
+      "crop_bbox": [
+        1911,
+        1127,
+        2213,
+        1354
+      ],
+      "crop_size": [
+        302,
+        227
+      ],
+      "tips": [
+        [
+          242,
+          120
+        ],
+        [
+          178,
+          40
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r06",
+      "crop_uid": "299ac29154fd4ded82eadd7d17bb643d",
+      "genotype": 3,
+      "replicate": 6,
+      "frame_index": 91,
+      "frame_filename": "5d_0099.jpg",
+      "crop_bbox": [
+        1911,
+        1127,
+        2213,
+        1354
+      ],
+      "crop_size": [
+        302,
+        227
+      ],
+      "tips": [
+        [
+          222,
+          156
+        ],
+        [
+          154,
+          60
+        ],
+        [
+          134,
+          120
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r06",
+      "crop_uid": "299ac29154fd4ded82eadd7d17bb643d",
+      "genotype": 3,
+      "replicate": 6,
+      "frame_index": 127,
+      "frame_filename": "5d_0135.jpg",
+      "crop_bbox": [
+        1911,
+        1127,
+        2213,
+        1354
+      ],
+      "crop_size": [
+        302,
+        227
+      ],
+      "tips": [
+        [
+          199,
+          150
+        ],
+        [
+          127,
+          28
+        ],
+        [
+          73,
+          120
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r07",
+      "crop_uid": "adfcce00b0ed46dda37c3b2c535bc61e",
+      "genotype": 3,
+      "replicate": 7,
+      "frame_index": 24,
+      "frame_filename": "5d_0032.jpg",
+      "crop_bbox": [
+        1977,
+        1357,
+        2266,
+        1646
+      ],
+      "crop_size": [
+        289,
+        289
+      ],
+      "tips": [
+        [
+          72,
+          196
+        ],
+        [
+          77,
+          132
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r07",
+      "crop_uid": "adfcce00b0ed46dda37c3b2c535bc61e",
+      "genotype": 3,
+      "replicate": 7,
+      "frame_index": 48,
+      "frame_filename": "5d_0056.jpg",
+      "crop_bbox": [
+        1977,
+        1357,
+        2266,
+        1646
+      ],
+      "crop_size": [
+        289,
+        289
+      ],
+      "tips": [
+        [
+          64,
+          234
+        ],
+        [
+          66,
+          138
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r07",
+      "crop_uid": "adfcce00b0ed46dda37c3b2c535bc61e",
+      "genotype": 3,
+      "replicate": 7,
+      "frame_index": 65,
+      "frame_filename": "5d_0073.jpg",
+      "crop_bbox": [
+        1977,
+        1357,
+        2266,
+        1646
+      ],
+      "crop_size": [
+        289,
+        289
+      ],
+      "tips": [
+        [
+          72,
+          218
+        ],
+        [
+          76,
+          118
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r07",
+      "crop_uid": "adfcce00b0ed46dda37c3b2c535bc61e",
+      "genotype": 3,
+      "replicate": 7,
+      "frame_index": 98,
+      "frame_filename": "5d_0106.jpg",
+      "crop_bbox": [
+        1977,
+        1357,
+        2266,
+        1646
+      ],
+      "crop_size": [
+        289,
+        289
+      ],
+      "tips": [
+        [
+          88,
+          246
+        ],
+        [
+          92,
+          128
+        ],
+        [
+          136,
+          168
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r07",
+      "crop_uid": "adfcce00b0ed46dda37c3b2c535bc61e",
+      "genotype": 3,
+      "replicate": 7,
+      "frame_index": 139,
+      "frame_filename": "5d_0147.jpg",
+      "crop_bbox": [
+        1977,
+        1357,
+        2266,
+        1646
+      ],
+      "crop_size": [
+        289,
+        289
+      ],
+      "tips": [
+        [
+          149,
+          241
+        ],
+        [
+          115,
+          97
+        ],
+        [
+          179,
+          144
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r08",
+      "crop_uid": "51031b88e1d54281831b84957417f320",
+      "genotype": 3,
+      "replicate": 8,
+      "frame_index": 19,
+      "frame_filename": "5d_0027.jpg",
+      "crop_bbox": [
+        1744,
+        1324,
+        1968,
+        1664
+      ],
+      "crop_size": [
+        224,
+        340
+      ],
+      "tips": [
+        [
+          46,
+          198
+        ],
+        [
+          62,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r08",
+      "crop_uid": "51031b88e1d54281831b84957417f320",
+      "genotype": 3,
+      "replicate": 8,
+      "frame_index": 30,
+      "frame_filename": "5d_0038.jpg",
+      "crop_bbox": [
+        1744,
+        1324,
+        1968,
+        1664
+      ],
+      "crop_size": [
+        224,
+        340
+      ],
+      "tips": [
+        [
+          50,
+          189
+        ],
+        [
+          73,
+          130
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r08",
+      "crop_uid": "51031b88e1d54281831b84957417f320",
+      "genotype": 3,
+      "replicate": 8,
+      "frame_index": 64,
+      "frame_filename": "5d_0072.jpg",
+      "crop_bbox": [
+        1744,
+        1324,
+        1968,
+        1664
+      ],
+      "crop_size": [
+        224,
+        340
+      ],
+      "tips": [
+        [
+          41,
+          203
+        ],
+        [
+          84,
+          126
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r08",
+      "crop_uid": "51031b88e1d54281831b84957417f320",
+      "genotype": 3,
+      "replicate": 8,
+      "frame_index": 99,
+      "frame_filename": "5d_0107.jpg",
+      "crop_bbox": [
+        1744,
+        1324,
+        1968,
+        1664
+      ],
+      "crop_size": [
+        224,
+        340
+      ],
+      "tips": [
+        [
+          47,
+          219
+        ],
+        [
+          108,
+          128
+        ],
+        [
+          117,
+          185
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r08",
+      "crop_uid": "51031b88e1d54281831b84957417f320",
+      "genotype": 3,
+      "replicate": 8,
+      "frame_index": 129,
+      "frame_filename": "5d_0137.jpg",
+      "crop_bbox": [
+        1744,
+        1324,
+        1968,
+        1664
+      ],
+      "crop_size": [
+        224,
+        340
+      ],
+      "tips": [
+        [
+          52,
+          226
+        ],
+        [
+          128,
+          133
+        ],
+        [
+          135,
+          214
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r09",
+      "crop_uid": "641d1a565561467dba47c0dbd1e27f41",
+      "genotype": 3,
+      "replicate": 9,
+      "frame_index": 24,
+      "frame_filename": "5d_0032.jpg",
+      "crop_bbox": [
+        2001,
+        1762,
+        2347,
+        1998
+      ],
+      "crop_size": [
+        346,
+        236
+      ],
+      "tips": [
+        [
+          186,
+          100
+        ],
+        [
+          136,
+          67
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r09",
+      "crop_uid": "641d1a565561467dba47c0dbd1e27f41",
+      "genotype": 3,
+      "replicate": 9,
+      "frame_index": 40,
+      "frame_filename": "5d_0048.jpg",
+      "crop_bbox": [
+        2001,
+        1762,
+        2347,
+        1998
+      ],
+      "crop_size": [
+        346,
+        236
+      ],
+      "tips": [
+        [
+          213,
+          112
+        ],
+        [
+          116,
+          53
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r09",
+      "crop_uid": "641d1a565561467dba47c0dbd1e27f41",
+      "genotype": 3,
+      "replicate": 9,
+      "frame_index": 79,
+      "frame_filename": "5d_0087.jpg",
+      "crop_bbox": [
+        2001,
+        1762,
+        2347,
+        1998
+      ],
+      "crop_size": [
+        346,
+        236
+      ],
+      "tips": [
+        [
+          227,
+          112
+        ],
+        [
+          128,
+          42
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r09",
+      "crop_uid": "641d1a565561467dba47c0dbd1e27f41",
+      "genotype": 3,
+      "replicate": 9,
+      "frame_index": 101,
+      "frame_filename": "5d_0109.jpg",
+      "crop_bbox": [
+        2001,
+        1762,
+        2347,
+        1998
+      ],
+      "crop_size": [
+        346,
+        236
+      ],
+      "tips": [
+        [
+          244,
+          117
+        ],
+        [
+          130,
+          38
+        ],
+        [
+          176,
+          130
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r09",
+      "crop_uid": "641d1a565561467dba47c0dbd1e27f41",
+      "genotype": 3,
+      "replicate": 9,
+      "frame_index": 144,
+      "frame_filename": "5d_0152.jpg",
+      "crop_bbox": [
+        2001,
+        1762,
+        2347,
+        1998
+      ],
+      "crop_size": [
+        346,
+        236
+      ],
+      "tips": [
+        [
+          215,
+          148
+        ],
+        [
+          64,
+          75
+        ],
+        [
+          148,
+          106
+        ],
+        [
+          146,
+          164
+        ],
+        [
+          110,
+          138
+        ],
+        [
+          122,
+          180
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r10",
+      "crop_uid": "4d650d5892ff4bd9b13899fe6c3d3184",
+      "genotype": 3,
+      "replicate": 10,
+      "frame_index": 5,
+      "frame_filename": "5d_0013.jpg",
+      "crop_bbox": [
+        1774,
+        1783,
+        2081,
+        2022
+      ],
+      "crop_size": [
+        307,
+        239
+      ],
+      "tips": [
+        [
+          148,
+          196
+        ],
+        [
+          108,
+          128
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r10",
+      "crop_uid": "4d650d5892ff4bd9b13899fe6c3d3184",
+      "genotype": 3,
+      "replicate": 10,
+      "frame_index": 53,
+      "frame_filename": "5d_0061.jpg",
+      "crop_bbox": [
+        1774,
+        1783,
+        2081,
+        2022
+      ],
+      "crop_size": [
+        307,
+        239
+      ],
+      "tips": [
+        [
+          140,
+          206
+        ],
+        [
+          79,
+          136
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r10",
+      "crop_uid": "4d650d5892ff4bd9b13899fe6c3d3184",
+      "genotype": 3,
+      "replicate": 10,
+      "frame_index": 64,
+      "frame_filename": "5d_0072.jpg",
+      "crop_bbox": [
+        1774,
+        1783,
+        2081,
+        2022
+      ],
+      "crop_size": [
+        307,
+        239
+      ],
+      "tips": [
+        [
+          142,
+          202
+        ],
+        [
+          85,
+          127
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r10",
+      "crop_uid": "4d650d5892ff4bd9b13899fe6c3d3184",
+      "genotype": 3,
+      "replicate": 10,
+      "frame_index": 102,
+      "frame_filename": "5d_0110.jpg",
+      "crop_bbox": [
+        1774,
+        1783,
+        2081,
+        2022
+      ],
+      "crop_size": [
+        307,
+        239
+      ],
+      "tips": [
+        [
+          216,
+          194
+        ],
+        [
+          160,
+          98
+        ],
+        [
+          228,
+          106
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r10",
+      "crop_uid": "4d650d5892ff4bd9b13899fe6c3d3184",
+      "genotype": 3,
+      "replicate": 10,
+      "frame_index": 141,
+      "frame_filename": "5d_0149.jpg",
+      "crop_bbox": [
+        1774,
+        1783,
+        2081,
+        2022
+      ],
+      "crop_size": [
+        307,
+        239
+      ],
+      "tips": [
+        [
+          182,
+          226
+        ],
+        [
+          146,
+          106
+        ],
+        [
+          216,
+          160
+        ],
+        [
+          196,
+          136
+        ],
+        [
+          224,
+          132
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r11",
+      "crop_uid": "0bf09d3f68934331b1188f69b2b9317b",
+      "genotype": 3,
+      "replicate": 11,
+      "frame_index": 12,
+      "frame_filename": "5d_0020.jpg",
+      "crop_bbox": [
+        1709,
+        2066,
+        2007,
+        2326
+      ],
+      "crop_size": [
+        298,
+        260
+      ],
+      "tips": [
+        [
+          170,
+          174
+        ],
+        [
+          121,
+          93
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r11",
+      "crop_uid": "0bf09d3f68934331b1188f69b2b9317b",
+      "genotype": 3,
+      "replicate": 11,
+      "frame_index": 57,
+      "frame_filename": "5d_0065.jpg",
+      "crop_bbox": [
+        1709,
+        2066,
+        2007,
+        2326
+      ],
+      "crop_size": [
+        298,
+        260
+      ],
+      "tips": [
+        [
+          168,
+          192
+        ],
+        [
+          104,
+          98
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r11",
+      "crop_uid": "0bf09d3f68934331b1188f69b2b9317b",
+      "genotype": 3,
+      "replicate": 11,
+      "frame_index": 70,
+      "frame_filename": "5d_0078.jpg",
+      "crop_bbox": [
+        1709,
+        2066,
+        2007,
+        2326
+      ],
+      "crop_size": [
+        298,
+        260
+      ],
+      "tips": [
+        [
+          162,
+          199
+        ],
+        [
+          108,
+          106
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r11",
+      "crop_uid": "0bf09d3f68934331b1188f69b2b9317b",
+      "genotype": 3,
+      "replicate": 11,
+      "frame_index": 95,
+      "frame_filename": "5d_0103.jpg",
+      "crop_bbox": [
+        1709,
+        2066,
+        2007,
+        2326
+      ],
+      "crop_size": [
+        298,
+        260
+      ],
+      "tips": [
+        [
+          166,
+          210
+        ],
+        [
+          98,
+          104
+        ],
+        [
+          184,
+          122
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r11",
+      "crop_uid": "0bf09d3f68934331b1188f69b2b9317b",
+      "genotype": 3,
+      "replicate": 11,
+      "frame_index": 139,
+      "frame_filename": "5d_0147.jpg",
+      "crop_bbox": [
+        1709,
+        2066,
+        2007,
+        2326
+      ],
+      "crop_size": [
+        298,
+        260
+      ],
+      "tips": [
+        [
+          174,
+          235
+        ],
+        [
+          78,
+          108
+        ],
+        [
+          126,
+          176
+        ],
+        [
+          173,
+          164
+        ],
+        [
+          191,
+          126
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r12",
+      "crop_uid": "a0c0a90841a44760ae243d566c12e41e",
+      "genotype": 3,
+      "replicate": 12,
+      "frame_index": 25,
+      "frame_filename": "5d_0033.jpg",
+      "crop_bbox": [
+        2013,
+        1965,
+        2388,
+        2213
+      ],
+      "crop_size": [
+        375,
+        248
+      ],
+      "tips": [
+        [
+          236,
+          122
+        ],
+        [
+          171,
+          132
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r12",
+      "crop_uid": "a0c0a90841a44760ae243d566c12e41e",
+      "genotype": 3,
+      "replicate": 12,
+      "frame_index": 30,
+      "frame_filename": "5d_0038.jpg",
+      "crop_bbox": [
+        2013,
+        1965,
+        2388,
+        2213
+      ],
+      "crop_size": [
+        375,
+        248
+      ],
+      "tips": [
+        [
+          240,
+          128
+        ],
+        [
+          160,
+          150
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r12",
+      "crop_uid": "a0c0a90841a44760ae243d566c12e41e",
+      "genotype": 3,
+      "replicate": 12,
+      "frame_index": 82,
+      "frame_filename": "5d_0090.jpg",
+      "crop_bbox": [
+        2013,
+        1965,
+        2388,
+        2213
+      ],
+      "crop_size": [
+        375,
+        248
+      ],
+      "tips": [
+        [
+          251,
+          118
+        ],
+        [
+          122,
+          115
+        ],
+        [
+          196,
+          136
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r12",
+      "crop_uid": "a0c0a90841a44760ae243d566c12e41e",
+      "genotype": 3,
+      "replicate": 12,
+      "frame_index": 116,
+      "frame_filename": "5d_0124.jpg",
+      "crop_bbox": [
+        2013,
+        1965,
+        2388,
+        2213
+      ],
+      "crop_size": [
+        375,
+        248
+      ],
+      "tips": [
+        [
+          246,
+          131
+        ],
+        [
+          118,
+          112
+        ],
+        [
+          195,
+          162
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r12",
+      "crop_uid": "a0c0a90841a44760ae243d566c12e41e",
+      "genotype": 3,
+      "replicate": 12,
+      "frame_index": 122,
+      "frame_filename": "5d_0130.jpg",
+      "crop_bbox": [
+        2013,
+        1965,
+        2388,
+        2213
+      ],
+      "crop_size": [
+        375,
+        248
+      ],
+      "tips": [
+        [
+          240,
+          140
+        ],
+        [
+          114,
+          116
+        ],
+        [
+          194,
+          171
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r01",
+      "crop_uid": "22fdc88d09454a618fc1debaf0f8272d",
+      "genotype": 1,
+      "replicate": 1,
+      "frame_index": 7,
+      "frame_filename": "5d_0015.jpg",
+      "crop_bbox": [
+        134,
+        1485,
+        414,
+        1759
+      ],
+      "crop_size": [
+        280,
+        274
+      ],
+      "tips": [
+        [
+          164,
+          222
+        ],
+        [
+          94,
+          184
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r01",
+      "crop_uid": "22fdc88d09454a618fc1debaf0f8272d",
+      "genotype": 1,
+      "replicate": 1,
+      "frame_index": 33,
+      "frame_filename": "5d_0041.jpg",
+      "crop_bbox": [
+        134,
+        1485,
+        414,
+        1759
+      ],
+      "crop_size": [
+        280,
+        274
+      ],
+      "tips": [
+        [
+          136,
+          218
+        ],
+        [
+          70,
+          182
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r01",
+      "crop_uid": "22fdc88d09454a618fc1debaf0f8272d",
+      "genotype": 1,
+      "replicate": 1,
+      "frame_index": 72,
+      "frame_filename": "5d_0080.jpg",
+      "crop_bbox": [
+        134,
+        1485,
+        414,
+        1759
+      ],
+      "crop_size": [
+        280,
+        274
+      ],
+      "tips": [
+        [
+          120,
+          183
+        ],
+        [
+          48,
+          150
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r01",
+      "crop_uid": "22fdc88d09454a618fc1debaf0f8272d",
+      "genotype": 1,
+      "replicate": 1,
+      "frame_index": 88,
+      "frame_filename": "5d_0096.jpg",
+      "crop_bbox": [
+        134,
+        1485,
+        414,
+        1759
+      ],
+      "crop_size": [
+        280,
+        274
+      ],
+      "tips": [
+        [
+          123,
+          185
+        ],
+        [
+          48,
+          150
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r01",
+      "crop_uid": "22fdc88d09454a618fc1debaf0f8272d",
+      "genotype": 1,
+      "replicate": 1,
+      "frame_index": 126,
+      "frame_filename": "5d_0134.jpg",
+      "crop_bbox": [
+        134,
+        1485,
+        414,
+        1759
+      ],
+      "crop_size": [
+        280,
+        274
+      ],
+      "tips": [
+        [
+          130,
+          146
+        ],
+        [
+          53,
+          94
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r02",
+      "crop_uid": "7a40505dbf0a4db2908622cfdc5eb11e",
+      "genotype": 1,
+      "replicate": 2,
+      "frame_index": 18,
+      "frame_filename": "5d_0026.jpg",
+      "crop_bbox": [
+        176,
+        1864,
+        483,
+        2087
+      ],
+      "crop_size": [
+        307,
+        223
+      ],
+      "tips": [
+        [
+          174,
+          172
+        ],
+        [
+          115,
+          105
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r02",
+      "crop_uid": "7a40505dbf0a4db2908622cfdc5eb11e",
+      "genotype": 1,
+      "replicate": 2,
+      "frame_index": 31,
+      "frame_filename": "5d_0039.jpg",
+      "crop_bbox": [
+        176,
+        1864,
+        483,
+        2087
+      ],
+      "crop_size": [
+        307,
+        223
+      ],
+      "tips": [
+        [
+          182,
+          179
+        ],
+        [
+          106,
+          100
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r02",
+      "crop_uid": "7a40505dbf0a4db2908622cfdc5eb11e",
+      "genotype": 1,
+      "replicate": 2,
+      "frame_index": 58,
+      "frame_filename": "5d_0066.jpg",
+      "crop_bbox": [
+        176,
+        1864,
+        483,
+        2087
+      ],
+      "crop_size": [
+        307,
+        223
+      ],
+      "tips": [
+        [
+          214,
+          188
+        ],
+        [
+          119,
+          91
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r02",
+      "crop_uid": "7a40505dbf0a4db2908622cfdc5eb11e",
+      "genotype": 1,
+      "replicate": 2,
+      "frame_index": 97,
+      "frame_filename": "5d_0105.jpg",
+      "crop_bbox": [
+        176,
+        1864,
+        483,
+        2087
+      ],
+      "crop_size": [
+        307,
+        223
+      ],
+      "tips": [
+        [
+          214,
+          180
+        ],
+        [
+          103,
+          89
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r02",
+      "crop_uid": "7a40505dbf0a4db2908622cfdc5eb11e",
+      "genotype": 1,
+      "replicate": 2,
+      "frame_index": 120,
+      "frame_filename": "5d_0128.jpg",
+      "crop_bbox": [
+        176,
+        1864,
+        483,
+        2087
+      ],
+      "crop_size": [
+        307,
+        223
+      ],
+      "tips": [
+        [
+          208,
+          172
+        ],
+        [
+          77,
+          62
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r03",
+      "crop_uid": "29a8a7cbca5c44edb5930e130a464068",
+      "genotype": 1,
+      "replicate": 3,
+      "frame_index": 4,
+      "frame_filename": "5d_0012.jpg",
+      "crop_bbox": [
+        417,
+        1291,
+        650,
+        1509
+      ],
+      "crop_size": [
+        233,
+        218
+      ],
+      "tips": [
+        [
+          64,
+          152
+        ],
+        [
+          100,
+          44
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r03",
+      "crop_uid": "29a8a7cbca5c44edb5930e130a464068",
+      "genotype": 1,
+      "replicate": 3,
+      "frame_index": 48,
+      "frame_filename": "5d_0056.jpg",
+      "crop_bbox": [
+        417,
+        1291,
+        650,
+        1509
+      ],
+      "crop_size": [
+        233,
+        218
+      ],
+      "tips": [
+        [
+          68,
+          148
+        ],
+        [
+          118,
+          46
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r03",
+      "crop_uid": "29a8a7cbca5c44edb5930e130a464068",
+      "genotype": 1,
+      "replicate": 3,
+      "frame_index": 62,
+      "frame_filename": "5d_0070.jpg",
+      "crop_bbox": [
+        417,
+        1291,
+        650,
+        1509
+      ],
+      "crop_size": [
+        233,
+        218
+      ],
+      "tips": [
+        [
+          88,
+          156
+        ],
+        [
+          136,
+          46
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r03",
+      "crop_uid": "29a8a7cbca5c44edb5930e130a464068",
+      "genotype": 1,
+      "replicate": 3,
+      "frame_index": 89,
+      "frame_filename": "5d_0097.jpg",
+      "crop_bbox": [
+        417,
+        1291,
+        650,
+        1509
+      ],
+      "crop_size": [
+        233,
+        218
+      ],
+      "tips": [
+        [
+          78,
+          157
+        ],
+        [
+          132,
+          48
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r03",
+      "crop_uid": "29a8a7cbca5c44edb5930e130a464068",
+      "genotype": 1,
+      "replicate": 3,
+      "frame_index": 130,
+      "frame_filename": "5d_0138.jpg",
+      "crop_bbox": [
+        417,
+        1291,
+        650,
+        1509
+      ],
+      "crop_size": [
+        233,
+        218
+      ],
+      "tips": [
+        [
+          48,
+          162
+        ],
+        [
+          118,
+          48
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r04",
+      "crop_uid": "be1602a8dbe44cbb9090b5b12b76a89b",
+      "genotype": 1,
+      "replicate": 4,
+      "frame_index": 22,
+      "frame_filename": "5d_0030.jpg",
+      "crop_bbox": [
+        417,
+        1574,
+        701,
+        1792
+      ],
+      "crop_size": [
+        284,
+        218
+      ],
+      "tips": [
+        [
+          130,
+          124
+        ],
+        [
+          124,
+          39
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r04",
+      "crop_uid": "be1602a8dbe44cbb9090b5b12b76a89b",
+      "genotype": 1,
+      "replicate": 4,
+      "frame_index": 42,
+      "frame_filename": "5d_0050.jpg",
+      "crop_bbox": [
+        417,
+        1574,
+        701,
+        1792
+      ],
+      "crop_size": [
+        284,
+        218
+      ],
+      "tips": [
+        [
+          130,
+          128
+        ],
+        [
+          118,
+          34
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r04",
+      "crop_uid": "be1602a8dbe44cbb9090b5b12b76a89b",
+      "genotype": 1,
+      "replicate": 4,
+      "frame_index": 81,
+      "frame_filename": "5d_0089.jpg",
+      "crop_bbox": [
+        417,
+        1574,
+        701,
+        1792
+      ],
+      "crop_size": [
+        284,
+        218
+      ],
+      "tips": [
+        [
+          116,
+          135
+        ],
+        [
+          108,
+          30
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r04",
+      "crop_uid": "be1602a8dbe44cbb9090b5b12b76a89b",
+      "genotype": 1,
+      "replicate": 4,
+      "frame_index": 97,
+      "frame_filename": "5d_0105.jpg",
+      "crop_bbox": [
+        417,
+        1574,
+        701,
+        1792
+      ],
+      "crop_size": [
+        284,
+        218
+      ],
+      "tips": [
+        [
+          113,
+          144
+        ],
+        [
+          111,
+          28
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r04",
+      "crop_uid": "be1602a8dbe44cbb9090b5b12b76a89b",
+      "genotype": 1,
+      "replicate": 4,
+      "frame_index": 124,
+      "frame_filename": "5d_0132.jpg",
+      "crop_bbox": [
+        417,
+        1574,
+        701,
+        1792
+      ],
+      "crop_size": [
+        284,
+        218
+      ],
+      "tips": [
+        [
+          90,
+          163
+        ],
+        [
+          82,
+          30
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r05",
+      "crop_uid": "223ccdf5fd744efd9191b5d7331124ab",
+      "genotype": 1,
+      "replicate": 5,
+      "frame_index": 2,
+      "frame_filename": "5d_0010.jpg",
+      "crop_bbox": [
+        459,
+        1980,
+        713,
+        2198
+      ],
+      "crop_size": [
+        254,
+        218
+      ],
+      "tips": [
+        [
+          158,
+          140
+        ],
+        [
+          224,
+          57
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r05",
+      "crop_uid": "223ccdf5fd744efd9191b5d7331124ab",
+      "genotype": 1,
+      "replicate": 5,
+      "frame_index": 53,
+      "frame_filename": "5d_0061.jpg",
+      "crop_bbox": [
+        459,
+        1980,
+        713,
+        2198
+      ],
+      "crop_size": [
+        254,
+        218
+      ],
+      "tips": [
+        [
+          86,
+          156
+        ],
+        [
+          170,
+          62
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r05",
+      "crop_uid": "223ccdf5fd744efd9191b5d7331124ab",
+      "genotype": 1,
+      "replicate": 5,
+      "frame_index": 74,
+      "frame_filename": "5d_0082.jpg",
+      "crop_bbox": [
+        459,
+        1980,
+        713,
+        2198
+      ],
+      "crop_size": [
+        254,
+        218
+      ],
+      "tips": [
+        [
+          71,
+          148
+        ],
+        [
+          153,
+          63
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r05",
+      "crop_uid": "223ccdf5fd744efd9191b5d7331124ab",
+      "genotype": 1,
+      "replicate": 5,
+      "frame_index": 90,
+      "frame_filename": "5d_0098.jpg",
+      "crop_bbox": [
+        459,
+        1980,
+        713,
+        2198
+      ],
+      "crop_size": [
+        254,
+        218
+      ],
+      "tips": [
+        [
+          64,
+          163
+        ],
+        [
+          151,
+          57
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r05",
+      "crop_uid": "223ccdf5fd744efd9191b5d7331124ab",
+      "genotype": 1,
+      "replicate": 5,
+      "frame_index": 121,
+      "frame_filename": "5d_0129.jpg",
+      "crop_bbox": [
+        459,
+        1980,
+        713,
+        2198
+      ],
+      "crop_size": [
+        254,
+        218
+      ],
+      "tips": [
+        [
+          48,
+          173
+        ],
+        [
+          138,
+          64
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r06",
+      "crop_uid": "746e27954fb34c30ab0f6c1c8a8c8842",
+      "genotype": 1,
+      "replicate": 6,
+      "frame_index": 14,
+      "frame_filename": "5d_0022.jpg",
+      "crop_bbox": [
+        182,
+        2183,
+        549,
+        2403
+      ],
+      "crop_size": [
+        367,
+        220
+      ],
+      "tips": [
+        [
+          82,
+          142
+        ],
+        [
+          184,
+          114
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r06",
+      "crop_uid": "746e27954fb34c30ab0f6c1c8a8c8842",
+      "genotype": 1,
+      "replicate": 6,
+      "frame_index": 32,
+      "frame_filename": "5d_0040.jpg",
+      "crop_bbox": [
+        182,
+        2183,
+        549,
+        2403
+      ],
+      "crop_size": [
+        367,
+        220
+      ],
+      "tips": [
+        [
+          122,
+          196
+        ],
+        [
+          128,
+          102
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r06",
+      "crop_uid": "746e27954fb34c30ab0f6c1c8a8c8842",
+      "genotype": 1,
+      "replicate": 6,
+      "frame_index": 60,
+      "frame_filename": "5d_0068.jpg",
+      "crop_bbox": [
+        182,
+        2183,
+        549,
+        2403
+      ],
+      "crop_size": [
+        367,
+        220
+      ],
+      "tips": [
+        [
+          50,
+          147
+        ],
+        [
+          164,
+          124
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r06",
+      "crop_uid": "746e27954fb34c30ab0f6c1c8a8c8842",
+      "genotype": 1,
+      "replicate": 6,
+      "frame_index": 88,
+      "frame_filename": "5d_0096.jpg",
+      "crop_bbox": [
+        182,
+        2183,
+        549,
+        2403
+      ],
+      "crop_size": [
+        367,
+        220
+      ],
+      "tips": [
+        [
+          34,
+          148
+        ],
+        [
+          148,
+          124
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r06",
+      "crop_uid": "746e27954fb34c30ab0f6c1c8a8c8842",
+      "genotype": 1,
+      "replicate": 6,
+      "frame_index": 146,
+      "frame_filename": "5d_0154.jpg",
+      "crop_bbox": [
+        182,
+        2183,
+        549,
+        2403
+      ],
+      "crop_size": [
+        367,
+        220
+      ],
+      "tips": [
+        [
+          164,
+          210
+        ],
+        [
+          184,
+          33
+        ],
+        [
+          150,
+          131
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r07",
+      "crop_uid": "231a124e30084ff2bcfccb6aec27f471",
+      "genotype": 1,
+      "replicate": 7,
+      "frame_index": 7,
+      "frame_filename": "5d_0015.jpg",
+      "crop_bbox": [
+        552,
+        2171,
+        880,
+        2415
+      ],
+      "crop_size": [
+        328,
+        244
+      ],
+      "tips": [
+        [
+          282,
+          136
+        ],
+        [
+          166,
+          90
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r07",
+      "crop_uid": "231a124e30084ff2bcfccb6aec27f471",
+      "genotype": 1,
+      "replicate": 7,
+      "frame_index": 45,
+      "frame_filename": "5d_0053.jpg",
+      "crop_bbox": [
+        552,
+        2171,
+        880,
+        2415
+      ],
+      "crop_size": [
+        328,
+        244
+      ],
+      "tips": [
+        [
+          241,
+          138
+        ],
+        [
+          104,
+          104
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r07",
+      "crop_uid": "231a124e30084ff2bcfccb6aec27f471",
+      "genotype": 1,
+      "replicate": 7,
+      "frame_index": 85,
+      "frame_filename": "5d_0093.jpg",
+      "crop_bbox": [
+        552,
+        2171,
+        880,
+        2415
+      ],
+      "crop_size": [
+        328,
+        244
+      ],
+      "tips": [
+        [
+          233,
+          146
+        ],
+        [
+          92,
+          104
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r07",
+      "crop_uid": "231a124e30084ff2bcfccb6aec27f471",
+      "genotype": 1,
+      "replicate": 7,
+      "frame_index": 90,
+      "frame_filename": "5d_0098.jpg",
+      "crop_bbox": [
+        552,
+        2171,
+        880,
+        2415
+      ],
+      "crop_size": [
+        328,
+        244
+      ],
+      "tips": [
+        [
+          232,
+          142
+        ],
+        [
+          94,
+          104
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r07",
+      "crop_uid": "231a124e30084ff2bcfccb6aec27f471",
+      "genotype": 1,
+      "replicate": 7,
+      "frame_index": 121,
+      "frame_filename": "5d_0129.jpg",
+      "crop_bbox": [
+        552,
+        2171,
+        880,
+        2415
+      ],
+      "crop_size": [
+        328,
+        244
+      ],
+      "tips": [
+        [
+          226,
+          148
+        ],
+        [
+          78,
+          100
+        ],
+        [
+          158,
+          109
+        ],
+        [
+          137,
+          168
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r08",
+      "crop_uid": "22c8eb9bb07c45dcb0c550116d403323",
+      "genotype": 1,
+      "replicate": 8,
+      "frame_index": 2,
+      "frame_filename": "5d_0010.jpg",
+      "crop_bbox": [
+        701,
+        1005,
+        972,
+        1255
+      ],
+      "crop_size": [
+        271,
+        250
+      ],
+      "tips": [
+        [
+          179,
+          130
+        ],
+        [
+          139,
+          48
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r08",
+      "crop_uid": "22c8eb9bb07c45dcb0c550116d403323",
+      "genotype": 1,
+      "replicate": 8,
+      "frame_index": 47,
+      "frame_filename": "5d_0055.jpg",
+      "crop_bbox": [
+        701,
+        1005,
+        972,
+        1255
+      ],
+      "crop_size": [
+        271,
+        250
+      ],
+      "tips": [
+        [
+          176,
+          164
+        ],
+        [
+          152,
+          50
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r08",
+      "crop_uid": "22c8eb9bb07c45dcb0c550116d403323",
+      "genotype": 1,
+      "replicate": 8,
+      "frame_index": 71,
+      "frame_filename": "5d_0079.jpg",
+      "crop_bbox": [
+        701,
+        1005,
+        972,
+        1255
+      ],
+      "crop_size": [
+        271,
+        250
+      ],
+      "tips": [
+        [
+          172,
+          164
+        ],
+        [
+          156,
+          46
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r08",
+      "crop_uid": "22c8eb9bb07c45dcb0c550116d403323",
+      "genotype": 1,
+      "replicate": 8,
+      "frame_index": 110,
+      "frame_filename": "5d_0118.jpg",
+      "crop_bbox": [
+        701,
+        1005,
+        972,
+        1255
+      ],
+      "crop_size": [
+        271,
+        250
+      ],
+      "tips": [
+        [
+          144,
+          206
+        ],
+        [
+          162,
+          38
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r08",
+      "crop_uid": "22c8eb9bb07c45dcb0c550116d403323",
+      "genotype": 1,
+      "replicate": 8,
+      "frame_index": 119,
+      "frame_filename": "5d_0127.jpg",
+      "crop_bbox": [
+        701,
+        1005,
+        972,
+        1255
+      ],
+      "crop_size": [
+        271,
+        250
+      ],
+      "tips": [
+        [
+          126,
+          208
+        ],
+        [
+          156,
+          45
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r09",
+      "crop_uid": "a19da399af174db2a45d88f14e05c7a3",
+      "genotype": 1,
+      "replicate": 9,
+      "frame_index": 27,
+      "frame_filename": "5d_0035.jpg",
+      "crop_bbox": [
+        662,
+        289,
+        951,
+        668
+      ],
+      "crop_size": [
+        289,
+        379
+      ],
+      "tips": [
+        [
+          148,
+          318
+        ],
+        [
+          118,
+          211
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r09",
+      "crop_uid": "a19da399af174db2a45d88f14e05c7a3",
+      "genotype": 1,
+      "replicate": 9,
+      "frame_index": 51,
+      "frame_filename": "5d_0059.jpg",
+      "crop_bbox": [
+        662,
+        289,
+        951,
+        668
+      ],
+      "crop_size": [
+        289,
+        379
+      ],
+      "tips": [
+        [
+          166,
+          340
+        ],
+        [
+          122,
+          216
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r09",
+      "crop_uid": "a19da399af174db2a45d88f14e05c7a3",
+      "genotype": 1,
+      "replicate": 9,
+      "frame_index": 66,
+      "frame_filename": "5d_0074.jpg",
+      "crop_bbox": [
+        662,
+        289,
+        951,
+        668
+      ],
+      "crop_size": [
+        289,
+        379
+      ],
+      "tips": [
+        [
+          166,
+          332
+        ],
+        [
+          112,
+          204
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r09",
+      "crop_uid": "a19da399af174db2a45d88f14e05c7a3",
+      "genotype": 1,
+      "replicate": 9,
+      "frame_index": 112,
+      "frame_filename": "5d_0120.jpg",
+      "crop_bbox": [
+        662,
+        289,
+        951,
+        668
+      ],
+      "crop_size": [
+        289,
+        379
+      ],
+      "tips": [
+        [
+          166,
+          246
+        ],
+        [
+          112,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r09",
+      "crop_uid": "a19da399af174db2a45d88f14e05c7a3",
+      "genotype": 1,
+      "replicate": 9,
+      "frame_index": 145,
+      "frame_filename": "5d_0153.jpg",
+      "crop_bbox": [
+        662,
+        289,
+        951,
+        668
+      ],
+      "crop_size": [
+        289,
+        379
+      ],
+      "tips": [
+        [
+          142,
+          192
+        ],
+        [
+          88,
+          55
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r10",
+      "crop_uid": "35481d95601e4413b2dfdbc19b75087e",
+      "genotype": 1,
+      "replicate": 10,
+      "frame_index": 17,
+      "frame_filename": "5d_0025.jpg",
+      "crop_bbox": [
+        45,
+        737,
+        325,
+        987
+      ],
+      "crop_size": [
+        280,
+        250
+      ],
+      "tips": [
+        [
+          160,
+          162
+        ],
+        [
+          226,
+          130
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r10",
+      "crop_uid": "35481d95601e4413b2dfdbc19b75087e",
+      "genotype": 1,
+      "replicate": 10,
+      "frame_index": 44,
+      "frame_filename": "5d_0052.jpg",
+      "crop_bbox": [
+        45,
+        737,
+        325,
+        987
+      ],
+      "crop_size": [
+        280,
+        250
+      ],
+      "tips": [
+        [
+          124,
+          172
+        ],
+        [
+          218,
+          96
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r10",
+      "crop_uid": "35481d95601e4413b2dfdbc19b75087e",
+      "genotype": 1,
+      "replicate": 10,
+      "frame_index": 67,
+      "frame_filename": "5d_0075.jpg",
+      "crop_bbox": [
+        45,
+        737,
+        325,
+        987
+      ],
+      "crop_size": [
+        280,
+        250
+      ],
+      "tips": [
+        [
+          106,
+          176
+        ],
+        [
+          200,
+          95
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r10",
+      "crop_uid": "35481d95601e4413b2dfdbc19b75087e",
+      "genotype": 1,
+      "replicate": 10,
+      "frame_index": 92,
+      "frame_filename": "5d_0100.jpg",
+      "crop_bbox": [
+        45,
+        737,
+        325,
+        987
+      ],
+      "crop_size": [
+        280,
+        250
+      ],
+      "tips": [
+        [
+          83,
+          184
+        ],
+        [
+          183,
+          90
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r10",
+      "crop_uid": "35481d95601e4413b2dfdbc19b75087e",
+      "genotype": 1,
+      "replicate": 10,
+      "frame_index": 133,
+      "frame_filename": "5d_0141.jpg",
+      "crop_bbox": [
+        45,
+        737,
+        325,
+        987
+      ],
+      "crop_size": [
+        280,
+        250
+      ],
+      "tips": [
+        [
+          40,
+          183
+        ],
+        [
+          160,
+          77
+        ],
+        [
+          181,
+          88
+        ],
+        [
+          81,
+          114
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r11",
+      "crop_uid": "22eaad25f1544f479e13a938824eea57",
+      "genotype": 1,
+      "replicate": 11,
+      "frame_index": 11,
+      "frame_filename": "5d_0019.jpg",
+      "crop_bbox": [
+        230,
+        704,
+        510,
+        987
+      ],
+      "crop_size": [
+        280,
+        283
+      ],
+      "tips": [
+        [
+          146,
+          172
+        ],
+        [
+          229,
+          108
+        ],
+        [
+          62,
+          164
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r11",
+      "crop_uid": "22eaad25f1544f479e13a938824eea57",
+      "genotype": 1,
+      "replicate": 11,
+      "frame_index": 42,
+      "frame_filename": "5d_0050.jpg",
+      "crop_bbox": [
+        230,
+        704,
+        510,
+        987
+      ],
+      "crop_size": [
+        280,
+        283
+      ],
+      "tips": [
+        [
+          102,
+          145
+        ],
+        [
+          189,
+          89
+        ],
+        [
+          30,
+          133
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r11",
+      "crop_uid": "22eaad25f1544f479e13a938824eea57",
+      "genotype": 1,
+      "replicate": 11,
+      "frame_index": 74,
+      "frame_filename": "5d_0082.jpg",
+      "crop_bbox": [
+        230,
+        704,
+        510,
+        987
+      ],
+      "crop_size": [
+        280,
+        283
+      ],
+      "tips": [
+        [
+          68,
+          127
+        ],
+        [
+          139,
+          84
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r11",
+      "crop_uid": "22eaad25f1544f479e13a938824eea57",
+      "genotype": 1,
+      "replicate": 11,
+      "frame_index": 98,
+      "frame_filename": "5d_0106.jpg",
+      "crop_bbox": [
+        230,
+        704,
+        510,
+        987
+      ],
+      "crop_size": [
+        280,
+        283
+      ],
+      "tips": [
+        [
+          39,
+          128
+        ],
+        [
+          169,
+          70
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r11",
+      "crop_uid": "22eaad25f1544f479e13a938824eea57",
+      "genotype": 1,
+      "replicate": 11,
+      "frame_index": 133,
+      "frame_filename": "5d_0141.jpg",
+      "crop_bbox": [
+        230,
+        704,
+        510,
+        987
+      ],
+      "crop_size": [
+        280,
+        283
+      ],
+      "tips": [
+        [
+          1,
+          116
+        ],
+        [
+          106,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r12",
+      "crop_uid": "bd3fcfcda3354ce39dd6980a7cb2f60c",
+      "genotype": 1,
+      "replicate": 12,
+      "frame_index": 14,
+      "frame_filename": "5d_0022.jpg",
+      "crop_bbox": [
+        12,
+        501,
+        265,
+        754
+      ],
+      "crop_size": [
+        253,
+        253
+      ],
+      "tips": [
+        [
+          78,
+          154
+        ],
+        [
+          108,
+          44
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r12",
+      "crop_uid": "bd3fcfcda3354ce39dd6980a7cb2f60c",
+      "genotype": 1,
+      "replicate": 12,
+      "frame_index": 34,
+      "frame_filename": "5d_0042.jpg",
+      "crop_bbox": [
+        12,
+        501,
+        265,
+        754
+      ],
+      "crop_size": [
+        253,
+        253
+      ],
+      "tips": [
+        [
+          80,
+          146
+        ],
+        [
+          108,
+          40
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r12",
+      "crop_uid": "bd3fcfcda3354ce39dd6980a7cb2f60c",
+      "genotype": 1,
+      "replicate": 12,
+      "frame_index": 70,
+      "frame_filename": "5d_0078.jpg",
+      "crop_bbox": [
+        12,
+        501,
+        265,
+        754
+      ],
+      "crop_size": [
+        253,
+        253
+      ],
+      "tips": [
+        [
+          97,
+          163
+        ],
+        [
+          103,
+          35
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r12",
+      "crop_uid": "bd3fcfcda3354ce39dd6980a7cb2f60c",
+      "genotype": 1,
+      "replicate": 12,
+      "frame_index": 102,
+      "frame_filename": "5d_0110.jpg",
+      "crop_bbox": [
+        12,
+        501,
+        265,
+        754
+      ],
+      "crop_size": [
+        253,
+        253
+      ],
+      "tips": [
+        [
+          128,
+          188
+        ],
+        [
+          106,
+          50
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r12",
+      "crop_uid": "bd3fcfcda3354ce39dd6980a7cb2f60c",
+      "genotype": 1,
+      "replicate": 12,
+      "frame_index": 126,
+      "frame_filename": "5d_0134.jpg",
+      "crop_bbox": [
+        12,
+        501,
+        265,
+        754
+      ],
+      "crop_size": [
+        253,
+        253
+      ],
+      "tips": [
+        [
+          98,
+          187
+        ],
+        [
+          75,
+          45
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r13",
+      "crop_uid": "9201ac9bf52a4dfb8279affd7f8e3e43",
+      "genotype": 1,
+      "replicate": 13,
+      "frame_index": 23,
+      "frame_filename": "5d_0031.jpg",
+      "crop_bbox": [
+        104,
+        328,
+        313,
+        555
+      ],
+      "crop_size": [
+        209,
+        227
+      ],
+      "tips": [
+        [
+          80,
+          154
+        ],
+        [
+          116,
+          88
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r13",
+      "crop_uid": "9201ac9bf52a4dfb8279affd7f8e3e43",
+      "genotype": 1,
+      "replicate": 13,
+      "frame_index": 53,
+      "frame_filename": "5d_0061.jpg",
+      "crop_bbox": [
+        104,
+        328,
+        313,
+        555
+      ],
+      "crop_size": [
+        209,
+        227
+      ],
+      "tips": [
+        [
+          71,
+          170
+        ],
+        [
+          108,
+          86
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r13",
+      "crop_uid": "9201ac9bf52a4dfb8279affd7f8e3e43",
+      "genotype": 1,
+      "replicate": 13,
+      "frame_index": 68,
+      "frame_filename": "5d_0076.jpg",
+      "crop_bbox": [
+        104,
+        328,
+        313,
+        555
+      ],
+      "crop_size": [
+        209,
+        227
+      ],
+      "tips": [
+        [
+          60,
+          146
+        ],
+        [
+          104,
+          75
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r13",
+      "crop_uid": "9201ac9bf52a4dfb8279affd7f8e3e43",
+      "genotype": 1,
+      "replicate": 13,
+      "frame_index": 104,
+      "frame_filename": "5d_0112.jpg",
+      "crop_bbox": [
+        104,
+        328,
+        313,
+        555
+      ],
+      "crop_size": [
+        209,
+        227
+      ],
+      "tips": [
+        [
+          70,
+          158
+        ],
+        [
+          113,
+          74
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r13",
+      "crop_uid": "9201ac9bf52a4dfb8279affd7f8e3e43",
+      "genotype": 1,
+      "replicate": 13,
+      "frame_index": 128,
+      "frame_filename": "5d_0136.jpg",
+      "crop_bbox": [
+        104,
+        328,
+        313,
+        555
+      ],
+      "crop_size": [
+        209,
+        227
+      ],
+      "tips": [
+        [
+          48,
+          148
+        ],
+        [
+          94,
+          64
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r14",
+      "crop_uid": "bf5f5a52e4ce4bf1a3662a103064207a",
+      "genotype": 1,
+      "replicate": 14,
+      "frame_index": 10,
+      "frame_filename": "5d_0018.jpg",
+      "crop_bbox": [
+        307,
+        176,
+        599,
+        435
+      ],
+      "crop_size": [
+        292,
+        259
+      ],
+      "tips": [
+        [
+          164,
+          197
+        ],
+        [
+          181,
+          104
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r14",
+      "crop_uid": "bf5f5a52e4ce4bf1a3662a103064207a",
+      "genotype": 1,
+      "replicate": 14,
+      "frame_index": 55,
+      "frame_filename": "5d_0063.jpg",
+      "crop_bbox": [
+        307,
+        176,
+        599,
+        435
+      ],
+      "crop_size": [
+        292,
+        259
+      ],
+      "tips": [
+        [
+          128,
+          195
+        ],
+        [
+          169,
+          90
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r14",
+      "crop_uid": "bf5f5a52e4ce4bf1a3662a103064207a",
+      "genotype": 1,
+      "replicate": 14,
+      "frame_index": 83,
+      "frame_filename": "5d_0091.jpg",
+      "crop_bbox": [
+        307,
+        176,
+        599,
+        435
+      ],
+      "crop_size": [
+        292,
+        259
+      ],
+      "tips": [
+        [
+          114,
+          186
+        ],
+        [
+          159,
+          78
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r14",
+      "crop_uid": "bf5f5a52e4ce4bf1a3662a103064207a",
+      "genotype": 1,
+      "replicate": 14,
+      "frame_index": 112,
+      "frame_filename": "5d_0120.jpg",
+      "crop_bbox": [
+        307,
+        176,
+        599,
+        435
+      ],
+      "crop_size": [
+        292,
+        259
+      ],
+      "tips": [
+        [
+          102,
+          192
+        ],
+        [
+          158,
+          68
+        ],
+        [
+          107,
+          112
+        ]
+      ]
+    },
+    {
+      "plant_id": "g1_r14",
+      "crop_uid": "bf5f5a52e4ce4bf1a3662a103064207a",
+      "genotype": 1,
+      "replicate": 14,
+      "frame_index": 120,
+      "frame_filename": "5d_0128.jpg",
+      "crop_bbox": [
+        307,
+        176,
+        599,
+        435
+      ],
+      "crop_size": [
+        292,
+        259
+      ],
+      "tips": [
+        [
+          86,
+          180
+        ],
+        [
+          150,
+          62
+        ],
+        [
+          104,
+          104
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "487c2fa58cf84912b57788585b909cb1",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 12,
+      "frame_filename": "5d_0020.jpg",
+      "crop_bbox": [
+        781,
+        1297,
+        1020,
+        1440
+      ],
+      "crop_size": [
+        239,
+        143
+      ],
+      "tips": [
+        [
+          94,
+          94
+        ],
+        [
+          110,
+          58
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "487c2fa58cf84912b57788585b909cb1",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 35,
+      "frame_filename": "5d_0043.jpg",
+      "crop_bbox": [
+        781,
+        1297,
+        1020,
+        1440
+      ],
+      "crop_size": [
+        239,
+        143
+      ],
+      "tips": [
+        [
+          87,
+          103
+        ],
+        [
+          112,
+          59
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "487c2fa58cf84912b57788585b909cb1",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 68,
+      "frame_filename": "5d_0076.jpg",
+      "crop_bbox": [
+        781,
+        1297,
+        1020,
+        1440
+      ],
+      "crop_size": [
+        239,
+        143
+      ],
+      "tips": [
+        [
+          72,
+          96
+        ],
+        [
+          108,
+          52
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "487c2fa58cf84912b57788585b909cb1",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 101,
+      "frame_filename": "5d_0109.jpg",
+      "crop_bbox": [
+        781,
+        1297,
+        1020,
+        1440
+      ],
+      "crop_size": [
+        239,
+        143
+      ],
+      "tips": [
+        [
+          64,
+          104
+        ],
+        [
+          118,
+          54
+        ],
+        [
+          96,
+          84
+        ],
+        [
+          75,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "487c2fa58cf84912b57788585b909cb1",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 119,
+      "frame_filename": "5d_0127.jpg",
+      "crop_bbox": [
+        781,
+        1297,
+        1020,
+        1440
+      ],
+      "crop_size": [
+        239,
+        143
+      ],
+      "tips": [
+        [
+          51,
+          102
+        ],
+        [
+          118,
+          48
+        ],
+        [
+          68,
+          61
+        ],
+        [
+          88,
+          81
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r02",
+      "crop_uid": "5dac8f8f25d244b29da18f59af6d74ec",
+      "genotype": 2,
+      "replicate": 2,
+      "frame_index": 18,
+      "frame_filename": "5d_0026.jpg",
+      "crop_bbox": [
+        808,
+        1506,
+        1097,
+        1697
+      ],
+      "crop_size": [
+        289,
+        191
+      ],
+      "tips": [
+        [
+          100,
+          88
+        ],
+        [
+          150,
+          90
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r02",
+      "crop_uid": "5dac8f8f25d244b29da18f59af6d74ec",
+      "genotype": 2,
+      "replicate": 2,
+      "frame_index": 43,
+      "frame_filename": "5d_0051.jpg",
+      "crop_bbox": [
+        808,
+        1506,
+        1097,
+        1697
+      ],
+      "crop_size": [
+        289,
+        191
+      ],
+      "tips": [
+        [
+          98,
+          91
+        ],
+        [
+          158,
+          110
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r02",
+      "crop_uid": "5dac8f8f25d244b29da18f59af6d74ec",
+      "genotype": 2,
+      "replicate": 2,
+      "frame_index": 60,
+      "frame_filename": "5d_0068.jpg",
+      "crop_bbox": [
+        808,
+        1506,
+        1097,
+        1697
+      ],
+      "crop_size": [
+        289,
+        191
+      ],
+      "tips": [
+        [
+          97,
+          85
+        ],
+        [
+          158,
+          114
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r02",
+      "crop_uid": "5dac8f8f25d244b29da18f59af6d74ec",
+      "genotype": 2,
+      "replicate": 2,
+      "frame_index": 95,
+      "frame_filename": "5d_0103.jpg",
+      "crop_bbox": [
+        808,
+        1506,
+        1097,
+        1697
+      ],
+      "crop_size": [
+        289,
+        191
+      ],
+      "tips": [
+        [
+          92,
+          82
+        ],
+        [
+          153,
+          128
+        ],
+        [
+          142,
+          82
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r02",
+      "crop_uid": "5dac8f8f25d244b29da18f59af6d74ec",
+      "genotype": 2,
+      "replicate": 2,
+      "frame_index": 127,
+      "frame_filename": "5d_0135.jpg",
+      "crop_bbox": [
+        808,
+        1506,
+        1097,
+        1697
+      ],
+      "crop_size": [
+        289,
+        191
+      ],
+      "tips": [
+        [
+          74,
+          76
+        ],
+        [
+          138,
+          136
+        ],
+        [
+          133,
+          83
+        ],
+        [
+          98,
+          116
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "58687c0cbc714b178a7df9109655eb29",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 22,
+      "frame_filename": "5d_0030.jpg",
+      "crop_bbox": [
+        808,
+        1840,
+        1062,
+        2063
+      ],
+      "crop_size": [
+        254,
+        223
+      ],
+      "tips": [
+        [
+          166,
+          134
+        ],
+        [
+          187,
+          156
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "58687c0cbc714b178a7df9109655eb29",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 35,
+      "frame_filename": "5d_0043.jpg",
+      "crop_bbox": [
+        808,
+        1840,
+        1062,
+        2063
+      ],
+      "crop_size": [
+        254,
+        223
+      ],
+      "tips": [
+        [
+          137,
+          120
+        ],
+        [
+          167,
+          150
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "58687c0cbc714b178a7df9109655eb29",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 81,
+      "frame_filename": "5d_0089.jpg",
+      "crop_bbox": [
+        808,
+        1840,
+        1062,
+        2063
+      ],
+      "crop_size": [
+        254,
+        223
+      ],
+      "tips": [
+        [
+          126,
+          108
+        ],
+        [
+          173,
+          146
+        ],
+        [
+          134,
+          155
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "58687c0cbc714b178a7df9109655eb29",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 104,
+      "frame_filename": "5d_0112.jpg",
+      "crop_bbox": [
+        808,
+        1840,
+        1062,
+        2063
+      ],
+      "crop_size": [
+        254,
+        223
+      ],
+      "tips": [
+        [
+          112,
+          106
+        ],
+        [
+          166,
+          140
+        ],
+        [
+          126,
+          159
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "58687c0cbc714b178a7df9109655eb29",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 135,
+      "frame_filename": "5d_0143.jpg",
+      "crop_bbox": [
+        808,
+        1840,
+        1062,
+        2063
+      ],
+      "crop_size": [
+        254,
+        223
+      ],
+      "tips": [
+        [
+          90,
+          110
+        ],
+        [
+          152,
+          148
+        ],
+        [
+          101,
+          172
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "0d2d8646d5a04dd28bf6945dc3726218",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 16,
+      "frame_filename": "5d_0024.jpg",
+      "crop_bbox": [
+        933,
+        2132,
+        1172,
+        2427
+      ],
+      "crop_size": [
+        239,
+        295
+      ],
+      "tips": [
+        [
+          47,
+          181
+        ],
+        [
+          86,
+          147
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "0d2d8646d5a04dd28bf6945dc3726218",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 31,
+      "frame_filename": "5d_0039.jpg",
+      "crop_bbox": [
+        933,
+        2132,
+        1172,
+        2427
+      ],
+      "crop_size": [
+        239,
+        295
+      ],
+      "tips": [
+        [
+          39,
+          174
+        ],
+        [
+          97,
+          136
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "0d2d8646d5a04dd28bf6945dc3726218",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 65,
+      "frame_filename": "5d_0073.jpg",
+      "crop_bbox": [
+        933,
+        2132,
+        1172,
+        2427
+      ],
+      "crop_size": [
+        239,
+        295
+      ],
+      "tips": [
+        [
+          116,
+          133
+        ],
+        [
+          178,
+          116
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "0d2d8646d5a04dd28bf6945dc3726218",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 101,
+      "frame_filename": "5d_0109.jpg",
+      "crop_bbox": [
+        933,
+        2132,
+        1172,
+        2427
+      ],
+      "crop_size": [
+        239,
+        295
+      ],
+      "tips": [
+        [
+          76,
+          140
+        ],
+        [
+          160,
+          142
+        ],
+        [
+          110,
+          159
+        ],
+        [
+          112,
+          117
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "0d2d8646d5a04dd28bf6945dc3726218",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 131,
+      "frame_filename": "5d_0139.jpg",
+      "crop_bbox": [
+        933,
+        2132,
+        1172,
+        2427
+      ],
+      "crop_size": [
+        239,
+        295
+      ],
+      "tips": [
+        [
+          53,
+          138
+        ],
+        [
+          148,
+          152
+        ],
+        [
+          89,
+          163
+        ],
+        [
+          96,
+          112
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r05",
+      "crop_uid": "7c545745b8074e79aa3b89f031394763",
+      "genotype": 2,
+      "replicate": 5,
+      "frame_index": 4,
+      "frame_filename": "5d_0012.jpg",
+      "crop_bbox": [
+        1127,
+        1264,
+        1342,
+        1494
+      ],
+      "crop_size": [
+        215,
+        230
+      ],
+      "tips": [
+        [
+          56,
+          108
+        ],
+        [
+          82,
+          73
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r05",
+      "crop_uid": "7c545745b8074e79aa3b89f031394763",
+      "genotype": 2,
+      "replicate": 5,
+      "frame_index": 40,
+      "frame_filename": "5d_0048.jpg",
+      "crop_bbox": [
+        1127,
+        1264,
+        1342,
+        1494
+      ],
+      "crop_size": [
+        215,
+        230
+      ],
+      "tips": [
+        [
+          46,
+          116
+        ],
+        [
+          83,
+          68
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r05",
+      "crop_uid": "7c545745b8074e79aa3b89f031394763",
+      "genotype": 2,
+      "replicate": 5,
+      "frame_index": 60,
+      "frame_filename": "5d_0068.jpg",
+      "crop_bbox": [
+        1127,
+        1264,
+        1342,
+        1494
+      ],
+      "crop_size": [
+        215,
+        230
+      ],
+      "tips": [
+        [
+          46,
+          116
+        ],
+        [
+          82,
+          70
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r05",
+      "crop_uid": "7c545745b8074e79aa3b89f031394763",
+      "genotype": 2,
+      "replicate": 5,
+      "frame_index": 94,
+      "frame_filename": "5d_0102.jpg",
+      "crop_bbox": [
+        1127,
+        1264,
+        1342,
+        1494
+      ],
+      "crop_size": [
+        215,
+        230
+      ],
+      "tips": [
+        [
+          46,
+          118
+        ],
+        [
+          96,
+          64
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r05",
+      "crop_uid": "7c545745b8074e79aa3b89f031394763",
+      "genotype": 2,
+      "replicate": 5,
+      "frame_index": 117,
+      "frame_filename": "5d_0125.jpg",
+      "crop_bbox": [
+        1127,
+        1264,
+        1342,
+        1494
+      ],
+      "crop_size": [
+        215,
+        230
+      ],
+      "tips": [
+        [
+          45,
+          114
+        ],
+        [
+          96,
+          59
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r06",
+      "crop_uid": "bb540ba6814b471aac17282c8fd78a67",
+      "genotype": 2,
+      "replicate": 6,
+      "frame_index": 22,
+      "frame_filename": "5d_0030.jpg",
+      "crop_bbox": [
+        1148,
+        1542,
+        1351,
+        1721
+      ],
+      "crop_size": [
+        203,
+        179
+      ],
+      "tips": [
+        [
+          102,
+          116
+        ],
+        [
+          114,
+          78
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r06",
+      "crop_uid": "bb540ba6814b471aac17282c8fd78a67",
+      "genotype": 2,
+      "replicate": 6,
+      "frame_index": 57,
+      "frame_filename": "5d_0065.jpg",
+      "crop_bbox": [
+        1148,
+        1542,
+        1351,
+        1721
+      ],
+      "crop_size": [
+        203,
+        179
+      ],
+      "tips": [
+        [
+          90,
+          116
+        ],
+        [
+          106,
+          76
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r06",
+      "crop_uid": "bb540ba6814b471aac17282c8fd78a67",
+      "genotype": 2,
+      "replicate": 6,
+      "frame_index": 63,
+      "frame_filename": "5d_0071.jpg",
+      "crop_bbox": [
+        1148,
+        1542,
+        1351,
+        1721
+      ],
+      "crop_size": [
+        203,
+        179
+      ],
+      "tips": [
+        [
+          86,
+          116
+        ],
+        [
+          102,
+          76
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r06",
+      "crop_uid": "bb540ba6814b471aac17282c8fd78a67",
+      "genotype": 2,
+      "replicate": 6,
+      "frame_index": 92,
+      "frame_filename": "5d_0100.jpg",
+      "crop_bbox": [
+        1148,
+        1542,
+        1351,
+        1721
+      ],
+      "crop_size": [
+        203,
+        179
+      ],
+      "tips": [
+        [
+          84,
+          120
+        ],
+        [
+          100,
+          80
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r06",
+      "crop_uid": "bb540ba6814b471aac17282c8fd78a67",
+      "genotype": 2,
+      "replicate": 6,
+      "frame_index": 125,
+      "frame_filename": "5d_0133.jpg",
+      "crop_bbox": [
+        1148,
+        1542,
+        1351,
+        1721
+      ],
+      "crop_size": [
+        203,
+        179
+      ],
+      "tips": [
+        [
+          65,
+          124
+        ],
+        [
+          81,
+          83
+        ],
+        [
+          84,
+          108
+        ],
+        [
+          59,
+          102
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r07",
+      "crop_uid": "1b2803bd7ae248d28dd454a9f3ed01db",
+      "genotype": 2,
+      "replicate": 7,
+      "frame_index": 54,
+      "frame_filename": "5d_0062.jpg",
+      "crop_bbox": [
+        1130,
+        1840,
+        1351,
+        2043
+      ],
+      "crop_size": [
+        221,
+        203
+      ],
+      "tips": [
+        [
+          122,
+          121
+        ],
+        [
+          76,
+          95
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r07",
+      "crop_uid": "1b2803bd7ae248d28dd454a9f3ed01db",
+      "genotype": 2,
+      "replicate": 7,
+      "frame_index": 82,
+      "frame_filename": "5d_0090.jpg",
+      "crop_bbox": [
+        1130,
+        1840,
+        1351,
+        2043
+      ],
+      "crop_size": [
+        221,
+        203
+      ],
+      "tips": [
+        [
+          122,
+          126
+        ],
+        [
+          72,
+          95
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r07",
+      "crop_uid": "1b2803bd7ae248d28dd454a9f3ed01db",
+      "genotype": 2,
+      "replicate": 7,
+      "frame_index": 95,
+      "frame_filename": "5d_0103.jpg",
+      "crop_bbox": [
+        1130,
+        1840,
+        1351,
+        2043
+      ],
+      "crop_size": [
+        221,
+        203
+      ],
+      "tips": [
+        [
+          123,
+          133
+        ],
+        [
+          70,
+          95
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r07",
+      "crop_uid": "1b2803bd7ae248d28dd454a9f3ed01db",
+      "genotype": 2,
+      "replicate": 7,
+      "frame_index": 125,
+      "frame_filename": "5d_0133.jpg",
+      "crop_bbox": [
+        1130,
+        1840,
+        1351,
+        2043
+      ],
+      "crop_size": [
+        221,
+        203
+      ],
+      "tips": [
+        [
+          109,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r08",
+      "crop_uid": "078ad06be97645fe8dab313fcd52bc01",
+      "genotype": 2,
+      "replicate": 8,
+      "frame_index": 17,
+      "frame_filename": "5d_0025.jpg",
+      "crop_bbox": [
+        1223,
+        2132,
+        1467,
+        2347
+      ],
+      "crop_size": [
+        244,
+        215
+      ],
+      "tips": [
+        [
+          106,
+          148
+        ],
+        [
+          62,
+          143
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r08",
+      "crop_uid": "078ad06be97645fe8dab313fcd52bc01",
+      "genotype": 2,
+      "replicate": 8,
+      "frame_index": 34,
+      "frame_filename": "5d_0042.jpg",
+      "crop_bbox": [
+        1223,
+        2132,
+        1467,
+        2347
+      ],
+      "crop_size": [
+        244,
+        215
+      ],
+      "tips": [
+        [
+          117,
+          147
+        ],
+        [
+          54,
+          142
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r08",
+      "crop_uid": "078ad06be97645fe8dab313fcd52bc01",
+      "genotype": 2,
+      "replicate": 8,
+      "frame_index": 75,
+      "frame_filename": "5d_0083.jpg",
+      "crop_bbox": [
+        1223,
+        2132,
+        1467,
+        2347
+      ],
+      "crop_size": [
+        244,
+        215
+      ],
+      "tips": [
+        [
+          112,
+          158
+        ],
+        [
+          42,
+          136
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r08",
+      "crop_uid": "078ad06be97645fe8dab313fcd52bc01",
+      "genotype": 2,
+      "replicate": 8,
+      "frame_index": 95,
+      "frame_filename": "5d_0103.jpg",
+      "crop_bbox": [
+        1223,
+        2132,
+        1467,
+        2347
+      ],
+      "crop_size": [
+        244,
+        215
+      ],
+      "tips": [
+        [
+          108,
+          166
+        ],
+        [
+          40,
+          126
+        ],
+        [
+          88,
+          132
+        ],
+        [
+          74,
+          163
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r08",
+      "crop_uid": "078ad06be97645fe8dab313fcd52bc01",
+      "genotype": 2,
+      "replicate": 8,
+      "frame_index": 119,
+      "frame_filename": "5d_0127.jpg",
+      "crop_bbox": [
+        1223,
+        2132,
+        1467,
+        2347
+      ],
+      "crop_size": [
+        244,
+        215
+      ],
+      "tips": [
+        [
+          105,
+          170
+        ],
+        [
+          43,
+          112
+        ],
+        [
+          92,
+          124
+        ],
+        [
+          70,
+          155
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r09",
+      "crop_uid": "20874fc8e61d4b87a69d7c4b06facd05",
+      "genotype": 2,
+      "replicate": 9,
+      "frame_index": 21,
+      "frame_filename": "5d_0029.jpg",
+      "crop_bbox": [
+        1485,
+        2075,
+        1670,
+        2371
+      ],
+      "crop_size": [
+        185,
+        296
+      ],
+      "tips": [
+        [
+          96,
+          194
+        ],
+        [
+          104,
+          149
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r09",
+      "crop_uid": "20874fc8e61d4b87a69d7c4b06facd05",
+      "genotype": 2,
+      "replicate": 9,
+      "frame_index": 55,
+      "frame_filename": "5d_0063.jpg",
+      "crop_bbox": [
+        1485,
+        2075,
+        1670,
+        2371
+      ],
+      "crop_size": [
+        185,
+        296
+      ],
+      "tips": [
+        [
+          88,
+          218
+        ],
+        [
+          107,
+          147
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r09",
+      "crop_uid": "20874fc8e61d4b87a69d7c4b06facd05",
+      "genotype": 2,
+      "replicate": 9,
+      "frame_index": 69,
+      "frame_filename": "5d_0077.jpg",
+      "crop_bbox": [
+        1485,
+        2075,
+        1670,
+        2371
+      ],
+      "crop_size": [
+        185,
+        296
+      ],
+      "tips": [
+        [
+          83,
+          218
+        ],
+        [
+          104,
+          152
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r09",
+      "crop_uid": "20874fc8e61d4b87a69d7c4b06facd05",
+      "genotype": 2,
+      "replicate": 9,
+      "frame_index": 91,
+      "frame_filename": "5d_0099.jpg",
+      "crop_bbox": [
+        1485,
+        2075,
+        1670,
+        2371
+      ],
+      "crop_size": [
+        185,
+        296
+      ],
+      "tips": [
+        [
+          77,
+          228
+        ],
+        [
+          111,
+          152
+        ],
+        [
+          80,
+          177
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r09",
+      "crop_uid": "20874fc8e61d4b87a69d7c4b06facd05",
+      "genotype": 2,
+      "replicate": 9,
+      "frame_index": 137,
+      "frame_filename": "5d_0145.jpg",
+      "crop_bbox": [
+        1485,
+        2075,
+        1670,
+        2371
+      ],
+      "crop_size": [
+        185,
+        296
+      ],
+      "tips": [
+        [
+          117,
+          216
+        ],
+        [
+          174,
+          142
+        ],
+        [
+          125,
+          154
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r10",
+      "crop_uid": "6ab5427218d147129bdfc45f5b536cbf",
+      "genotype": 2,
+      "replicate": 10,
+      "frame_index": 23,
+      "frame_filename": "5d_0031.jpg",
+      "crop_bbox": [
+        1443,
+        1777,
+        1667,
+        2022
+      ],
+      "crop_size": [
+        224,
+        245
+      ],
+      "tips": [
+        [
+          130,
+          164
+        ],
+        [
+          124,
+          130
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r10",
+      "crop_uid": "6ab5427218d147129bdfc45f5b536cbf",
+      "genotype": 2,
+      "replicate": 10,
+      "frame_index": 39,
+      "frame_filename": "5d_0047.jpg",
+      "crop_bbox": [
+        1443,
+        1777,
+        1667,
+        2022
+      ],
+      "crop_size": [
+        224,
+        245
+      ],
+      "tips": [
+        [
+          122,
+          163
+        ],
+        [
+          119,
+          121
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r10",
+      "crop_uid": "6ab5427218d147129bdfc45f5b536cbf",
+      "genotype": 2,
+      "replicate": 10,
+      "frame_index": 72,
+      "frame_filename": "5d_0080.jpg",
+      "crop_bbox": [
+        1443,
+        1777,
+        1667,
+        2022
+      ],
+      "crop_size": [
+        224,
+        245
+      ],
+      "tips": [
+        [
+          112,
+          168
+        ],
+        [
+          115,
+          114
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r10",
+      "crop_uid": "6ab5427218d147129bdfc45f5b536cbf",
+      "genotype": 2,
+      "replicate": 10,
+      "frame_index": 114,
+      "frame_filename": "5d_0122.jpg",
+      "crop_bbox": [
+        1443,
+        1777,
+        1667,
+        2022
+      ],
+      "crop_size": [
+        224,
+        245
+      ],
+      "tips": [
+        [
+          98,
+          173
+        ],
+        [
+          118,
+          114
+        ],
+        [
+          86,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r10",
+      "crop_uid": "6ab5427218d147129bdfc45f5b536cbf",
+      "genotype": 2,
+      "replicate": 10,
+      "frame_index": 145,
+      "frame_filename": "5d_0153.jpg",
+      "crop_bbox": [
+        1443,
+        1777,
+        1667,
+        2022
+      ],
+      "crop_size": [
+        224,
+        245
+      ],
+      "tips": [
+        [
+          62,
+          188
+        ],
+        [
+          98,
+          126
+        ],
+        [
+          83,
+          154
+        ],
+        [
+          54,
+          142
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r11",
+      "crop_uid": "6c907c400a894739b11170fe06d9fc1e",
+      "genotype": 2,
+      "replicate": 11,
+      "frame_index": 25,
+      "frame_filename": "5d_0033.jpg",
+      "crop_bbox": [
+        1419,
+        1425,
+        1661,
+        1637
+      ],
+      "crop_size": [
+        242,
+        212
+      ],
+      "tips": [
+        [
+          102,
+          128
+        ],
+        [
+          142,
+          99
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r11",
+      "crop_uid": "6c907c400a894739b11170fe06d9fc1e",
+      "genotype": 2,
+      "replicate": 11,
+      "frame_index": 30,
+      "frame_filename": "5d_0038.jpg",
+      "crop_bbox": [
+        1419,
+        1425,
+        1661,
+        1637
+      ],
+      "crop_size": [
+        242,
+        212
+      ],
+      "tips": [
+        [
+          100,
+          130
+        ],
+        [
+          138,
+          98
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r11",
+      "crop_uid": "6c907c400a894739b11170fe06d9fc1e",
+      "genotype": 2,
+      "replicate": 11,
+      "frame_index": 67,
+      "frame_filename": "5d_0075.jpg",
+      "crop_bbox": [
+        1419,
+        1425,
+        1661,
+        1637
+      ],
+      "crop_size": [
+        242,
+        212
+      ],
+      "tips": [
+        [
+          86,
+          130
+        ],
+        [
+          134,
+          94
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r11",
+      "crop_uid": "6c907c400a894739b11170fe06d9fc1e",
+      "genotype": 2,
+      "replicate": 11,
+      "frame_index": 112,
+      "frame_filename": "5d_0120.jpg",
+      "crop_bbox": [
+        1419,
+        1425,
+        1661,
+        1637
+      ],
+      "crop_size": [
+        242,
+        212
+      ],
+      "tips": [
+        [
+          68,
+          127
+        ],
+        [
+          136,
+          94
+        ],
+        [
+          114,
+          128
+        ],
+        [
+          98,
+          101
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r11",
+      "crop_uid": "6c907c400a894739b11170fe06d9fc1e",
+      "genotype": 2,
+      "replicate": 11,
+      "frame_index": 143,
+      "frame_filename": "5d_0151.jpg",
+      "crop_bbox": [
+        1419,
+        1425,
+        1661,
+        1637
+      ],
+      "crop_size": [
+        242,
+        212
+      ],
+      "tips": [
+        [
+          36,
+          131
+        ],
+        [
+          113,
+          108
+        ],
+        [
+          88,
+          145
+        ],
+        [
+          73,
+          101
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r12",
+      "crop_uid": "28dd7ca80f1a4d4c9fb75097b99ed07a",
+      "genotype": 2,
+      "replicate": 12,
+      "frame_index": 13,
+      "frame_filename": "5d_0021.jpg",
+      "crop_bbox": [
+        1348,
+        1172,
+        1577,
+        1372
+      ],
+      "crop_size": [
+        229,
+        200
+      ],
+      "tips": [
+        [
+          100,
+          107
+        ],
+        [
+          134,
+          123
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r12",
+      "crop_uid": "28dd7ca80f1a4d4c9fb75097b99ed07a",
+      "genotype": 2,
+      "replicate": 12,
+      "frame_index": 56,
+      "frame_filename": "5d_0064.jpg",
+      "crop_bbox": [
+        1348,
+        1172,
+        1577,
+        1372
+      ],
+      "crop_size": [
+        229,
+        200
+      ],
+      "tips": [
+        [
+          82,
+          96
+        ],
+        [
+          132,
+          130
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r12",
+      "crop_uid": "28dd7ca80f1a4d4c9fb75097b99ed07a",
+      "genotype": 2,
+      "replicate": 12,
+      "frame_index": 62,
+      "frame_filename": "5d_0070.jpg",
+      "crop_bbox": [
+        1348,
+        1172,
+        1577,
+        1372
+      ],
+      "crop_size": [
+        229,
+        200
+      ],
+      "tips": [
+        [
+          86,
+          96
+        ],
+        [
+          132,
+          128
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r12",
+      "crop_uid": "28dd7ca80f1a4d4c9fb75097b99ed07a",
+      "genotype": 2,
+      "replicate": 12,
+      "frame_index": 116,
+      "frame_filename": "5d_0124.jpg",
+      "crop_bbox": [
+        1348,
+        1172,
+        1577,
+        1372
+      ],
+      "crop_size": [
+        229,
+        200
+      ],
+      "tips": [
+        [
+          71,
+          82
+        ],
+        [
+          129,
+          130
+        ],
+        [
+          116,
+          94
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r12",
+      "crop_uid": "28dd7ca80f1a4d4c9fb75097b99ed07a",
+      "genotype": 2,
+      "replicate": 12,
+      "frame_index": 140,
+      "frame_filename": "5d_0148.jpg",
+      "crop_bbox": [
+        1348,
+        1172,
+        1577,
+        1372
+      ],
+      "crop_size": [
+        229,
+        200
+      ],
+      "tips": [
+        [
+          48,
+          86
+        ],
+        [
+          110,
+          146
+        ],
+        [
+          72,
+          120
+        ],
+        [
+          100,
+          92
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r13",
+      "crop_uid": "8bba025ef67f415b92b3bf675ee02bbc",
+      "genotype": 2,
+      "replicate": 13,
+      "frame_index": 4,
+      "frame_filename": "5d_0012.jpg",
+      "crop_bbox": [
+        993,
+        462,
+        1166,
+        686
+      ],
+      "crop_size": [
+        173,
+        224
+      ],
+      "tips": [
+        [
+          92,
+          84
+        ],
+        [
+          87,
+          139
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r13",
+      "crop_uid": "8bba025ef67f415b92b3bf675ee02bbc",
+      "genotype": 2,
+      "replicate": 13,
+      "frame_index": 43,
+      "frame_filename": "5d_0051.jpg",
+      "crop_bbox": [
+        993,
+        462,
+        1166,
+        686
+      ],
+      "crop_size": [
+        173,
+        224
+      ],
+      "tips": [
+        [
+          90,
+          78
+        ],
+        [
+          66,
+          142
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r13",
+      "crop_uid": "8bba025ef67f415b92b3bf675ee02bbc",
+      "genotype": 2,
+      "replicate": 13,
+      "frame_index": 86,
+      "frame_filename": "5d_0094.jpg",
+      "crop_bbox": [
+        993,
+        462,
+        1166,
+        686
+      ],
+      "crop_size": [
+        173,
+        224
+      ],
+      "tips": [
+        [
+          96,
+          74
+        ],
+        [
+          50,
+          144
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r13",
+      "crop_uid": "8bba025ef67f415b92b3bf675ee02bbc",
+      "genotype": 2,
+      "replicate": 13,
+      "frame_index": 89,
+      "frame_filename": "5d_0097.jpg",
+      "crop_bbox": [
+        993,
+        462,
+        1166,
+        686
+      ],
+      "crop_size": [
+        173,
+        224
+      ],
+      "tips": [
+        [
+          96,
+          76
+        ],
+        [
+          50,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r13",
+      "crop_uid": "8bba025ef67f415b92b3bf675ee02bbc",
+      "genotype": 2,
+      "replicate": 13,
+      "frame_index": 129,
+      "frame_filename": "5d_0137.jpg",
+      "crop_bbox": [
+        993,
+        462,
+        1166,
+        686
+      ],
+      "crop_size": [
+        173,
+        224
+      ],
+      "tips": [
+        [
+          88,
+          83
+        ],
+        [
+          24,
+          149
+        ],
+        [
+          78,
+          126
+        ],
+        [
+          46,
+          104
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r14",
+      "crop_uid": "d1069aa513fd4263b2dd4f5990abd88b",
+      "genotype": 2,
+      "replicate": 14,
+      "frame_index": 2,
+      "frame_filename": "5d_0010.jpg",
+      "crop_bbox": [
+        1231,
+        140,
+        1434,
+        352
+      ],
+      "crop_size": [
+        203,
+        212
+      ],
+      "tips": [
+        [
+          102,
+          112
+        ],
+        [
+          148,
+          112
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r14",
+      "crop_uid": "d1069aa513fd4263b2dd4f5990abd88b",
+      "genotype": 2,
+      "replicate": 14,
+      "frame_index": 51,
+      "frame_filename": "5d_0059.jpg",
+      "crop_bbox": [
+        1231,
+        140,
+        1434,
+        352
+      ],
+      "crop_size": [
+        203,
+        212
+      ],
+      "tips": [
+        [
+          96,
+          94
+        ],
+        [
+          134,
+          115
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r14",
+      "crop_uid": "d1069aa513fd4263b2dd4f5990abd88b",
+      "genotype": 2,
+      "replicate": 14,
+      "frame_index": 59,
+      "frame_filename": "5d_0067.jpg",
+      "crop_bbox": [
+        1231,
+        140,
+        1434,
+        352
+      ],
+      "crop_size": [
+        203,
+        212
+      ],
+      "tips": [
+        [
+          97,
+          86
+        ],
+        [
+          133,
+          113
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r14",
+      "crop_uid": "d1069aa513fd4263b2dd4f5990abd88b",
+      "genotype": 2,
+      "replicate": 14,
+      "frame_index": 100,
+      "frame_filename": "5d_0108.jpg",
+      "crop_bbox": [
+        1231,
+        140,
+        1434,
+        352
+      ],
+      "crop_size": [
+        203,
+        212
+      ],
+      "tips": [
+        [
+          95,
+          78
+        ],
+        [
+          128,
+          120
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r14",
+      "crop_uid": "d1069aa513fd4263b2dd4f5990abd88b",
+      "genotype": 2,
+      "replicate": 14,
+      "frame_index": 132,
+      "frame_filename": "5d_0140.jpg",
+      "crop_bbox": [
+        1231,
+        140,
+        1434,
+        352
+      ],
+      "crop_size": [
+        203,
+        212
+      ],
+      "tips": [
+        [
+          104,
+          114
+        ],
+        [
+          81,
+          80
+        ],
+        [
+          107,
+          92
+        ],
+        [
+          70,
+          112
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r15",
+      "crop_uid": "6b66d1f778da4b9e9e87236ae586c229",
+      "genotype": 2,
+      "replicate": 15,
+      "frame_index": 11,
+      "frame_filename": "5d_0019.jpg",
+      "crop_bbox": [
+        1020,
+        757,
+        1223,
+        975
+      ],
+      "crop_size": [
+        203,
+        218
+      ],
+      "tips": [
+        [
+          108,
+          60
+        ],
+        [
+          87,
+          92
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r15",
+      "crop_uid": "6b66d1f778da4b9e9e87236ae586c229",
+      "genotype": 2,
+      "replicate": 15,
+      "frame_index": 34,
+      "frame_filename": "5d_0042.jpg",
+      "crop_bbox": [
+        1020,
+        757,
+        1223,
+        975
+      ],
+      "crop_size": [
+        203,
+        218
+      ],
+      "tips": [
+        [
+          106,
+          118
+        ],
+        [
+          71,
+          88
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r15",
+      "crop_uid": "6b66d1f778da4b9e9e87236ae586c229",
+      "genotype": 2,
+      "replicate": 15,
+      "frame_index": 69,
+      "frame_filename": "5d_0077.jpg",
+      "crop_bbox": [
+        1020,
+        757,
+        1223,
+        975
+      ],
+      "crop_size": [
+        203,
+        218
+      ],
+      "tips": [
+        [
+          94,
+          116
+        ],
+        [
+          68,
+          76
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r15",
+      "crop_uid": "6b66d1f778da4b9e9e87236ae586c229",
+      "genotype": 2,
+      "replicate": 15,
+      "frame_index": 102,
+      "frame_filename": "5d_0110.jpg",
+      "crop_bbox": [
+        1020,
+        757,
+        1223,
+        975
+      ],
+      "crop_size": [
+        203,
+        218
+      ],
+      "tips": [
+        [
+          101,
+          132
+        ],
+        [
+          75,
+          80
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r15",
+      "crop_uid": "6b66d1f778da4b9e9e87236ae586c229",
+      "genotype": 2,
+      "replicate": 15,
+      "frame_index": 131,
+      "frame_filename": "5d_0139.jpg",
+      "crop_bbox": [
+        1020,
+        757,
+        1223,
+        975
+      ],
+      "crop_size": [
+        203,
+        218
+      ],
+      "tips": [
+        [
+          82,
+          144
+        ],
+        [
+          62,
+          78
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r16",
+      "crop_uid": "1b2eccb0c49a43da8811c279af77a62c",
+      "genotype": 2,
+      "replicate": 16,
+      "frame_index": 14,
+      "frame_filename": "5d_0022.jpg",
+      "crop_bbox": [
+        1070,
+        1032,
+        1276,
+        1223
+      ],
+      "crop_size": [
+        206,
+        191
+      ],
+      "tips": [
+        [
+          125,
+          102
+        ],
+        [
+          76,
+          70
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r16",
+      "crop_uid": "1b2eccb0c49a43da8811c279af77a62c",
+      "genotype": 2,
+      "replicate": 16,
+      "frame_index": 42,
+      "frame_filename": "5d_0050.jpg",
+      "crop_bbox": [
+        1070,
+        1032,
+        1276,
+        1223
+      ],
+      "crop_size": [
+        206,
+        191
+      ],
+      "tips": [
+        [
+          134,
+          114
+        ],
+        [
+          73,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r16",
+      "crop_uid": "1b2eccb0c49a43da8811c279af77a62c",
+      "genotype": 2,
+      "replicate": 16,
+      "frame_index": 85,
+      "frame_filename": "5d_0093.jpg",
+      "crop_bbox": [
+        1070,
+        1032,
+        1276,
+        1223
+      ],
+      "crop_size": [
+        206,
+        191
+      ],
+      "tips": [
+        [
+          129,
+          122
+        ],
+        [
+          68,
+          63
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r16",
+      "crop_uid": "1b2eccb0c49a43da8811c279af77a62c",
+      "genotype": 2,
+      "replicate": 16,
+      "frame_index": 105,
+      "frame_filename": "5d_0113.jpg",
+      "crop_bbox": [
+        1070,
+        1032,
+        1276,
+        1223
+      ],
+      "crop_size": [
+        206,
+        191
+      ],
+      "tips": [
+        [
+          124,
+          130
+        ],
+        [
+          68,
+          60
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r16",
+      "crop_uid": "1b2eccb0c49a43da8811c279af77a62c",
+      "genotype": 2,
+      "replicate": 16,
+      "frame_index": 128,
+      "frame_filename": "5d_0136.jpg",
+      "crop_bbox": [
+        1070,
+        1032,
+        1276,
+        1223
+      ],
+      "crop_size": [
+        206,
+        191
+      ],
+      "tips": [
+        [
+          113,
+          136
+        ],
+        [
+          56,
+          62
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r17",
+      "crop_uid": "cdb58321d6ff42bca848e9f03ed241e0",
+      "genotype": 2,
+      "replicate": 17,
+      "frame_index": 28,
+      "frame_filename": "5d_0036.jpg",
+      "crop_bbox": [
+        1294,
+        978,
+        1533,
+        1184
+      ],
+      "crop_size": [
+        239,
+        206
+      ],
+      "tips": [
+        [
+          78,
+          89
+        ],
+        [
+          162,
+          89
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r17",
+      "crop_uid": "cdb58321d6ff42bca848e9f03ed241e0",
+      "genotype": 2,
+      "replicate": 17,
+      "frame_index": 36,
+      "frame_filename": "5d_0044.jpg",
+      "crop_bbox": [
+        1294,
+        978,
+        1533,
+        1184
+      ],
+      "crop_size": [
+        239,
+        206
+      ],
+      "tips": [
+        [
+          80,
+          89
+        ],
+        [
+          168,
+          96
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r17",
+      "crop_uid": "cdb58321d6ff42bca848e9f03ed241e0",
+      "genotype": 2,
+      "replicate": 17,
+      "frame_index": 77,
+      "frame_filename": "5d_0085.jpg",
+      "crop_bbox": [
+        1294,
+        978,
+        1533,
+        1184
+      ],
+      "crop_size": [
+        239,
+        206
+      ],
+      "tips": [
+        [
+          72,
+          80
+        ],
+        [
+          162,
+          98
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r17",
+      "crop_uid": "cdb58321d6ff42bca848e9f03ed241e0",
+      "genotype": 2,
+      "replicate": 17,
+      "frame_index": 88,
+      "frame_filename": "5d_0096.jpg",
+      "crop_bbox": [
+        1294,
+        978,
+        1533,
+        1184
+      ],
+      "crop_size": [
+        239,
+        206
+      ],
+      "tips": [
+        [
+          73,
+          78
+        ],
+        [
+          163,
+          100
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r17",
+      "crop_uid": "cdb58321d6ff42bca848e9f03ed241e0",
+      "genotype": 2,
+      "replicate": 17,
+      "frame_index": 127,
+      "frame_filename": "5d_0135.jpg",
+      "crop_bbox": [
+        1294,
+        978,
+        1533,
+        1184
+      ],
+      "crop_size": [
+        239,
+        206
+      ],
+      "tips": [
+        [
+          54,
+          77
+        ],
+        [
+          147,
+          114
+        ],
+        [
+          108,
+          74
+        ],
+        [
+          94,
+          109
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r18",
+      "crop_uid": "bdd672a2be5147a1aafe8cb6f70a6267",
+      "genotype": 2,
+      "replicate": 18,
+      "frame_index": 17,
+      "frame_filename": "5d_0025.jpg",
+      "crop_bbox": [
+        1261,
+        692,
+        1479,
+        892
+      ],
+      "crop_size": [
+        218,
+        200
+      ],
+      "tips": [
+        [
+          101,
+          127
+        ],
+        [
+          150,
+          106
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r18",
+      "crop_uid": "bdd672a2be5147a1aafe8cb6f70a6267",
+      "genotype": 2,
+      "replicate": 18,
+      "frame_index": 50,
+      "frame_filename": "5d_0058.jpg",
+      "crop_bbox": [
+        1261,
+        692,
+        1479,
+        892
+      ],
+      "crop_size": [
+        218,
+        200
+      ],
+      "tips": [
+        [
+          88,
+          119
+        ],
+        [
+          159,
+          114
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r18",
+      "crop_uid": "bdd672a2be5147a1aafe8cb6f70a6267",
+      "genotype": 2,
+      "replicate": 18,
+      "frame_index": 80,
+      "frame_filename": "5d_0088.jpg",
+      "crop_bbox": [
+        1261,
+        692,
+        1479,
+        892
+      ],
+      "crop_size": [
+        218,
+        200
+      ],
+      "tips": [
+        [
+          82,
+          113
+        ],
+        [
+          158,
+          114
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r18",
+      "crop_uid": "bdd672a2be5147a1aafe8cb6f70a6267",
+      "genotype": 2,
+      "replicate": 18,
+      "frame_index": 98,
+      "frame_filename": "5d_0106.jpg",
+      "crop_bbox": [
+        1261,
+        692,
+        1479,
+        892
+      ],
+      "crop_size": [
+        218,
+        200
+      ],
+      "tips": [
+        [
+          75,
+          106
+        ],
+        [
+          150,
+          124
+        ],
+        [
+          108,
+          120
+        ],
+        [
+          118,
+          95
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r18",
+      "crop_uid": "bdd672a2be5147a1aafe8cb6f70a6267",
+      "genotype": 2,
+      "replicate": 18,
+      "frame_index": 146,
+      "frame_filename": "5d_0154.jpg",
+      "crop_bbox": [
+        1261,
+        692,
+        1479,
+        892
+      ],
+      "crop_size": [
+        218,
+        200
+      ],
+      "tips": [
+        [
+          40,
+          109
+        ],
+        [
+          110,
+          137
+        ],
+        [
+          72,
+          138
+        ],
+        [
+          92,
+          97
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r19",
+      "crop_uid": "5456b957fcbd46ac8c5144f500b0a26a",
+      "genotype": 2,
+      "replicate": 19,
+      "frame_index": 1,
+      "frame_filename": "5d_0009.jpg",
+      "crop_bbox": [
+        1220,
+        456,
+        1467,
+        653
+      ],
+      "crop_size": [
+        247,
+        197
+      ],
+      "tips": [
+        [
+          132,
+          111
+        ],
+        [
+          151,
+          69
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r19",
+      "crop_uid": "5456b957fcbd46ac8c5144f500b0a26a",
+      "genotype": 2,
+      "replicate": 19,
+      "frame_index": 40,
+      "frame_filename": "5d_0048.jpg",
+      "crop_bbox": [
+        1220,
+        456,
+        1467,
+        653
+      ],
+      "crop_size": [
+        247,
+        197
+      ],
+      "tips": [
+        [
+          114,
+          108
+        ],
+        [
+          150,
+          65
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r19",
+      "crop_uid": "5456b957fcbd46ac8c5144f500b0a26a",
+      "genotype": 2,
+      "replicate": 19,
+      "frame_index": 81,
+      "frame_filename": "5d_0089.jpg",
+      "crop_bbox": [
+        1220,
+        456,
+        1467,
+        653
+      ],
+      "crop_size": [
+        247,
+        197
+      ],
+      "tips": [
+        [
+          102,
+          98
+        ],
+        [
+          150,
+          59
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r19",
+      "crop_uid": "5456b957fcbd46ac8c5144f500b0a26a",
+      "genotype": 2,
+      "replicate": 19,
+      "frame_index": 115,
+      "frame_filename": "5d_0123.jpg",
+      "crop_bbox": [
+        1220,
+        456,
+        1467,
+        653
+      ],
+      "crop_size": [
+        247,
+        197
+      ],
+      "tips": [
+        [
+          94,
+          86
+        ],
+        [
+          140,
+          55
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r19",
+      "crop_uid": "5456b957fcbd46ac8c5144f500b0a26a",
+      "genotype": 2,
+      "replicate": 19,
+      "frame_index": 136,
+      "frame_filename": "5d_0144.jpg",
+      "crop_bbox": [
+        1220,
+        456,
+        1467,
+        653
+      ],
+      "crop_size": [
+        247,
+        197
+      ],
+      "tips": [
+        [
+          38,
+          90
+        ],
+        [
+          74,
+          44
+        ]
+      ]
+    }
+  ]
+}

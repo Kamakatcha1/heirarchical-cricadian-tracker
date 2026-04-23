@@ -1,0 +1,14 @@
+{
+  "measured": "2026-04-17T00:13:31",
+  "dataset_id": "3t_003",
+  "model_name": "m3t_003",
+  "output_name": "m3t_003",
+  "interval_min": 30,
+  "num_tips": 2,
+  "min_dist": 20,
+  "max_frames": 0,
+  "genotype_filter": [],
+  "img_size": 128,
+  "tip_distance_csv": "/storage1/fs1/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv",
+  "plots_dir": "/storage1/fs1/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/plots"
+}

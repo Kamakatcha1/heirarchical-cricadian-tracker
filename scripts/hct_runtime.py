@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import os
+import sys
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -40,7 +41,7 @@ MASK_DEFAULTS = {
     "aug_brightness_alpha_max": 1.1,
     "aug_brightness_beta_min": -10.0,
     "aug_brightness_beta_max": 10.0,
-    "aug_seed": 0,
+    "aug_seed": None,
 }
 
 TRAIN_DEFAULTS = {
@@ -98,7 +99,7 @@ class DatasetInfo:
         if not self.has_annotations:
             return 0
         data = load_json(self.annotation_path)
-        return int(data.get("images_per_folder", data.get("images_per_plant", 0)) or 0)
+        return int(data.get("images_per_plant", data.get("images_per_folder", 0)) or 0)
 
     @property
     def fully_annotated_plants(self) -> int:
@@ -130,6 +131,19 @@ class ModelInfo:
     val_dice: float | None
     datasets: list[str]
     created: str | None
+
+
+@dataclass
+class MeasurementRunInfo:
+    dataset_id: str
+    name: str
+    run_dir: Path
+    csv_path: Path
+    plots_dir: Path
+    info_path: Path | None
+    model_name: str | None
+    measured: str | None
+    legacy: bool = False
 
 
 def repo_root() -> Path:
@@ -183,8 +197,20 @@ def dataset_output_dir(dataset_id: str) -> Path:
     return dataset_dir(dataset_id) / "output"
 
 
-def dataset_measurements_path(dataset_id: str) -> Path:
-    return dataset_output_dir(dataset_id) / "tip_distances.csv"
+def dataset_measurement_run_dir(dataset_id: str, run_name: str) -> Path:
+    return dataset_output_dir(dataset_id) / run_name
+
+
+def dataset_measurements_path(dataset_id: str, run_name: str | None = None) -> Path:
+    if run_name is None:
+        return dataset_output_dir(dataset_id) / "tip_distances.csv"
+    return dataset_measurement_run_dir(dataset_id, run_name) / "tip_distances.csv"
+
+
+def dataset_measurement_plots_dir(dataset_id: str, run_name: str | None = None) -> Path:
+    if run_name is None:
+        return dataset_output_dir(dataset_id) / "plots"
+    return dataset_measurement_run_dir(dataset_id, run_name) / "plots"
 
 
 def ensure_layout() -> None:
@@ -197,8 +223,15 @@ def load_json(path: Path, default: Any | None = None) -> Any:
         if default is not None:
             return default
         raise FileNotFoundError(path)
-    with open(path) as f:
-        return json.load(f)
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except json.JSONDecodeError as exc:
+        message = f"Malformed JSON in {path}: {exc}"
+        if default is not None:
+            print(f"WARNING: {message}", file=sys.stderr)
+            return default
+        raise ValueError(message) from exc
 
 
 def write_json(path: Path, data: Any) -> None:
@@ -265,13 +298,68 @@ def discover_datasets() -> list[DatasetInfo]:
                 output_dir=output_dir,
                 has_crops=crop_path.exists(),
                 has_annotations=annotation_path.exists(),
-                has_measurements=(output_dir / "tip_distances.csv").exists(),
+                has_measurements=bool(discover_measurement_runs_for_dir(output_dir, ds_id)),
                 plants=plants if isinstance(plants, list) else [],
                 frames=frames if isinstance(frames, list) else [],
                 annotations=annotations if isinstance(annotations, list) else [],
             )
         )
     return infos
+
+
+def discover_measurement_runs_for_dir(output_dir: Path, dataset_id: str) -> list[MeasurementRunInfo]:
+    runs: list[MeasurementRunInfo] = []
+    if not output_dir.exists():
+        return runs
+
+    legacy_csv = output_dir / "tip_distances.csv"
+    if legacy_csv.exists():
+        info_path = output_dir / "measure_info.json"
+        info = load_json(info_path, {}) if info_path.exists() else {}
+        runs.append(
+            MeasurementRunInfo(
+                dataset_id=dataset_id,
+                name="legacy",
+                run_dir=output_dir,
+                csv_path=legacy_csv,
+                plots_dir=output_dir / "plots",
+                info_path=info_path if info_path.exists() else None,
+                model_name=str(info.get("model_name")) if info.get("model_name") else None,
+                measured=str(info.get("measured")) if info.get("measured") else None,
+                legacy=True,
+            )
+        )
+
+    for run_dir in sorted(path for path in output_dir.iterdir() if path.is_dir()):
+        csv_path = run_dir / "tip_distances.csv"
+        if not csv_path.exists():
+            continue
+        info_path = run_dir / "measure_info.json"
+        info = load_json(info_path, {}) if info_path.exists() else {}
+        runs.append(
+            MeasurementRunInfo(
+                dataset_id=dataset_id,
+                name=run_dir.name,
+                run_dir=run_dir,
+                csv_path=csv_path,
+                plots_dir=run_dir / "plots",
+                info_path=info_path if info_path.exists() else None,
+                model_name=str(info.get("model_name")) if info.get("model_name") else run_dir.name,
+                measured=str(info.get("measured")) if info.get("measured") else None,
+                legacy=False,
+            )
+        )
+    return runs
+
+
+def discover_measurement_runs(dataset: DatasetInfo | str) -> list[MeasurementRunInfo]:
+    if isinstance(dataset, DatasetInfo):
+        dataset_id = dataset.dataset_id
+        output_dir = dataset.output_dir
+    else:
+        dataset_id = dataset
+        output_dir = dataset_output_dir(dataset)
+    return discover_measurement_runs_for_dir(output_dir, dataset_id)
 
 
 def discover_models() -> list[ModelInfo]:
@@ -434,7 +522,7 @@ def parse_dataset_ids_arg(text: str) -> list[str]:
 def parse_int_csv(text: str) -> list[int]:
     values = []
     for part in parse_csv_items(text):
-        values.append(int(part))
+        values.append(int(part.strip()))
     return values
 
 
@@ -444,9 +532,28 @@ def parse_name_mapping(text: str) -> dict[int, str]:
         if "=" not in item:
             raise argparse.ArgumentTypeError("expected genotype mappings like 1=M82,2=Penelli")
         key, value = item.split("=", 1)
-        mapping[int(key.strip())] = value.strip()
+        try:
+            mapping[int(key.strip())] = value.strip()
+        except ValueError as exc:
+            raise argparse.ArgumentTypeError(f"invalid genotype key in mapping: {key.strip()}") from exc
     if not mapping:
         raise argparse.ArgumentTypeError("expected at least one genotype mapping")
+    return mapping
+
+
+def parse_string_mapping(text: str) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for item in parse_csv_items(text):
+        if "=" not in item:
+            raise argparse.ArgumentTypeError("expected mappings like dataset=output_name")
+        key, value = item.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if not key or not value:
+            raise argparse.ArgumentTypeError(f"invalid mapping: {item}")
+        mapping[key] = value
+    if not mapping:
+        raise argparse.ArgumentTypeError("expected at least one mapping")
     return mapping
 
 
@@ -486,6 +593,57 @@ def count_tip_distance_rows(path: Path) -> tuple[int, int]:
             plant_ids.add(row.get("plant_id", ""))
             frames.add(row.get("frame_index", ""))
     return len({p for p in plant_ids if p}), len({f for f in frames if f != ""})
+
+
+def remap_annotations_to_plants(
+    plants: list[dict[str, Any]],
+    annotations: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int]:
+    by_uid = {plant.get("crop_uid"): plant for plant in plants if plant.get("crop_uid")}
+    key_to_plants: dict[tuple[int, tuple[int, ...]], list[dict[str, Any]]] = {}
+    for plant in plants:
+        key = (int(plant["genotype"]), tuple(plant["bbox"]))
+        key_to_plants.setdefault(key, []).append(plant)
+
+    remapped: list[dict[str, Any]] = []
+    dropped = 0
+    for ann in annotations:
+        if not isinstance(ann, dict):
+            dropped += 1
+            continue
+        ann2 = dict(ann)
+        matched = None
+        uid = ann2.get("crop_uid")
+        if uid and uid in by_uid:
+            matched = by_uid[uid]
+        elif not uid:
+            bbox = ann2.get("crop_bbox")
+            geno = ann2.get("genotype")
+            if bbox is not None and geno is not None:
+                matches = key_to_plants.get((int(geno), tuple(bbox)), [])
+                if len(matches) == 1:
+                    matched = matches[0]
+        if matched is None:
+            dropped += 1
+            continue
+        ann2["crop_uid"] = matched.get("crop_uid", matched["id"])
+        ann2["plant_id"] = matched["id"]
+        ann2["replicate"] = matched["replicate"]
+        ann2["genotype"] = matched["genotype"]
+        remapped.append(ann2)
+
+    dedup: dict[tuple[str, int], dict[str, Any]] = {}
+    for ann in remapped:
+        frame_index = ann.get("frame_index")
+        if isinstance(frame_index, int):
+            dedup[(ann["crop_uid"], frame_index)] = ann
+        else:
+            dropped += 1
+    return list(dedup.values()), dropped
+
+
+def default_measure_min_dist(img_size: int) -> int:
+    return max(5, int(round(img_size * 0.15625)))
 
 
 def save_defaults_after_success(**values: Any) -> None:

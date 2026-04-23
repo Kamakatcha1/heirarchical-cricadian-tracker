@@ -1,0 +1,364 @@
+{
+  "exported": "2026-04-17T03:14:03",
+  "datasets": [
+    "3t_003"
+  ],
+  "genotype_names": {
+    "0": "G0",
+    "1": "G1",
+    "2": "G2",
+    "3": "G3",
+    "4": "G4",
+    "5": "G5",
+    "6": "G6",
+    "7": "G7",
+    "8": "G8",
+    "9": "G9"
+  },
+  "exclude_patterns": [],
+  "exclude_genotypes": [],
+  "interval_min": 30,
+  "max_hours": 67.0,
+  "frames_exported": 135,
+  "columns": [
+    "G1_1",
+    "G1_2",
+    "G1_3",
+    "G1_4",
+    "G1_5",
+    "G1_6",
+    "G1_7",
+    "G1_8",
+    "G1_9",
+    "G1_10",
+    "G1_11",
+    "G1_12",
+    "G2_1",
+    "G2_2",
+    "G2_3",
+    "G2_4",
+    "G2_5",
+    "G2_6",
+    "G2_7",
+    "G2_8",
+    "G2_9",
+    "G2_10",
+    "G2_11",
+    "G2_12",
+    "G2_13",
+    "G2_14",
+    "G2_15",
+    "G2_16",
+    "G2_17",
+    "G3_1",
+    "G3_2",
+    "G3_3",
+    "G3_4",
+    "G3_5",
+    "G3_6",
+    "G3_7",
+    "G3_8",
+    "G3_9",
+    "G3_10",
+    "G3_11",
+    "G3_12"
+  ],
+  "selected_outputs": {
+    "3t_003": [
+      "m3t_001",
+      "m3t_002",
+      "m3t_003"
+    ]
+  },
+  "selected_individuals": [
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_1",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_2",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_3",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_4",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_5",
+      "run_name": "m3t_003",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_6",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_7",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_8",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_9",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_12",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_13",
+      "run_name": "m3t_003",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g1_14",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_1",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_2",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_3",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_4",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_5",
+      "run_name": "m3t_003",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_7",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_8",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_9",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_10",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_11",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_12",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_13",
+      "run_name": "m3t_003",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_15",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_16",
+      "run_name": "m3t_003",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_17",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_18",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g2_19",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_1",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_2",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_3",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_4",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_5",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_6",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_7",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_8",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_9",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_10",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_11",
+      "run_name": "m3t_002",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv"
+    },
+    {
+      "dataset_id": "3t_003",
+      "raw_label": "g3_12",
+      "run_name": "m3t_001",
+      "csv_path": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+    }
+  ],
+  "source_files": {
+    "3t_003:g1_1": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g1_2": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g1_3": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g1_4": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g1_5": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv",
+    "3t_003:g1_6": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g1_7": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g1_8": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g1_9": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g1_12": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g1_13": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv",
+    "3t_003:g1_14": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g2_1": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g2_2": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g2_3": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g2_4": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g2_5": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv",
+    "3t_003:g2_7": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g2_8": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g2_9": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g2_10": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g2_11": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g2_12": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g2_13": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv",
+    "3t_003:g2_15": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g2_16": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_003/tip_distances.csv",
+    "3t_003:g2_17": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g2_18": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g2_19": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g3_1": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g3_2": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g3_3": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g3_4": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g3_5": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g3_6": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g3_7": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g3_8": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g3_9": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g3_10": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv",
+    "3t_003:g3_11": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_002/tip_distances.csv",
+    "3t_003:g3_12": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/3t_003/output/m3t_001/tip_distances.csv"
+  }
+}

@@ -5,10 +5,9 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64GB
 #SBATCH --time=04:00:00
+# Default log settings for direct sbatch use. `./hct train` overrides these at submit time.
 #SBATCH --output=/storage1/fs1/bmansfeld/Active/work/shafay/hct/logs/hct-train-%j.out
 #SBATCH --error=/storage1/fs1/bmansfeld/Active/work/shafay/hct/logs/hct-train-%j.err
-#SBATCH --container-image=shafayasghar/hct-train:latest
-#SBATCH --container-mounts=/storage1/fs1/bmansfeld/Active:/storage1/fs1/bmansfeld/Active
 
 set -euo pipefail
 
@@ -26,19 +25,20 @@ if [[ -n "${model_name:-}" ]]; then
   echo "Model name: $model_name"
 fi
 
-CMD=(
-  python "$HCT_DIR/scripts/04_train.py"
-  --batch
-  --epochs "${epochs:-30}"
-  --batch-size "${batch_size:-8}"
-  --learning-rate "${learning_rate:-1e-4}"
-  --val-split 0.2
-  --patience "${patience:-10}"
-  --img-size 128
-  --wmse-alpha 50.0
-  --dice-weight 0.5
-  --fn-weight 2.0
-)
+CMD=(python "$HCT_DIR/scripts/04_train.py" --batch)
+
+if [[ -n "${epochs:-}" ]]; then
+  CMD+=(--epochs "$epochs")
+fi
+if [[ -n "${batch_size:-}" ]]; then
+  CMD+=(--batch-size "$batch_size")
+fi
+if [[ -n "${learning_rate:-}" ]]; then
+  CMD+=(--learning-rate "$learning_rate")
+fi
+if [[ -n "${patience:-}" ]]; then
+  CMD+=(--patience "$patience")
+fi
 
 if [[ -n "${model_name:-}" ]]; then
   CMD+=(--model-name "$model_name")

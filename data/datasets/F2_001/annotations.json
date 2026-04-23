@@ -4,174 +4,10 @@
   "display_scale": 2,
   "annotations": [
     {
-      "plant_id": "g4_r01",
-      "crop_uid": "499387b321a74627b94f728b0f359312",
-      "genotype": 4,
-      "replicate": 1,
-      "frame_index": 32,
-      "frame_filename": "circ4_0032.jpg",
-      "crop_bbox": [
-        489,
-        898,
-        731,
-        1112
-      ],
-      "crop_size": [
-        242,
-        214
-      ],
-      "tips": [
-        [
-          167,
-          142
-        ],
-        [
-          124,
-          116
-        ],
-        [
-          160,
-          86
-        ]
-      ]
-    },
-    {
-      "plant_id": "g4_r01",
-      "crop_uid": "499387b321a74627b94f728b0f359312",
-      "genotype": 4,
-      "replicate": 1,
-      "frame_index": 67,
-      "frame_filename": "circ4_0067.jpg",
-      "crop_bbox": [
-        489,
-        898,
-        731,
-        1112
-      ],
-      "crop_size": [
-        242,
-        214
-      ],
-      "tips": [
-        [
-          158,
-          142
-        ],
-        [
-          110,
-          114
-        ],
-        [
-          158,
-          84
-        ]
-      ]
-    },
-    {
-      "plant_id": "g4_r01",
-      "crop_uid": "499387b321a74627b94f728b0f359312",
-      "genotype": 4,
-      "replicate": 1,
-      "frame_index": 97,
-      "frame_filename": "circ4_0097.jpg",
-      "crop_bbox": [
-        489,
-        898,
-        731,
-        1112
-      ],
-      "crop_size": [
-        242,
-        214
-      ],
-      "tips": [
-        [
-          162,
-          152
-        ],
-        [
-          97,
-          128
-        ],
-        [
-          164,
-          84
-        ]
-      ]
-    },
-    {
-      "plant_id": "g4_r01",
-      "crop_uid": "499387b321a74627b94f728b0f359312",
-      "genotype": 4,
-      "replicate": 1,
-      "frame_index": 123,
-      "frame_filename": "circ4_0123.jpg",
-      "crop_bbox": [
-        489,
-        898,
-        731,
-        1112
-      ],
-      "crop_size": [
-        242,
-        214
-      ],
-      "tips": [
-        [
-          152,
-          148
-        ],
-        [
-          90,
-          112
-        ],
-        [
-          160,
-          80
-        ]
-      ]
-    },
-    {
-      "plant_id": "g4_r01",
-      "crop_uid": "499387b321a74627b94f728b0f359312",
-      "genotype": 4,
-      "replicate": 1,
-      "frame_index": 149,
-      "frame_filename": "circ4_0149.jpg",
-      "crop_bbox": [
-        489,
-        898,
-        731,
-        1112
-      ],
-      "crop_size": [
-        242,
-        214
-      ],
-      "tips": [
-        [
-          157,
-          154
-        ],
-        [
-          80,
-          120
-        ],
-        [
-          158,
-          82
-        ],
-        [
-          172,
-          116
-        ]
-      ]
-    },
-    {
-      "plant_id": "g4_r03",
+      "plant_id": "g4_r02",
       "crop_uid": "6f4ea85b65b748b38d07d8d241ff56dc",
       "genotype": 4,
-      "replicate": 3,
+      "replicate": 2,
       "frame_index": 1,
       "frame_filename": "circ4_0001.jpg",
       "crop_bbox": [
@@ -196,10 +32,10 @@
       ]
     },
     {
-      "plant_id": "g4_r03",
+      "plant_id": "g4_r02",
       "crop_uid": "6f4ea85b65b748b38d07d8d241ff56dc",
       "genotype": 4,
-      "replicate": 3,
+      "replicate": 2,
       "frame_index": 57,
       "frame_filename": "circ4_0057.jpg",
       "crop_bbox": [
@@ -224,10 +60,10 @@
       ]
     },
     {
-      "plant_id": "g4_r03",
+      "plant_id": "g4_r02",
       "crop_uid": "6f4ea85b65b748b38d07d8d241ff56dc",
       "genotype": 4,
-      "replicate": 3,
+      "replicate": 2,
       "frame_index": 97,
       "frame_filename": "circ4_0097.jpg",
       "crop_bbox": [
@@ -252,10 +88,10 @@
       ]
     },
     {
-      "plant_id": "g4_r03",
+      "plant_id": "g4_r02",
       "crop_uid": "6f4ea85b65b748b38d07d8d241ff56dc",
       "genotype": 4,
-      "replicate": 3,
+      "replicate": 2,
       "frame_index": 133,
       "frame_filename": "circ4_0133.jpg",
       "crop_bbox": [
@@ -284,10 +120,10 @@
       ]
     },
     {
-      "plant_id": "g4_r03",
+      "plant_id": "g4_r02",
       "crop_uid": "6f4ea85b65b748b38d07d8d241ff56dc",
       "genotype": 4,
-      "replicate": 3,
+      "replicate": 2,
       "frame_index": 167,
       "frame_filename": "circ4_0167.jpg",
       "crop_bbox": [
@@ -316,10 +152,10 @@
       ]
     },
     {
-      "plant_id": "g4_r04",
+      "plant_id": "g4_r03",
       "crop_uid": "0ef88d38645d4f05a493b8f2b2496c0a",
       "genotype": 4,
-      "replicate": 4,
+      "replicate": 3,
       "frame_index": 12,
       "frame_filename": "circ4_0012.jpg",
       "crop_bbox": [
@@ -344,10 +180,10 @@
       ]
     },
     {
-      "plant_id": "g4_r04",
+      "plant_id": "g4_r03",
       "crop_uid": "0ef88d38645d4f05a493b8f2b2496c0a",
       "genotype": 4,
-      "replicate": 4,
+      "replicate": 3,
       "frame_index": 62,
       "frame_filename": "circ4_0062.jpg",
       "crop_bbox": [
@@ -372,10 +208,10 @@
       ]
     },
     {
-      "plant_id": "g4_r04",
+      "plant_id": "g4_r03",
       "crop_uid": "0ef88d38645d4f05a493b8f2b2496c0a",
       "genotype": 4,
-      "replicate": 4,
+      "replicate": 3,
       "frame_index": 102,
       "frame_filename": "circ4_0102.jpg",
       "crop_bbox": [
@@ -404,10 +240,10 @@
       ]
     },
     {
-      "plant_id": "g4_r04",
+      "plant_id": "g4_r03",
       "crop_uid": "0ef88d38645d4f05a493b8f2b2496c0a",
       "genotype": 4,
-      "replicate": 4,
+      "replicate": 3,
       "frame_index": 137,
       "frame_filename": "circ4_0137.jpg",
       "crop_bbox": [
@@ -436,10 +272,10 @@
       ]
     },
     {
-      "plant_id": "g4_r04",
+      "plant_id": "g4_r03",
       "crop_uid": "0ef88d38645d4f05a493b8f2b2496c0a",
       "genotype": 4,
-      "replicate": 4,
+      "replicate": 3,
       "frame_index": 153,
       "frame_filename": "circ4_0153.jpg",
       "crop_bbox": [
@@ -468,10 +304,10 @@
       ]
     },
     {
-      "plant_id": "g4_r05",
+      "plant_id": "g4_r04",
       "crop_uid": "2577af0c8ffd41dcacb04ef742a31f5b",
       "genotype": 4,
-      "replicate": 5,
+      "replicate": 4,
       "frame_index": 28,
       "frame_filename": "circ4_0028.jpg",
       "crop_bbox": [
@@ -496,10 +332,10 @@
       ]
     },
     {
-      "plant_id": "g4_r05",
+      "plant_id": "g4_r04",
       "crop_uid": "2577af0c8ffd41dcacb04ef742a31f5b",
       "genotype": 4,
-      "replicate": 5,
+      "replicate": 4,
       "frame_index": 70,
       "frame_filename": "circ4_0070.jpg",
       "crop_bbox": [
@@ -524,10 +360,10 @@
       ]
     },
     {
-      "plant_id": "g4_r05",
+      "plant_id": "g4_r04",
       "crop_uid": "2577af0c8ffd41dcacb04ef742a31f5b",
       "genotype": 4,
-      "replicate": 5,
+      "replicate": 4,
       "frame_index": 84,
       "frame_filename": "circ4_0084.jpg",
       "crop_bbox": [
@@ -552,10 +388,10 @@
       ]
     },
     {
-      "plant_id": "g4_r05",
+      "plant_id": "g4_r04",
       "crop_uid": "2577af0c8ffd41dcacb04ef742a31f5b",
       "genotype": 4,
-      "replicate": 5,
+      "replicate": 4,
       "frame_index": 117,
       "frame_filename": "circ4_0117.jpg",
       "crop_bbox": [
@@ -580,10 +416,10 @@
       ]
     },
     {
-      "plant_id": "g4_r05",
+      "plant_id": "g4_r04",
       "crop_uid": "2577af0c8ffd41dcacb04ef742a31f5b",
       "genotype": 4,
-      "replicate": 5,
+      "replicate": 4,
       "frame_index": 178,
       "frame_filename": "circ4_0178.jpg",
       "crop_bbox": [

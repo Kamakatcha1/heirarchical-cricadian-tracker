@@ -5,10 +5,9 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32GB
 #SBATCH --time=02:00:00
+# Default log settings for direct sbatch use. `./hct measure` overrides these at submit time.
 #SBATCH --output=/storage1/fs1/bmansfeld/Active/work/shafay/hct/logs/hct-measure-%j.out
 #SBATCH --error=/storage1/fs1/bmansfeld/Active/work/shafay/hct/logs/hct-measure-%j.err
-#SBATCH --container-image=shafayasghar/hct-train:latest
-#SBATCH --container-mounts=/storage1/fs1/bmansfeld/Active:/storage1/fs1/bmansfeld/Active
 
 set -euo pipefail
 
@@ -35,11 +34,20 @@ CMD=(
   --batch
   --datasets "$dataset"
   --model "$model"
-  --max-frames "${max_frames:-0}"
-  --num-tips "${num_tips:-2}"
-  --min-dist "${min_dist:-20}"
-  --interval-min "${interval_min:-30}"
 )
+
+if [[ -n "${max_frames:-}" ]]; then
+  CMD+=(--max-frames "$max_frames")
+fi
+if [[ -n "${num_tips:-}" ]]; then
+  CMD+=(--num-tips "$num_tips")
+fi
+if [[ -n "${min_dist:-}" ]]; then
+  CMD+=(--min-dist "$min_dist")
+fi
+if [[ -n "${interval_min:-}" ]]; then
+  CMD+=(--interval-min "$interval_min")
+fi
 
 if [[ -n "${genotype_filter:-}" ]]; then
   CMD+=(--genotype-filter "$genotype_filter")

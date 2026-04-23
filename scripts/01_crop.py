@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from collections import Counter
 from pathlib import Path
@@ -16,7 +15,7 @@ import hct_runtime as rt
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Crop plants for a dataset.")
-    parser.add_argument("--batch", action="store_true", help="Disable prompts and require CLI values.")
+    parser.add_argument("--batch", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--dataset", help="Dataset id under data/datasets/.")
     parser.add_argument("--max-frames", type=int, help="Use only the first N frames (0 = all).")
     return parser
@@ -37,13 +36,16 @@ def blend_composite(image_paths: list[Path], method: str) -> np.ndarray:
 
     if method == "max":
         blended = first.copy()
-        for path in image_paths[1:]:
+        print(f"Blending {len(image_paths)} frames with max projection...")
+        for idx, path in enumerate(image_paths[1:], start=2):
             img = cv2.imread(str(path))
             if img is None:
                 continue
             if img.shape[:2] != (h, w):
                 img = cv2.resize(img, (w, h), interpolation=cv2.INTER_AREA)
             blended = np.maximum(blended, img)
+            if idx == len(image_paths) or idx % 25 == 0:
+                print(f"  blended {idx}/{len(image_paths)} frames")
         return blended
 
     if method == "mean":
@@ -65,8 +67,7 @@ def blend_composite(image_paths: list[Path], method: str) -> np.ndarray:
 def load_existing_crop_log(path: Path) -> dict[str, Any] | None:
     if not path.exists():
         return None
-    with open(path) as f:
-        return json.load(f)
+    return rt.load_json(path, {})
 
 
 def plants_to_rects(plants: list[dict[str, Any]]) -> list[tuple[tuple[int, int, int, int], int]]:
@@ -90,7 +91,7 @@ def select_rectangles(
         scale = max_display / float(max_side)
     preview = img if scale == 1.0 else cv2.resize(img, (int(w * scale), int(h * scale)))
 
-    window = "Draw rects | 0-9=genotype | d=delete | u=undo | c=clear | s=save | q=quit"
+    window = "Crop | 0-9 geno | d/u/c/s/q"
     rects: list[tuple[tuple[int, int, int, int], int]] = list(existing_rects or [])
     drawing = False
     start = (0, 0)
@@ -256,52 +257,13 @@ def sync_annotations(annotation_path: Path, dataset_id: str, plants: list[dict[s
 
     ann_log = rt.load_json(annotation_path, {})
     annotations = ann_log.get("annotations", [])
-    by_uid = {plant.get("crop_uid"): plant for plant in plants if plant.get("crop_uid")}
-    key_to_plants: dict[tuple[int, tuple[int, ...]], list[dict[str, Any]]] = {}
-    for plant in plants:
-        key = (int(plant["genotype"]), tuple(plant["bbox"]))
-        key_to_plants.setdefault(key, []).append(plant)
-
-    kept: list[dict[str, Any]] = []
-    dropped = 0
-    for ann in annotations:
-        if not isinstance(ann, dict):
-            dropped += 1
-            continue
-        ann2 = dict(ann)
-        matched = None
-        uid = ann2.get("crop_uid")
-        if uid and uid in by_uid:
-            matched = by_uid[uid]
-        elif not uid:
-            bbox = ann2.get("crop_bbox")
-            geno = ann2.get("genotype")
-            if bbox is not None and geno is not None:
-                matches = key_to_plants.get((int(geno), tuple(bbox)), [])
-                if len(matches) == 1:
-                    matched = matches[0]
-        if matched is None:
-            dropped += 1
-            continue
-        ann2["crop_uid"] = matched.get("crop_uid", matched["id"])
-        ann2["plant_id"] = matched["id"]
-        ann2["replicate"] = matched["replicate"]
-        ann2["genotype"] = matched["genotype"]
-        kept.append(ann2)
-
-    dedup: dict[tuple[str, int], dict[str, Any]] = {}
-    for ann in kept:
-        frame_index = ann.get("frame_index")
-        if isinstance(frame_index, int):
-            dedup[(ann["crop_uid"], frame_index)] = ann
-        else:
-            dropped += 1
+    remapped, dropped = rt.remap_annotations_to_plants(plants, annotations)
 
     out = {key: value for key, value in ann_log.items() if key != "annotations"}
     out["dataset_id"] = dataset_id
-    out["annotations"] = list(dedup.values())
+    out["annotations"] = remapped
     rt.write_json(annotation_path, out)
-    return {"kept": len(dedup), "dropped": dropped}
+    return {"kept": len(remapped), "dropped": dropped}
 
 
 def select_dataset(args: argparse.Namespace) -> rt.DatasetInfo:

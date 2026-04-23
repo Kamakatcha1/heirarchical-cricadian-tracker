@@ -1,0 +1,14 @@
+{
+  "measured": "2026-04-20T12:06:47",
+  "dataset_id": "F2_003_1",
+  "model_name": "mF2_001",
+  "output_name": "mF2_001",
+  "interval_min": 30,
+  "num_tips": 2,
+  "min_dist": 20,
+  "max_frames": 0,
+  "genotype_filter": [],
+  "img_size": 128,
+  "tip_distance_csv": "/storage1/fs1/bmansfeld/Active/work/shafay/hct/data/datasets/F2_003_1/output/mF2_001/tip_distances.csv",
+  "plots_dir": "/storage1/fs1/bmansfeld/Active/work/shafay/hct/data/datasets/F2_003_1/output/mF2_001/plots"
+}

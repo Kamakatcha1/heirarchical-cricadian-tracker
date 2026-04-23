@@ -1,0 +1,682 @@
+{
+  "dataset_id": "F2_003_2",
+  "raw_dir": "/rdcw/fs2/bmansfeld/Active/work/shafay/hct/data/datasets/F2_003_2/raw",
+  "max_frames": 180,
+  "blend_method": "max",
+  "frames": [
+    "tray2_0000.jpg",
+    "tray2_0001.jpg",
+    "tray2_0002.jpg",
+    "tray2_0003.jpg",
+    "tray2_0004.jpg",
+    "tray2_0005.jpg",
+    "tray2_0006.jpg",
+    "tray2_0007.jpg",
+    "tray2_0008.jpg",
+    "tray2_0009.jpg",
+    "tray2_0010.jpg",
+    "tray2_0011.jpg",
+    "tray2_0012.jpg",
+    "tray2_0013.jpg",
+    "tray2_0014.jpg",
+    "tray2_0015.jpg",
+    "tray2_0016.jpg",
+    "tray2_0017.jpg",
+    "tray2_0018.jpg",
+    "tray2_0019.jpg",
+    "tray2_0020.jpg",
+    "tray2_0021.jpg",
+    "tray2_0022.jpg",
+    "tray2_0023.jpg",
+    "tray2_0024.jpg",
+    "tray2_0025.jpg",
+    "tray2_0026.jpg",
+    "tray2_0027.jpg",
+    "tray2_0028.jpg",
+    "tray2_0029.jpg",
+    "tray2_0030.jpg",
+    "tray2_0031.jpg",
+    "tray2_0032.jpg",
+    "tray2_0033.jpg",
+    "tray2_0034.jpg",
+    "tray2_0035.jpg",
+    "tray2_0036.jpg",
+    "tray2_0037.jpg",
+    "tray2_0038.jpg",
+    "tray2_0039.jpg",
+    "tray2_0040.jpg",
+    "tray2_0041.jpg",
+    "tray2_0042.jpg",
+    "tray2_0043.jpg",
+    "tray2_0044.jpg",
+    "tray2_0045.jpg",
+    "tray2_0046.jpg",
+    "tray2_0047.jpg",
+    "tray2_0048.jpg",
+    "tray2_0049.jpg",
+    "tray2_0050.jpg",
+    "tray2_0051.jpg",
+    "tray2_0052.jpg",
+    "tray2_0053.jpg",
+    "tray2_0054.jpg",
+    "tray2_0055.jpg",
+    "tray2_0056.jpg",
+    "tray2_0057.jpg",
+    "tray2_0058.jpg",
+    "tray2_0059.jpg",
+    "tray2_0060.jpg",
+    "tray2_0061.jpg",
+    "tray2_0062.jpg",
+    "tray2_0063.jpg",
+    "tray2_0064.jpg",
+    "tray2_0065.jpg",
+    "tray2_0066.jpg",
+    "tray2_0067.jpg",
+    "tray2_0068.jpg",
+    "tray2_0069.jpg",
+    "tray2_0070.jpg",
+    "tray2_0071.jpg",
+    "tray2_0072.jpg",
+    "tray2_0073.jpg",
+    "tray2_0074.jpg",
+    "tray2_0075.jpg",
+    "tray2_0076.jpg",
+    "tray2_0077.jpg",
+    "tray2_0078.jpg",
+    "tray2_0079.jpg",
+    "tray2_0080.jpg",
+    "tray2_0081.jpg",
+    "tray2_0082.jpg",
+    "tray2_0083.jpg",
+    "tray2_0084.jpg",
+    "tray2_0085.jpg",
+    "tray2_0086.jpg",
+    "tray2_0087.jpg",
+    "tray2_0088.jpg",
+    "tray2_0089.jpg",
+    "tray2_0090.jpg",
+    "tray2_0091.jpg",
+    "tray2_0092.jpg",
+    "tray2_0093.jpg",
+    "tray2_0094.jpg",
+    "tray2_0095.jpg",
+    "tray2_0096.jpg",
+    "tray2_0097.jpg",
+    "tray2_0098.jpg",
+    "tray2_0099.jpg",
+    "tray2_0100.jpg",
+    "tray2_0101.jpg",
+    "tray2_0102.jpg",
+    "tray2_0103.jpg",
+    "tray2_0104.jpg",
+    "tray2_0105.jpg",
+    "tray2_0106.jpg",
+    "tray2_0107.jpg",
+    "tray2_0108.jpg",
+    "tray2_0109.jpg",
+    "tray2_0110.jpg",
+    "tray2_0111.jpg",
+    "tray2_0112.jpg",
+    "tray2_0113.jpg",
+    "tray2_0114.jpg",
+    "tray2_0115.jpg",
+    "tray2_0116.jpg",
+    "tray2_0117.jpg",
+    "tray2_0118.jpg",
+    "tray2_0119.jpg",
+    "tray2_0120.jpg",
+    "tray2_0121.jpg",
+    "tray2_0122.jpg",
+    "tray2_0123.jpg",
+    "tray2_0124.jpg",
+    "tray2_0125.jpg",
+    "tray2_0126.jpg",
+    "tray2_0127.jpg",
+    "tray2_0128.jpg",
+    "tray2_0129.jpg",
+    "tray2_0130.jpg",
+    "tray2_0131.jpg",
+    "tray2_0132.jpg",
+    "tray2_0133.jpg",
+    "tray2_0134.jpg",
+    "tray2_0135.jpg",
+    "tray2_0136.jpg",
+    "tray2_0137.jpg",
+    "tray2_0138.jpg",
+    "tray2_0139.jpg",
+    "tray2_0140.jpg",
+    "tray2_0141.jpg",
+    "tray2_0142.jpg",
+    "tray2_0143.jpg",
+    "tray2_0144.jpg",
+    "tray2_0145.jpg",
+    "tray2_0146.jpg",
+    "tray2_0147.jpg",
+    "tray2_0148.jpg",
+    "tray2_0149.jpg",
+    "tray2_0150.jpg",
+    "tray2_0151.jpg",
+    "tray2_0152.jpg",
+    "tray2_0153.jpg",
+    "tray2_0154.jpg",
+    "tray2_0155.jpg",
+    "tray2_0156.jpg",
+    "tray2_0157.jpg",
+    "tray2_0158.jpg",
+    "tray2_0159.jpg",
+    "tray2_0160.jpg",
+    "tray2_0161.jpg",
+    "tray2_0162.jpg",
+    "tray2_0163.jpg",
+    "tray2_0164.jpg",
+    "tray2_0165.jpg",
+    "tray2_0166.jpg",
+    "tray2_0167.jpg",
+    "tray2_0168.jpg",
+    "tray2_0169.jpg",
+    "tray2_0170.jpg",
+    "tray2_0171.jpg",
+    "tray2_0172.jpg",
+    "tray2_0173.jpg",
+    "tray2_0174.jpg",
+    "tray2_0175.jpg",
+    "tray2_0176.jpg",
+    "tray2_0177.jpg",
+    "tray2_0178.jpg",
+    "tray2_0179.jpg"
+  ],
+  "plants": [
+    {
+      "id": "g3_r01",
+      "genotype": 3,
+      "replicate": 1,
+      "bbox": [
+        334,
+        793,
+        596,
+        1044
+      ],
+      "crop_uid": "fca18fe3ef9641c3816052db263191ea"
+    },
+    {
+      "id": "g3_r02",
+      "genotype": 3,
+      "replicate": 2,
+      "bbox": [
+        295,
+        1202,
+        567,
+        1512
+      ],
+      "crop_uid": "97bdfe5bfb8d42c488a1a25e875e0b4b"
+    },
+    {
+      "id": "g3_r03",
+      "genotype": 3,
+      "replicate": 3,
+      "bbox": [
+        218,
+        1691,
+        534,
+        1980
+      ],
+      "crop_uid": "64e411ff123148efa5ed4addccee8109"
+    },
+    {
+      "id": "g2_r01",
+      "genotype": 2,
+      "replicate": 1,
+      "bbox": [
+        829,
+        644,
+        1005,
+        796
+      ],
+      "crop_uid": "40551e9ff0e341279e260c52f4786888"
+    },
+    {
+      "id": "g2_r02",
+      "genotype": 2,
+      "replicate": 2,
+      "bbox": [
+        847,
+        820,
+        1026,
+        987
+      ],
+      "crop_uid": "2879aa4c2dee4e0d8b2a054c40be7905"
+    },
+    {
+      "id": "g2_r03",
+      "genotype": 2,
+      "replicate": 3,
+      "bbox": [
+        820,
+        1231,
+        984,
+        1384
+      ],
+      "crop_uid": "2facf25b882a4678998fad18c06bd9e2"
+    },
+    {
+      "id": "g2_r04",
+      "genotype": 2,
+      "replicate": 4,
+      "bbox": [
+        757,
+        1473,
+        963,
+        1640
+      ],
+      "crop_uid": "5d8863d183ad44ef96c74fb55ec67c82"
+    },
+    {
+      "id": "g2_r05",
+      "genotype": 2,
+      "replicate": 5,
+      "bbox": [
+        737,
+        1887,
+        957,
+        2084
+      ],
+      "crop_uid": "7082f32f3db747eaa5c20d91dc8e7629"
+    },
+    {
+      "id": "g4_r01",
+      "genotype": 4,
+      "replicate": 1,
+      "bbox": [
+        1047,
+        581,
+        1211,
+        802
+      ],
+      "crop_uid": "9623e5fc91ea4347bfc86114e47607f6"
+    },
+    {
+      "id": "g4_r02",
+      "genotype": 4,
+      "replicate": 2,
+      "bbox": [
+        1056,
+        1029,
+        1220,
+        1261
+      ],
+      "crop_uid": "189bdb8a5adf4f81b3766341fd2689a0"
+    },
+    {
+      "id": "g4_r03",
+      "genotype": 4,
+      "replicate": 3,
+      "bbox": [
+        975,
+        1446,
+        1157,
+        1667
+      ],
+      "crop_uid": "4f70d50a74664cd690c07da3302f135a"
+    },
+    {
+      "id": "g4_r04",
+      "genotype": 4,
+      "replicate": 4,
+      "bbox": [
+        996,
+        1858,
+        1223,
+        2150
+      ],
+      "crop_uid": "bd28db265f22479fa5bcbe3e9becb2bb"
+    },
+    {
+      "id": "g4_r05",
+      "genotype": 4,
+      "replicate": 5,
+      "bbox": [
+        1220,
+        739,
+        1410,
+        948
+      ],
+      "crop_uid": "6c828a4d858e4accbe6d2b4ae355178d"
+    },
+    {
+      "id": "g4_r06",
+      "genotype": 4,
+      "replicate": 6,
+      "bbox": [
+        1231,
+        1249,
+        1437,
+        1476
+      ],
+      "crop_uid": "792e4c02ce47480496a611a08e01c459"
+    },
+    {
+      "id": "g4_r07",
+      "genotype": 4,
+      "replicate": 7,
+      "bbox": [
+        1211,
+        1682,
+        1419,
+        1879
+      ],
+      "crop_uid": "747eee2dc7b54c62b8573271f6a40a3b"
+    },
+    {
+      "id": "g4_r08",
+      "genotype": 4,
+      "replicate": 8,
+      "bbox": [
+        1422,
+        1032,
+        1604,
+        1223
+      ],
+      "crop_uid": "2af53593c56f4b8c9a54903ef8d381e1"
+    },
+    {
+      "id": "g4_r09",
+      "genotype": 4,
+      "replicate": 9,
+      "bbox": [
+        1443,
+        1455,
+        1625,
+        1676
+      ],
+      "crop_uid": "1952e5de32ab4646b04788b2c4cddc97"
+    },
+    {
+      "id": "g4_r10",
+      "genotype": 4,
+      "replicate": 10,
+      "bbox": [
+        1384,
+        1899,
+        1658,
+        2117
+      ],
+      "crop_uid": "8c6df2d3c1614af6be06d6f0c2873586"
+    },
+    {
+      "id": "g4_r11",
+      "genotype": 4,
+      "replicate": 11,
+      "bbox": [
+        1509,
+        584,
+        1715,
+        808
+      ],
+      "crop_uid": "bb81b3f2b414480cba59ea82620ea137"
+    },
+    {
+      "id": "g4_r12",
+      "genotype": 4,
+      "replicate": 12,
+      "bbox": [
+        1849,
+        599,
+        2063,
+        808
+      ],
+      "crop_uid": "db00461f3fd0436f9f2f59934c7e8dac"
+    },
+    {
+      "id": "g4_r13",
+      "genotype": 4,
+      "replicate": 13,
+      "bbox": [
+        1670,
+        856,
+        1899,
+        1044
+      ],
+      "crop_uid": "00e256ee53cf41d98a829c9bdf57d9c5"
+    },
+    {
+      "id": "g4_r14",
+      "genotype": 4,
+      "replicate": 14,
+      "bbox": [
+        1646,
+        1249,
+        1882,
+        1473
+      ],
+      "crop_uid": "4104c87d0f4a49e18546dffd24529221"
+    },
+    {
+      "id": "g4_r15",
+      "genotype": 4,
+      "replicate": 15,
+      "bbox": [
+        1855,
+        1047,
+        2054,
+        1258
+      ],
+      "crop_uid": "5da1bccb34e8498fac3468acad408977"
+    },
+    {
+      "id": "g4_r16",
+      "genotype": 4,
+      "replicate": 16,
+      "bbox": [
+        2040,
+        823,
+        2275,
+        1044
+      ],
+      "crop_uid": "f5856f0c8625465cbd97930d859b13d9"
+    },
+    {
+      "id": "g4_r17",
+      "genotype": 4,
+      "replicate": 17,
+      "bbox": [
+        2051,
+        1267,
+        2272,
+        1482
+      ],
+      "crop_uid": "b3e683fd2eb447068328b644aa0b517f"
+    },
+    {
+      "id": "g4_r18",
+      "genotype": 4,
+      "replicate": 18,
+      "bbox": [
+        1825,
+        1485,
+        2096,
+        1738
+      ],
+      "crop_uid": "1ea767439b4c440e8f35713be22ac888"
+    },
+    {
+      "id": "g4_r19",
+      "genotype": 4,
+      "replicate": 19,
+      "bbox": [
+        1825,
+        1876,
+        2060,
+        2204
+      ],
+      "crop_uid": "32c5af329551478fb40b84ca365816fc"
+    },
+    {
+      "id": "g4_r20",
+      "genotype": 4,
+      "replicate": 20,
+      "bbox": [
+        2060,
+        1685,
+        2305,
+        2028
+      ],
+      "crop_uid": "212b9373a8784ff5b38d7b4fbd80c48d"
+    },
+    {
+      "id": "g4_r21",
+      "genotype": 4,
+      "replicate": 21,
+      "bbox": [
+        2275,
+        596,
+        2538,
+        802
+      ],
+      "crop_uid": "f730b1a100cc4b62be34596588549593"
+    },
+    {
+      "id": "g4_r22",
+      "genotype": 4,
+      "replicate": 22,
+      "bbox": [
+        2272,
+        1059,
+        2505,
+        1288
+      ],
+      "crop_uid": "4b597c4802f443b38af40452dae27296"
+    },
+    {
+      "id": "g4_r23",
+      "genotype": 4,
+      "replicate": 23,
+      "bbox": [
+        2335,
+        1464,
+        2606,
+        1685
+      ],
+      "crop_uid": "219a31720a9c4800a8cf4ad0a2bc34e6"
+    },
+    {
+      "id": "g4_r24",
+      "genotype": 4,
+      "replicate": 24,
+      "bbox": [
+        2359,
+        1905,
+        2615,
+        2150
+      ],
+      "crop_uid": "726269611b424f4dbcb65a9badbd55d0"
+    },
+    {
+      "id": "g4_r25",
+      "genotype": 4,
+      "replicate": 25,
+      "bbox": [
+        2478,
+        847,
+        2707,
+        1056
+      ],
+      "crop_uid": "50c266e1960b49a1b9880ff7fe490b29"
+    },
+    {
+      "id": "g4_r26",
+      "genotype": 4,
+      "replicate": 26,
+      "bbox": [
+        2678,
+        611,
+        2898,
+        868
+      ],
+      "crop_uid": "64354fb8f79d4f15b40b82fe5c8b4167"
+    },
+    {
+      "id": "g4_r27",
+      "genotype": 4,
+      "replicate": 27,
+      "bbox": [
+        2946,
+        865,
+        3179,
+        1062
+      ],
+      "crop_uid": "4ff1fbbc2bc249019ab17671dc164fdb"
+    },
+    {
+      "id": "g4_r28",
+      "genotype": 4,
+      "replicate": 28,
+      "bbox": [
+        2684,
+        1056,
+        2916,
+        1258
+      ],
+      "crop_uid": "00f2ecfc9a2e4957b01019b386aba303"
+    },
+    {
+      "id": "g4_r29",
+      "genotype": 4,
+      "replicate": 29,
+      "bbox": [
+        2508,
+        1243,
+        2776,
+        1416
+      ],
+      "crop_uid": "8ac8a76697d049658edb94b46b993cd8"
+    },
+    {
+      "id": "g4_r30",
+      "genotype": 4,
+      "replicate": 30,
+      "bbox": [
+        2922,
+        1273,
+        3143,
+        1485
+      ],
+      "crop_uid": "7c3ee8349a064390abfba60b5798323c"
+    },
+    {
+      "id": "g4_r31",
+      "genotype": 4,
+      "replicate": 31,
+      "bbox": [
+        2561,
+        1721,
+        2845,
+        1926
+      ],
+      "crop_uid": "6038390e6a964c9389a5f9d3f119712d"
+    },
+    {
+      "id": "g4_r32",
+      "genotype": 4,
+      "replicate": 32,
+      "bbox": [
+        2743,
+        1896,
+        3000,
+        2096
+      ],
+      "crop_uid": "3ca4e98424ae47ca9a1d17c7dee7ad63"
+    },
+    {
+      "id": "g4_r33",
+      "genotype": 4,
+      "replicate": 33,
+      "bbox": [
+        3009,
+        1637,
+        3202,
+        1879
+      ],
+      "crop_uid": "77f877c6e1a24bdd821b96aaed99895b"
+    }
+  ]
+}

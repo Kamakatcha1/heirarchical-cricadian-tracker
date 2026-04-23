@@ -1,0 +1,3275 @@
+{
+  "dataset_id": "F2_003_3",
+  "images_per_plant": 3,
+  "display_scale": 2,
+  "annotations": [
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "2326a6392dcc44f38d4f707c8ff4d9aa",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 35,
+      "frame_filename": "tray3_0035.jpg",
+      "crop_bbox": [
+        2699,
+        754,
+        3012,
+        969
+      ],
+      "crop_size": [
+        313,
+        215
+      ],
+      "tips": [
+        [
+          96,
+          124
+        ],
+        [
+          196,
+          59
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "2326a6392dcc44f38d4f707c8ff4d9aa",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 114,
+      "frame_filename": "tray3_0114.jpg",
+      "crop_bbox": [
+        2699,
+        754,
+        3012,
+        969
+      ],
+      "crop_size": [
+        313,
+        215
+      ],
+      "tips": [
+        [
+          116,
+          108
+        ],
+        [
+          244,
+          42
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r01",
+      "crop_uid": "2326a6392dcc44f38d4f707c8ff4d9aa",
+      "genotype": 3,
+      "replicate": 1,
+      "frame_index": 128,
+      "frame_filename": "tray3_0128.jpg",
+      "crop_bbox": [
+        2699,
+        754,
+        3012,
+        969
+      ],
+      "crop_size": [
+        313,
+        215
+      ],
+      "tips": [
+        [
+          86,
+          129
+        ],
+        [
+          244,
+          44
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "7fd1b98e6d0a4c61b0bf19a99471ea54",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 52,
+      "frame_filename": "tray3_0052.jpg",
+      "crop_bbox": [
+        2722,
+        1073,
+        3062,
+        1345
+      ],
+      "crop_size": [
+        340,
+        272
+      ],
+      "tips": [
+        [
+          70,
+          179
+        ],
+        [
+          240,
+          178
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "7fd1b98e6d0a4c61b0bf19a99471ea54",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 107,
+      "frame_filename": "tray3_0107.jpg",
+      "crop_bbox": [
+        2722,
+        1073,
+        3062,
+        1345
+      ],
+      "crop_size": [
+        340,
+        272
+      ],
+      "tips": [
+        [
+          68,
+          144
+        ],
+        [
+          298,
+          164
+        ],
+        [
+          186,
+          128
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r02",
+      "crop_uid": "7fd1b98e6d0a4c61b0bf19a99471ea54",
+      "genotype": 3,
+      "replicate": 2,
+      "frame_index": 124,
+      "frame_filename": "tray3_0124.jpg",
+      "crop_bbox": [
+        2722,
+        1073,
+        3062,
+        1345
+      ],
+      "crop_size": [
+        340,
+        272
+      ],
+      "tips": [
+        [
+          65,
+          146
+        ],
+        [
+          306,
+          190
+        ],
+        [
+          206,
+          125
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "ae8bf251601e4c6e995eea24e27f26f3",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 27,
+      "frame_filename": "tray3_0027.jpg",
+      "crop_bbox": [
+        2752,
+        1577,
+        3044,
+        1926
+      ],
+      "crop_size": [
+        292,
+        349
+      ],
+      "tips": [
+        [
+          164,
+          220
+        ],
+        [
+          166,
+          115
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "ae8bf251601e4c6e995eea24e27f26f3",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 77,
+      "frame_filename": "tray3_0077.jpg",
+      "crop_bbox": [
+        2752,
+        1577,
+        3044,
+        1926
+      ],
+      "crop_size": [
+        292,
+        349
+      ],
+      "tips": [
+        [
+          160,
+          260
+        ],
+        [
+          158,
+          86
+        ]
+      ]
+    },
+    {
+      "plant_id": "g3_r03",
+      "crop_uid": "ae8bf251601e4c6e995eea24e27f26f3",
+      "genotype": 3,
+      "replicate": 3,
+      "frame_index": 141,
+      "frame_filename": "tray3_0141.jpg",
+      "crop_bbox": [
+        2752,
+        1577,
+        3044,
+        1926
+      ],
+      "crop_size": [
+        292,
+        349
+      ],
+      "tips": [
+        [
+          138,
+          288
+        ],
+        [
+          153,
+          74
+        ],
+        [
+          104,
+          153
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "1cc5f810435e41a2abc649371f3df06a",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 43,
+      "frame_filename": "tray3_0043.jpg",
+      "crop_bbox": [
+        2275,
+        578,
+        2487,
+        748
+      ],
+      "crop_size": [
+        212,
+        170
+      ],
+      "tips": [
+        [
+          150,
+          116
+        ],
+        [
+          68,
+          56
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "1cc5f810435e41a2abc649371f3df06a",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 84,
+      "frame_filename": "tray3_0084.jpg",
+      "crop_bbox": [
+        2275,
+        578,
+        2487,
+        748
+      ],
+      "crop_size": [
+        212,
+        170
+      ],
+      "tips": [
+        [
+          154,
+          123
+        ],
+        [
+          56,
+          52
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r01",
+      "crop_uid": "1cc5f810435e41a2abc649371f3df06a",
+      "genotype": 2,
+      "replicate": 1,
+      "frame_index": 130,
+      "frame_filename": "tray3_0130.jpg",
+      "crop_bbox": [
+        2275,
+        578,
+        2487,
+        748
+      ],
+      "crop_size": [
+        212,
+        170
+      ],
+      "tips": [
+        [
+          166,
+          130
+        ],
+        [
+          50,
+          50
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r02",
+      "crop_uid": "108666ed538a490bb5411f5e020b7d0f",
+      "genotype": 2,
+      "replicate": 2,
+      "frame_index": 20,
+      "frame_filename": "tray3_0020.jpg",
+      "crop_bbox": [
+        2257,
+        784,
+        2466,
+        939
+      ],
+      "crop_size": [
+        209,
+        155
+      ],
+      "tips": [
+        [
+          138,
+          108
+        ],
+        [
+          85,
+          82
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r02",
+      "crop_uid": "108666ed538a490bb5411f5e020b7d0f",
+      "genotype": 2,
+      "replicate": 2,
+      "frame_index": 92,
+      "frame_filename": "tray3_0092.jpg",
+      "crop_bbox": [
+        2257,
+        784,
+        2466,
+        939
+      ],
+      "crop_size": [
+        209,
+        155
+      ],
+      "tips": [
+        [
+          132,
+          66
+        ],
+        [
+          66,
+          64
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "eb4792c92b644643ab2fb70ea0e92fb7",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 33,
+      "frame_filename": "tray3_0033.jpg",
+      "crop_bbox": [
+        2287,
+        1217,
+        2499,
+        1387
+      ],
+      "crop_size": [
+        212,
+        170
+      ],
+      "tips": [
+        [
+          70,
+          106
+        ],
+        [
+          142,
+          76
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "eb4792c92b644643ab2fb70ea0e92fb7",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 76,
+      "frame_filename": "tray3_0076.jpg",
+      "crop_bbox": [
+        2287,
+        1217,
+        2499,
+        1387
+      ],
+      "crop_size": [
+        212,
+        170
+      ],
+      "tips": [
+        [
+          67,
+          112
+        ],
+        [
+          150,
+          76
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r03",
+      "crop_uid": "eb4792c92b644643ab2fb70ea0e92fb7",
+      "genotype": 2,
+      "replicate": 3,
+      "frame_index": 153,
+      "frame_filename": "tray3_0153.jpg",
+      "crop_bbox": [
+        2287,
+        1217,
+        2499,
+        1387
+      ],
+      "crop_size": [
+        212,
+        170
+      ],
+      "tips": [
+        [
+          58,
+          111
+        ],
+        [
+          161,
+          70
+        ],
+        [
+          89,
+          64
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "98b5bedfecf44ce7a1f2627e12882827",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 3,
+      "frame_filename": "tray3_0003.jpg",
+      "crop_bbox": [
+        2311,
+        1458,
+        2543,
+        1610
+      ],
+      "crop_size": [
+        232,
+        152
+      ],
+      "tips": [
+        [
+          137,
+          87
+        ],
+        [
+          94,
+          94
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "98b5bedfecf44ce7a1f2627e12882827",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 86,
+      "frame_filename": "tray3_0086.jpg",
+      "crop_bbox": [
+        2311,
+        1458,
+        2543,
+        1610
+      ],
+      "crop_size": [
+        232,
+        152
+      ],
+      "tips": [
+        [
+          73,
+          90
+        ],
+        [
+          156,
+          87
+        ]
+      ]
+    },
+    {
+      "plant_id": "g2_r04",
+      "crop_uid": "98b5bedfecf44ce7a1f2627e12882827",
+      "genotype": 2,
+      "replicate": 4,
+      "frame_index": 174,
+      "frame_filename": "tray3_0174.jpg",
+      "crop_bbox": [
+        2311,
+        1458,
+        2543,
+        1610
+      ],
+      "crop_size": [
+        232,
+        152
+      ],
+      "tips": [
+        [
+          65,
+          86
+        ],
+        [
+          162,
+          92
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r01",
+      "crop_uid": "67fcee0fd0b14bf697301ca95745749f",
+      "genotype": 4,
+      "replicate": 1,
+      "frame_index": 12,
+      "frame_filename": "tray3_0012.jpg",
+      "crop_bbox": [
+        304,
+        587,
+        510,
+        745
+      ],
+      "crop_size": [
+        206,
+        158
+      ],
+      "tips": [
+        [
+          140,
+          94
+        ],
+        [
+          98,
+          71
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r01",
+      "crop_uid": "67fcee0fd0b14bf697301ca95745749f",
+      "genotype": 4,
+      "replicate": 1,
+      "frame_index": 110,
+      "frame_filename": "tray3_0110.jpg",
+      "crop_bbox": [
+        304,
+        587,
+        510,
+        745
+      ],
+      "crop_size": [
+        206,
+        158
+      ],
+      "tips": [
+        [
+          156,
+          100
+        ],
+        [
+          61,
+          50
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r01",
+      "crop_uid": "67fcee0fd0b14bf697301ca95745749f",
+      "genotype": 4,
+      "replicate": 1,
+      "frame_index": 146,
+      "frame_filename": "tray3_0146.jpg",
+      "crop_bbox": [
+        304,
+        587,
+        510,
+        745
+      ],
+      "crop_size": [
+        206,
+        158
+      ],
+      "tips": [
+        [
+          173,
+          119
+        ],
+        [
+          54,
+          54
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r02",
+      "crop_uid": "4b480aac53f248dc9f3f5a794ad7ad71",
+      "genotype": 4,
+      "replicate": 2,
+      "frame_index": 49,
+      "frame_filename": "tray3_0049.jpg",
+      "crop_bbox": [
+        155,
+        802,
+        352,
+        960
+      ],
+      "crop_size": [
+        197,
+        158
+      ],
+      "tips": [
+        [
+          116,
+          84
+        ],
+        [
+          108,
+          56
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r02",
+      "crop_uid": "4b480aac53f248dc9f3f5a794ad7ad71",
+      "genotype": 4,
+      "replicate": 2,
+      "frame_index": 85,
+      "frame_filename": "tray3_0085.jpg",
+      "crop_bbox": [
+        155,
+        802,
+        352,
+        960
+      ],
+      "crop_size": [
+        197,
+        158
+      ],
+      "tips": [
+        [
+          120,
+          94
+        ],
+        [
+          98,
+          53
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r02",
+      "crop_uid": "4b480aac53f248dc9f3f5a794ad7ad71",
+      "genotype": 4,
+      "replicate": 2,
+      "frame_index": 159,
+      "frame_filename": "tray3_0159.jpg",
+      "crop_bbox": [
+        155,
+        802,
+        352,
+        960
+      ],
+      "crop_size": [
+        197,
+        158
+      ],
+      "tips": [
+        [
+          110,
+          112
+        ],
+        [
+          80,
+          50
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r03",
+      "crop_uid": "a6c5eca5454f4ce2a61abbaf3bcdb2c6",
+      "genotype": 4,
+      "replicate": 3,
+      "frame_index": 50,
+      "frame_filename": "tray3_0050.jpg",
+      "crop_bbox": [
+        75,
+        1664,
+        301,
+        1890
+      ],
+      "crop_size": [
+        226,
+        226
+      ],
+      "tips": [
+        [
+          91,
+          166
+        ],
+        [
+          158,
+          88
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r03",
+      "crop_uid": "a6c5eca5454f4ce2a61abbaf3bcdb2c6",
+      "genotype": 4,
+      "replicate": 3,
+      "frame_index": 78,
+      "frame_filename": "tray3_0078.jpg",
+      "crop_bbox": [
+        75,
+        1664,
+        301,
+        1890
+      ],
+      "crop_size": [
+        226,
+        226
+      ],
+      "tips": [
+        [
+          84,
+          164
+        ],
+        [
+          152,
+          82
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r03",
+      "crop_uid": "a6c5eca5454f4ce2a61abbaf3bcdb2c6",
+      "genotype": 4,
+      "replicate": 3,
+      "frame_index": 139,
+      "frame_filename": "tray3_0139.jpg",
+      "crop_bbox": [
+        75,
+        1664,
+        301,
+        1890
+      ],
+      "crop_size": [
+        226,
+        226
+      ],
+      "tips": [
+        [
+          60,
+          158
+        ],
+        [
+          170,
+          68
+        ],
+        [
+          137,
+          170
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r04",
+      "crop_uid": "df0022a259534c54904d5d1d85c7ab56",
+      "genotype": 4,
+      "replicate": 4,
+      "frame_index": 3,
+      "frame_filename": "tray3_0003.jpg",
+      "crop_bbox": [
+        328,
+        1896,
+        662,
+        2189
+      ],
+      "crop_size": [
+        334,
+        293
+      ],
+      "tips": [
+        [
+          108,
+          197
+        ],
+        [
+          102,
+          86
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r04",
+      "crop_uid": "df0022a259534c54904d5d1d85c7ab56",
+      "genotype": 4,
+      "replicate": 4,
+      "frame_index": 61,
+      "frame_filename": "tray3_0061.jpg",
+      "crop_bbox": [
+        328,
+        1896,
+        662,
+        2189
+      ],
+      "crop_size": [
+        334,
+        293
+      ],
+      "tips": [
+        [
+          64,
+          196
+        ],
+        [
+          94,
+          86
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r04",
+      "crop_uid": "df0022a259534c54904d5d1d85c7ab56",
+      "genotype": 4,
+      "replicate": 4,
+      "frame_index": 172,
+      "frame_filename": "tray3_0172.jpg",
+      "crop_bbox": [
+        328,
+        1896,
+        662,
+        2189
+      ],
+      "crop_size": [
+        334,
+        293
+      ],
+      "tips": [
+        [
+          81,
+          164
+        ],
+        [
+          243,
+          84
+        ],
+        [
+          170,
+          180
+        ],
+        [
+          144,
+          92
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r05",
+      "crop_uid": "f515f00e04e34fe994f516ff196a95cf",
+      "genotype": 4,
+      "replicate": 5,
+      "frame_index": 49,
+      "frame_filename": "tray3_0049.jpg",
+      "crop_bbox": [
+        373,
+        975,
+        528,
+        1199
+      ],
+      "crop_size": [
+        155,
+        224
+      ],
+      "tips": [
+        [
+          73,
+          142
+        ],
+        [
+          101,
+          86
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r05",
+      "crop_uid": "f515f00e04e34fe994f516ff196a95cf",
+      "genotype": 4,
+      "replicate": 5,
+      "frame_index": 95,
+      "frame_filename": "tray3_0095.jpg",
+      "crop_bbox": [
+        373,
+        975,
+        528,
+        1199
+      ],
+      "crop_size": [
+        155,
+        224
+      ],
+      "tips": [
+        [
+          62,
+          154
+        ],
+        [
+          106,
+          75
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r05",
+      "crop_uid": "f515f00e04e34fe994f516ff196a95cf",
+      "genotype": 4,
+      "replicate": 5,
+      "frame_index": 126,
+      "frame_filename": "tray3_0126.jpg",
+      "crop_bbox": [
+        373,
+        975,
+        528,
+        1199
+      ],
+      "crop_size": [
+        155,
+        224
+      ],
+      "tips": [
+        [
+          58,
+          154
+        ],
+        [
+          100,
+          68
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r06",
+      "crop_uid": "752248c8df8a4105aa4ac8cc6107aac6",
+      "genotype": 4,
+      "replicate": 6,
+      "frame_index": 6,
+      "frame_filename": "tray3_0006.jpg",
+      "crop_bbox": [
+        558,
+        781,
+        787,
+        966
+      ],
+      "crop_size": [
+        229,
+        185
+      ],
+      "tips": [
+        [
+          146,
+          104
+        ],
+        [
+          88,
+          110
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r06",
+      "crop_uid": "752248c8df8a4105aa4ac8cc6107aac6",
+      "genotype": 4,
+      "replicate": 6,
+      "frame_index": 107,
+      "frame_filename": "tray3_0107.jpg",
+      "crop_bbox": [
+        558,
+        781,
+        787,
+        966
+      ],
+      "crop_size": [
+        229,
+        185
+      ],
+      "tips": [
+        [
+          146,
+          91
+        ],
+        [
+          62,
+          94
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r06",
+      "crop_uid": "752248c8df8a4105aa4ac8cc6107aac6",
+      "genotype": 4,
+      "replicate": 6,
+      "frame_index": 155,
+      "frame_filename": "tray3_0155.jpg",
+      "crop_bbox": [
+        558,
+        781,
+        787,
+        966
+      ],
+      "crop_size": [
+        229,
+        185
+      ],
+      "tips": [
+        [
+          150,
+          76
+        ],
+        [
+          54,
+          73
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r07",
+      "crop_uid": "3703b67dabf949398ce944554fb51e2c",
+      "genotype": 4,
+      "replicate": 7,
+      "frame_index": 30,
+      "frame_filename": "tray3_0030.jpg",
+      "crop_bbox": [
+        480,
+        1202,
+        704,
+        1446
+      ],
+      "crop_size": [
+        224,
+        244
+      ],
+      "tips": [
+        [
+          168,
+          137
+        ],
+        [
+          119,
+          44
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r07",
+      "crop_uid": "3703b67dabf949398ce944554fb51e2c",
+      "genotype": 4,
+      "replicate": 7,
+      "frame_index": 67,
+      "frame_filename": "tray3_0067.jpg",
+      "crop_bbox": [
+        480,
+        1202,
+        704,
+        1446
+      ],
+      "crop_size": [
+        224,
+        244
+      ],
+      "tips": [
+        [
+          148,
+          135
+        ],
+        [
+          90,
+          34
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r07",
+      "crop_uid": "3703b67dabf949398ce944554fb51e2c",
+      "genotype": 4,
+      "replicate": 7,
+      "frame_index": 163,
+      "frame_filename": "tray3_0163.jpg",
+      "crop_bbox": [
+        480,
+        1202,
+        704,
+        1446
+      ],
+      "crop_size": [
+        224,
+        244
+      ],
+      "tips": [
+        [
+          96,
+          198
+        ],
+        [
+          68,
+          36
+        ],
+        [
+          32,
+          126
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r08",
+      "crop_uid": "5ae0e0f267054309adf2a2140e989007",
+      "genotype": 4,
+      "replicate": 8,
+      "frame_index": 39,
+      "frame_filename": "tray3_0039.jpg",
+      "crop_bbox": [
+        802,
+        558,
+        1005,
+        751
+      ],
+      "crop_size": [
+        203,
+        193
+      ],
+      "tips": [
+        [
+          89,
+          134
+        ],
+        [
+          129,
+          56
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r08",
+      "crop_uid": "5ae0e0f267054309adf2a2140e989007",
+      "genotype": 4,
+      "replicate": 8,
+      "frame_index": 92,
+      "frame_filename": "tray3_0092.jpg",
+      "crop_bbox": [
+        802,
+        558,
+        1005,
+        751
+      ],
+      "crop_size": [
+        203,
+        193
+      ],
+      "tips": [
+        [
+          72,
+          138
+        ],
+        [
+          132,
+          56
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r08",
+      "crop_uid": "5ae0e0f267054309adf2a2140e989007",
+      "genotype": 4,
+      "replicate": 8,
+      "frame_index": 157,
+      "frame_filename": "tray3_0157.jpg",
+      "crop_bbox": [
+        802,
+        558,
+        1005,
+        751
+      ],
+      "crop_size": [
+        203,
+        193
+      ],
+      "tips": [
+        [
+          138,
+          23
+        ],
+        [
+          50,
+          118
+        ],
+        [
+          56,
+          52
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r09",
+      "crop_uid": "173f1e412a6f475198e20838950b249b",
+      "genotype": 4,
+      "replicate": 9,
+      "frame_index": 34,
+      "frame_filename": "tray3_0034.jpg",
+      "crop_bbox": [
+        808,
+        975,
+        981,
+        1193
+      ],
+      "crop_size": [
+        173,
+        218
+      ],
+      "tips": [
+        [
+          118,
+          142
+        ],
+        [
+          108,
+          61
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r09",
+      "crop_uid": "173f1e412a6f475198e20838950b249b",
+      "genotype": 4,
+      "replicate": 9,
+      "frame_index": 99,
+      "frame_filename": "tray3_0099.jpg",
+      "crop_bbox": [
+        808,
+        975,
+        981,
+        1193
+      ],
+      "crop_size": [
+        173,
+        218
+      ],
+      "tips": [
+        [
+          117,
+          154
+        ],
+        [
+          120,
+          50
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r09",
+      "crop_uid": "173f1e412a6f475198e20838950b249b",
+      "genotype": 4,
+      "replicate": 9,
+      "frame_index": 128,
+      "frame_filename": "tray3_0128.jpg",
+      "crop_bbox": [
+        808,
+        975,
+        981,
+        1193
+      ],
+      "crop_size": [
+        173,
+        218
+      ],
+      "tips": [
+        [
+          112,
+          162
+        ],
+        [
+          122,
+          41
+        ],
+        [
+          63,
+          106
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r10",
+      "crop_uid": "cae93bec919c47e990a5dfed3a977093",
+      "genotype": 4,
+      "replicate": 10,
+      "frame_index": 53,
+      "frame_filename": "tray3_0053.jpg",
+      "crop_bbox": [
+        787,
+        1440,
+        966,
+        1640
+      ],
+      "crop_size": [
+        179,
+        200
+      ],
+      "tips": [
+        [
+          130,
+          118
+        ],
+        [
+          75,
+          68
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r11",
+      "crop_uid": "f8c9fabae33c42458aa8e249f4d3e4d1",
+      "genotype": 4,
+      "replicate": 11,
+      "frame_index": 3,
+      "frame_filename": "tray3_0003.jpg",
+      "crop_bbox": [
+        754,
+        1864,
+        963,
+        2069
+      ],
+      "crop_size": [
+        209,
+        205
+      ],
+      "tips": [
+        [
+          129,
+          132
+        ],
+        [
+          114,
+          70
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r11",
+      "crop_uid": "f8c9fabae33c42458aa8e249f4d3e4d1",
+      "genotype": 4,
+      "replicate": 11,
+      "frame_index": 96,
+      "frame_filename": "tray3_0096.jpg",
+      "crop_bbox": [
+        754,
+        1864,
+        963,
+        2069
+      ],
+      "crop_size": [
+        209,
+        205
+      ],
+      "tips": [
+        [
+          142,
+          152
+        ],
+        [
+          94,
+          54
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r11",
+      "crop_uid": "f8c9fabae33c42458aa8e249f4d3e4d1",
+      "genotype": 4,
+      "replicate": 11,
+      "frame_index": 152,
+      "frame_filename": "tray3_0152.jpg",
+      "crop_bbox": [
+        754,
+        1864,
+        963,
+        2069
+      ],
+      "crop_size": [
+        209,
+        205
+      ],
+      "tips": [
+        [
+          130,
+          158
+        ],
+        [
+          72,
+          56
+        ],
+        [
+          77,
+          140
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r12",
+      "crop_uid": "fd50fb533cbe42b982fcce71384c3f2e",
+      "genotype": 4,
+      "replicate": 12,
+      "frame_index": 9,
+      "frame_filename": "tray3_0009.jpg",
+      "crop_bbox": [
+        1029,
+        760,
+        1205,
+        936
+      ],
+      "crop_size": [
+        176,
+        176
+      ],
+      "tips": [
+        [
+          116,
+          109
+        ],
+        [
+          46,
+          70
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r12",
+      "crop_uid": "fd50fb533cbe42b982fcce71384c3f2e",
+      "genotype": 4,
+      "replicate": 12,
+      "frame_index": 65,
+      "frame_filename": "tray3_0065.jpg",
+      "crop_bbox": [
+        1029,
+        760,
+        1205,
+        936
+      ],
+      "crop_size": [
+        176,
+        176
+      ],
+      "tips": [
+        [
+          124,
+          114
+        ],
+        [
+          37,
+          52
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r12",
+      "crop_uid": "fd50fb533cbe42b982fcce71384c3f2e",
+      "genotype": 4,
+      "replicate": 12,
+      "frame_index": 152,
+      "frame_filename": "tray3_0152.jpg",
+      "crop_bbox": [
+        1029,
+        760,
+        1205,
+        936
+      ],
+      "crop_size": [
+        176,
+        176
+      ],
+      "tips": [
+        [
+          129,
+          162
+        ],
+        [
+          24,
+          44
+        ],
+        [
+          115,
+          52
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r13",
+      "crop_uid": "63078926045c44088c5449c48a7578e8",
+      "genotype": 4,
+      "replicate": 13,
+      "frame_index": 57,
+      "frame_filename": "tray3_0057.jpg",
+      "crop_bbox": [
+        996,
+        1163,
+        1223,
+        1428
+      ],
+      "crop_size": [
+        227,
+        265
+      ],
+      "tips": [
+        [
+          100,
+          202
+        ],
+        [
+          104,
+          94
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r13",
+      "crop_uid": "63078926045c44088c5449c48a7578e8",
+      "genotype": 4,
+      "replicate": 13,
+      "frame_index": 116,
+      "frame_filename": "tray3_0116.jpg",
+      "crop_bbox": [
+        996,
+        1163,
+        1223,
+        1428
+      ],
+      "crop_size": [
+        227,
+        265
+      ],
+      "tips": [
+        [
+          110,
+          224
+        ],
+        [
+          88,
+          84
+        ],
+        [
+          164,
+          138
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r13",
+      "crop_uid": "63078926045c44088c5449c48a7578e8",
+      "genotype": 4,
+      "replicate": 13,
+      "frame_index": 153,
+      "frame_filename": "tray3_0153.jpg",
+      "crop_bbox": [
+        996,
+        1163,
+        1223,
+        1428
+      ],
+      "crop_size": [
+        227,
+        265
+      ],
+      "tips": [
+        [
+          110,
+          214
+        ],
+        [
+          95,
+          72
+        ],
+        [
+          183,
+          124
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r14",
+      "crop_uid": "77df73fdecbe463dab7d2c0dd673e1db",
+      "genotype": 4,
+      "replicate": 14,
+      "frame_index": 29,
+      "frame_filename": "tray3_0029.jpg",
+      "crop_bbox": [
+        1020,
+        1658,
+        1255,
+        1852
+      ],
+      "crop_size": [
+        235,
+        194
+      ],
+      "tips": [
+        [
+          76,
+          148
+        ],
+        [
+          136,
+          58
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r14",
+      "crop_uid": "77df73fdecbe463dab7d2c0dd673e1db",
+      "genotype": 4,
+      "replicate": 14,
+      "frame_index": 104,
+      "frame_filename": "tray3_0104.jpg",
+      "crop_bbox": [
+        1020,
+        1658,
+        1255,
+        1852
+      ],
+      "crop_size": [
+        235,
+        194
+      ],
+      "tips": [
+        [
+          50,
+          126
+        ],
+        [
+          160,
+          20
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r14",
+      "crop_uid": "77df73fdecbe463dab7d2c0dd673e1db",
+      "genotype": 4,
+      "replicate": 14,
+      "frame_index": 139,
+      "frame_filename": "tray3_0139.jpg",
+      "crop_bbox": [
+        1020,
+        1658,
+        1255,
+        1852
+      ],
+      "crop_size": [
+        235,
+        194
+      ],
+      "tips": [
+        [
+          42,
+          122
+        ],
+        [
+          164,
+          26
+        ],
+        [
+          148,
+          121
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r15",
+      "crop_uid": "cdc67b385e174ea8b91afaa4780f8829",
+      "genotype": 4,
+      "replicate": 15,
+      "frame_index": 21,
+      "frame_filename": "tray3_0021.jpg",
+      "crop_bbox": [
+        1231,
+        1890,
+        1479,
+        2090
+      ],
+      "crop_size": [
+        248,
+        200
+      ],
+      "tips": [
+        [
+          72,
+          86
+        ],
+        [
+          151,
+          120
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r15",
+      "crop_uid": "cdc67b385e174ea8b91afaa4780f8829",
+      "genotype": 4,
+      "replicate": 15,
+      "frame_index": 103,
+      "frame_filename": "tray3_0103.jpg",
+      "crop_bbox": [
+        1231,
+        1890,
+        1479,
+        2090
+      ],
+      "crop_size": [
+        248,
+        200
+      ],
+      "tips": [
+        [
+          52,
+          62
+        ],
+        [
+          200,
+          114
+        ],
+        [
+          101,
+          134
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r15",
+      "crop_uid": "cdc67b385e174ea8b91afaa4780f8829",
+      "genotype": 4,
+      "replicate": 15,
+      "frame_index": 120,
+      "frame_filename": "tray3_0120.jpg",
+      "crop_bbox": [
+        1231,
+        1890,
+        1479,
+        2090
+      ],
+      "crop_size": [
+        248,
+        200
+      ],
+      "tips": [
+        [
+          39,
+          64
+        ],
+        [
+          200,
+          114
+        ],
+        [
+          94,
+          144
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r16",
+      "crop_uid": "b67b848099524d5bb97f5cfc936bbf40",
+      "genotype": 4,
+      "replicate": 16,
+      "frame_index": 13,
+      "frame_filename": "tray3_0013.jpg",
+      "crop_bbox": [
+        1425,
+        1637,
+        1643,
+        1944
+      ],
+      "crop_size": [
+        218,
+        307
+      ],
+      "tips": [
+        [
+          84,
+          138
+        ],
+        [
+          154,
+          194
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r16",
+      "crop_uid": "b67b848099524d5bb97f5cfc936bbf40",
+      "genotype": 4,
+      "replicate": 16,
+      "frame_index": 84,
+      "frame_filename": "tray3_0084.jpg",
+      "crop_bbox": [
+        1425,
+        1637,
+        1643,
+        1944
+      ],
+      "crop_size": [
+        218,
+        307
+      ],
+      "tips": [
+        [
+          48,
+          106
+        ],
+        [
+          131,
+          250
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r16",
+      "crop_uid": "b67b848099524d5bb97f5cfc936bbf40",
+      "genotype": 4,
+      "replicate": 16,
+      "frame_index": 164,
+      "frame_filename": "tray3_0164.jpg",
+      "crop_bbox": [
+        1425,
+        1637,
+        1643,
+        1944
+      ],
+      "crop_size": [
+        218,
+        307
+      ],
+      "tips": [
+        [
+          116,
+          270
+        ],
+        [
+          30,
+          79
+        ],
+        [
+          168,
+          148
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r17",
+      "crop_uid": "a051f180e5944789998f933570629462",
+      "genotype": 4,
+      "replicate": 17,
+      "frame_index": 6,
+      "frame_filename": "tray3_0006.jpg",
+      "crop_bbox": [
+        1723,
+        1870,
+        1914,
+        2081
+      ],
+      "crop_size": [
+        191,
+        211
+      ],
+      "tips": [
+        [
+          100,
+          168
+        ],
+        [
+          87,
+          92
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r17",
+      "crop_uid": "a051f180e5944789998f933570629462",
+      "genotype": 4,
+      "replicate": 17,
+      "frame_index": 75,
+      "frame_filename": "tray3_0075.jpg",
+      "crop_bbox": [
+        1723,
+        1870,
+        1914,
+        2081
+      ],
+      "crop_size": [
+        191,
+        211
+      ],
+      "tips": [
+        [
+          98,
+          180
+        ],
+        [
+          86,
+          70
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r18",
+      "crop_uid": "3d12c2797a124e45a5cd5f20cc4b5209",
+      "genotype": 4,
+      "replicate": 18,
+      "frame_index": 49,
+      "frame_filename": "tray3_0049.jpg",
+      "crop_bbox": [
+        1673,
+        1440,
+        1882,
+        1625
+      ],
+      "crop_size": [
+        209,
+        185
+      ],
+      "tips": [
+        [
+          148,
+          134
+        ],
+        [
+          75,
+          101
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r18",
+      "crop_uid": "3d12c2797a124e45a5cd5f20cc4b5209",
+      "genotype": 4,
+      "replicate": 18,
+      "frame_index": 112,
+      "frame_filename": "tray3_0112.jpg",
+      "crop_bbox": [
+        1673,
+        1440,
+        1882,
+        1625
+      ],
+      "crop_size": [
+        209,
+        185
+      ],
+      "tips": [
+        [
+          140,
+          146
+        ],
+        [
+          64,
+          100
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r18",
+      "crop_uid": "3d12c2797a124e45a5cd5f20cc4b5209",
+      "genotype": 4,
+      "replicate": 18,
+      "frame_index": 150,
+      "frame_filename": "tray3_0150.jpg",
+      "crop_bbox": [
+        1673,
+        1440,
+        1882,
+        1625
+      ],
+      "crop_size": [
+        209,
+        185
+      ],
+      "tips": [
+        [
+          142,
+          155
+        ],
+        [
+          60,
+          96
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r19",
+      "crop_uid": "6175e278352a4c64909b2bbdfd574c59",
+      "genotype": 4,
+      "replicate": 19,
+      "frame_index": 29,
+      "frame_filename": "tray3_0029.jpg",
+      "crop_bbox": [
+        1205,
+        1422,
+        1390,
+        1664
+      ],
+      "crop_size": [
+        185,
+        242
+      ],
+      "tips": [
+        [
+          86,
+          196
+        ],
+        [
+          88,
+          74
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r19",
+      "crop_uid": "6175e278352a4c64909b2bbdfd574c59",
+      "genotype": 4,
+      "replicate": 19,
+      "frame_index": 60,
+      "frame_filename": "tray3_0060.jpg",
+      "crop_bbox": [
+        1205,
+        1422,
+        1390,
+        1664
+      ],
+      "crop_size": [
+        185,
+        242
+      ],
+      "tips": [
+        [
+          70,
+          185
+        ],
+        [
+          76,
+          80
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r19",
+      "crop_uid": "6175e278352a4c64909b2bbdfd574c59",
+      "genotype": 4,
+      "replicate": 19,
+      "frame_index": 163,
+      "frame_filename": "tray3_0163.jpg",
+      "crop_bbox": [
+        1205,
+        1422,
+        1390,
+        1664
+      ],
+      "crop_size": [
+        185,
+        242
+      ],
+      "tips": [
+        [
+          19,
+          210
+        ],
+        [
+          53,
+          42
+        ],
+        [
+          122,
+          136
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r20",
+      "crop_uid": "3786c87e9aee443db18397902511f682",
+      "genotype": 4,
+      "replicate": 20,
+      "frame_index": 58,
+      "frame_filename": "tray3_0058.jpg",
+      "crop_bbox": [
+        1246,
+        969,
+        1446,
+        1217
+      ],
+      "crop_size": [
+        200,
+        248
+      ],
+      "tips": [
+        [
+          96,
+          169
+        ],
+        [
+          94,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r20",
+      "crop_uid": "3786c87e9aee443db18397902511f682",
+      "genotype": 4,
+      "replicate": 20,
+      "frame_index": 93,
+      "frame_filename": "tray3_0093.jpg",
+      "crop_bbox": [
+        1246,
+        969,
+        1446,
+        1217
+      ],
+      "crop_size": [
+        200,
+        248
+      ],
+      "tips": [
+        [
+          82,
+          186
+        ],
+        [
+          80,
+          80
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r20",
+      "crop_uid": "3786c87e9aee443db18397902511f682",
+      "genotype": 4,
+      "replicate": 20,
+      "frame_index": 157,
+      "frame_filename": "tray3_0157.jpg",
+      "crop_bbox": [
+        1246,
+        969,
+        1446,
+        1217
+      ],
+      "crop_size": [
+        200,
+        248
+      ],
+      "tips": [
+        [
+          80,
+          194
+        ],
+        [
+          72,
+          56
+        ],
+        [
+          168,
+          112
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r21",
+      "crop_uid": "b3ca55db71a04f328dbbb5885d91163b",
+      "genotype": 4,
+      "replicate": 21,
+      "frame_index": 47,
+      "frame_filename": "tray3_0047.jpg",
+      "crop_bbox": [
+        1196,
+        573,
+        1452,
+        739
+      ],
+      "crop_size": [
+        256,
+        166
+      ],
+      "tips": [
+        [
+          71,
+          88
+        ],
+        [
+          182,
+          95
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r21",
+      "crop_uid": "b3ca55db71a04f328dbbb5885d91163b",
+      "genotype": 4,
+      "replicate": 21,
+      "frame_index": 66,
+      "frame_filename": "tray3_0066.jpg",
+      "crop_bbox": [
+        1196,
+        573,
+        1452,
+        739
+      ],
+      "crop_size": [
+        256,
+        166
+      ],
+      "tips": [
+        [
+          74,
+          76
+        ],
+        [
+          171,
+          84
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r21",
+      "crop_uid": "b3ca55db71a04f328dbbb5885d91163b",
+      "genotype": 4,
+      "replicate": 21,
+      "frame_index": 146,
+      "frame_filename": "tray3_0146.jpg",
+      "crop_bbox": [
+        1196,
+        573,
+        1452,
+        739
+      ],
+      "crop_size": [
+        256,
+        166
+      ],
+      "tips": [
+        [
+          38,
+          89
+        ],
+        [
+          198,
+          110
+        ],
+        [
+          117,
+          44
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r22",
+      "crop_uid": "1708922f07754c6faf2fbc5327c84e88",
+      "genotype": 4,
+      "replicate": 22,
+      "frame_index": 25,
+      "frame_filename": "tray3_0025.jpg",
+      "crop_bbox": [
+        1583,
+        558,
+        1873,
+        784
+      ],
+      "crop_size": [
+        290,
+        226
+      ],
+      "tips": [
+        [
+          104,
+          162
+        ],
+        [
+          168,
+          72
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r22",
+      "crop_uid": "1708922f07754c6faf2fbc5327c84e88",
+      "genotype": 4,
+      "replicate": 22,
+      "frame_index": 85,
+      "frame_filename": "tray3_0085.jpg",
+      "crop_bbox": [
+        1583,
+        558,
+        1873,
+        784
+      ],
+      "crop_size": [
+        290,
+        226
+      ],
+      "tips": [
+        [
+          98,
+          192
+        ],
+        [
+          128,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r22",
+      "crop_uid": "1708922f07754c6faf2fbc5327c84e88",
+      "genotype": 4,
+      "replicate": 22,
+      "frame_index": 122,
+      "frame_filename": "tray3_0122.jpg",
+      "crop_bbox": [
+        1583,
+        558,
+        1873,
+        784
+      ],
+      "crop_size": [
+        290,
+        226
+      ],
+      "tips": [
+        [
+          86,
+          198
+        ],
+        [
+          124,
+          28
+        ],
+        [
+          180,
+          124
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r23",
+      "crop_uid": "57e0fc24cb504ec99349552a7968ef8e",
+      "genotype": 4,
+      "replicate": 23,
+      "frame_index": 17,
+      "frame_filename": "tray3_0017.jpg",
+      "crop_bbox": [
+        1870,
+        784,
+        2034,
+        954
+      ],
+      "crop_size": [
+        164,
+        170
+      ],
+      "tips": [
+        [
+          79,
+          98
+        ],
+        [
+          113,
+          56
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r23",
+      "crop_uid": "57e0fc24cb504ec99349552a7968ef8e",
+      "genotype": 4,
+      "replicate": 23,
+      "frame_index": 99,
+      "frame_filename": "tray3_0099.jpg",
+      "crop_bbox": [
+        1870,
+        784,
+        2034,
+        954
+      ],
+      "crop_size": [
+        164,
+        170
+      ],
+      "tips": [
+        [
+          62,
+          118
+        ],
+        [
+          120,
+          34
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r23",
+      "crop_uid": "57e0fc24cb504ec99349552a7968ef8e",
+      "genotype": 4,
+      "replicate": 23,
+      "frame_index": 174,
+      "frame_filename": "tray3_0174.jpg",
+      "crop_bbox": [
+        1870,
+        784,
+        2034,
+        954
+      ],
+      "crop_size": [
+        164,
+        170
+      ],
+      "tips": [
+        [
+          44,
+          123
+        ],
+        [
+          124,
+          27
+        ],
+        [
+          116,
+          112
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r24",
+      "crop_uid": "97394b61978e465195cefeef198a6330",
+      "genotype": 4,
+      "replicate": 24,
+      "frame_index": 21,
+      "frame_filename": "tray3_0021.jpg",
+      "crop_bbox": [
+        1476,
+        760,
+        1691,
+        948
+      ],
+      "crop_size": [
+        215,
+        188
+      ],
+      "tips": [
+        [
+          74,
+          114
+        ],
+        [
+          122,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r24",
+      "crop_uid": "97394b61978e465195cefeef198a6330",
+      "genotype": 4,
+      "replicate": 24,
+      "frame_index": 78,
+      "frame_filename": "tray3_0078.jpg",
+      "crop_bbox": [
+        1476,
+        760,
+        1691,
+        948
+      ],
+      "crop_size": [
+        215,
+        188
+      ],
+      "tips": [
+        [
+          64,
+          145
+        ],
+        [
+          138,
+          56
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r24",
+      "crop_uid": "97394b61978e465195cefeef198a6330",
+      "genotype": 4,
+      "replicate": 24,
+      "frame_index": 119,
+      "frame_filename": "tray3_0119.jpg",
+      "crop_bbox": [
+        1476,
+        760,
+        1691,
+        948
+      ],
+      "crop_size": [
+        215,
+        188
+      ],
+      "tips": [
+        [
+          52,
+          135
+        ],
+        [
+          156,
+          42
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r25",
+      "crop_uid": "b8e68985df0d4438b8fa051f4ef20ff0",
+      "genotype": 4,
+      "replicate": 25,
+      "frame_index": 33,
+      "frame_filename": "tray3_0033.jpg",
+      "crop_bbox": [
+        1652,
+        975,
+        1852,
+        1163
+      ],
+      "crop_size": [
+        200,
+        188
+      ],
+      "tips": [
+        [
+          116,
+          156
+        ],
+        [
+          108,
+          68
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r25",
+      "crop_uid": "b8e68985df0d4438b8fa051f4ef20ff0",
+      "genotype": 4,
+      "replicate": 25,
+      "frame_index": 99,
+      "frame_filename": "tray3_0099.jpg",
+      "crop_bbox": [
+        1652,
+        975,
+        1852,
+        1163
+      ],
+      "crop_size": [
+        200,
+        188
+      ],
+      "tips": [
+        [
+          106,
+          167
+        ],
+        [
+          78,
+          56
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r25",
+      "crop_uid": "b8e68985df0d4438b8fa051f4ef20ff0",
+      "genotype": 4,
+      "replicate": 25,
+      "frame_index": 137,
+      "frame_filename": "tray3_0137.jpg",
+      "crop_bbox": [
+        1652,
+        975,
+        1852,
+        1163
+      ],
+      "crop_size": [
+        200,
+        188
+      ],
+      "tips": [
+        [
+          96,
+          174
+        ],
+        [
+          74,
+          54
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r26",
+      "crop_uid": "ceadc53401e44610af0ef21d56ca86fa",
+      "genotype": 4,
+      "replicate": 26,
+      "frame_index": 28,
+      "frame_filename": "tray3_0028.jpg",
+      "crop_bbox": [
+        1458,
+        1202,
+        1658,
+        1398
+      ],
+      "crop_size": [
+        200,
+        196
+      ],
+      "tips": [
+        [
+          86,
+          134
+        ],
+        [
+          124,
+          62
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r26",
+      "crop_uid": "ceadc53401e44610af0ef21d56ca86fa",
+      "genotype": 4,
+      "replicate": 26,
+      "frame_index": 79,
+      "frame_filename": "tray3_0079.jpg",
+      "crop_bbox": [
+        1458,
+        1202,
+        1658,
+        1398
+      ],
+      "crop_size": [
+        200,
+        196
+      ],
+      "tips": [
+        [
+          64,
+          134
+        ],
+        [
+          126,
+          48
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r26",
+      "crop_uid": "ceadc53401e44610af0ef21d56ca86fa",
+      "genotype": 4,
+      "replicate": 26,
+      "frame_index": 175,
+      "frame_filename": "tray3_0175.jpg",
+      "crop_bbox": [
+        1458,
+        1202,
+        1658,
+        1398
+      ],
+      "crop_size": [
+        200,
+        196
+      ],
+      "tips": [
+        [
+          50,
+          146
+        ],
+        [
+          146,
+          48
+        ],
+        [
+          148,
+          154
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r27",
+      "crop_uid": "48b5bbc748744d31a8cc7c1d40421e5b",
+      "genotype": 4,
+      "replicate": 27,
+      "frame_index": 35,
+      "frame_filename": "tray3_0035.jpg",
+      "crop_bbox": [
+        1795,
+        1190,
+        2040,
+        1357
+      ],
+      "crop_size": [
+        245,
+        167
+      ],
+      "tips": [
+        [
+          116,
+          107
+        ],
+        [
+          194,
+          66
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r27",
+      "crop_uid": "48b5bbc748744d31a8cc7c1d40421e5b",
+      "genotype": 4,
+      "replicate": 27,
+      "frame_index": 62,
+      "frame_filename": "tray3_0062.jpg",
+      "crop_bbox": [
+        1795,
+        1190,
+        2040,
+        1357
+      ],
+      "crop_size": [
+        245,
+        167
+      ],
+      "tips": [
+        [
+          98,
+          106
+        ],
+        [
+          174,
+          64
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r27",
+      "crop_uid": "48b5bbc748744d31a8cc7c1d40421e5b",
+      "genotype": 4,
+      "replicate": 27,
+      "frame_index": 150,
+      "frame_filename": "tray3_0150.jpg",
+      "crop_bbox": [
+        1795,
+        1190,
+        2040,
+        1357
+      ],
+      "crop_size": [
+        245,
+        167
+      ],
+      "tips": [
+        [
+          48,
+          91
+        ],
+        [
+          190,
+          24
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r28",
+      "crop_uid": "b53056b981f04edd8bc35abeeac0a1c2",
+      "genotype": 4,
+      "replicate": 28,
+      "frame_index": 10,
+      "frame_filename": "tray3_0010.jpg",
+      "crop_bbox": [
+        2078,
+        993,
+        2284,
+        1166
+      ],
+      "crop_size": [
+        206,
+        173
+      ],
+      "tips": [
+        [
+          74,
+          120
+        ],
+        [
+          190,
+          59
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r28",
+      "crop_uid": "b53056b981f04edd8bc35abeeac0a1c2",
+      "genotype": 4,
+      "replicate": 28,
+      "frame_index": 97,
+      "frame_filename": "tray3_0097.jpg",
+      "crop_bbox": [
+        2078,
+        993,
+        2284,
+        1166
+      ],
+      "crop_size": [
+        206,
+        173
+      ],
+      "tips": [
+        [
+          67,
+          121
+        ],
+        [
+          174,
+          42
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r28",
+      "crop_uid": "b53056b981f04edd8bc35abeeac0a1c2",
+      "genotype": 4,
+      "replicate": 28,
+      "frame_index": 119,
+      "frame_filename": "tray3_0119.jpg",
+      "crop_bbox": [
+        2078,
+        993,
+        2284,
+        1166
+      ],
+      "crop_size": [
+        206,
+        173
+      ],
+      "tips": [
+        [
+          82,
+          112
+        ],
+        [
+          174,
+          39
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r29",
+      "crop_uid": "6ab5cbdcf5ac40bf8c9fe50b1125eff3",
+      "genotype": 4,
+      "replicate": 29,
+      "frame_index": 41,
+      "frame_filename": "tray3_0041.jpg",
+      "crop_bbox": [
+        2078,
+        602,
+        2269,
+        784
+      ],
+      "crop_size": [
+        191,
+        182
+      ],
+      "tips": [
+        [
+          64,
+          76
+        ],
+        [
+          170,
+          125
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r29",
+      "crop_uid": "6ab5cbdcf5ac40bf8c9fe50b1125eff3",
+      "genotype": 4,
+      "replicate": 29,
+      "frame_index": 113,
+      "frame_filename": "tray3_0113.jpg",
+      "crop_bbox": [
+        2078,
+        602,
+        2269,
+        784
+      ],
+      "crop_size": [
+        191,
+        182
+      ],
+      "tips": [
+        [
+          59,
+          66
+        ],
+        [
+          174,
+          126
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r29",
+      "crop_uid": "6ab5cbdcf5ac40bf8c9fe50b1125eff3",
+      "genotype": 4,
+      "replicate": 29,
+      "frame_index": 119,
+      "frame_filename": "tray3_0119.jpg",
+      "crop_bbox": [
+        2078,
+        602,
+        2269,
+        784
+      ],
+      "crop_size": [
+        191,
+        182
+      ],
+      "tips": [
+        [
+          64,
+          67
+        ],
+        [
+          183,
+          130
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r30",
+      "crop_uid": "d8cb231c4a594068a167ab4ea6b5be53",
+      "genotype": 4,
+      "replicate": 30,
+      "frame_index": 1,
+      "frame_filename": "tray3_0001.jpg",
+      "crop_bbox": [
+        2111,
+        1393,
+        2287,
+        1589
+      ],
+      "crop_size": [
+        176,
+        196
+      ],
+      "tips": [
+        [
+          90,
+          58
+        ],
+        [
+          130,
+          151
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r30",
+      "crop_uid": "d8cb231c4a594068a167ab4ea6b5be53",
+      "genotype": 4,
+      "replicate": 30,
+      "frame_index": 97,
+      "frame_filename": "tray3_0097.jpg",
+      "crop_bbox": [
+        2111,
+        1393,
+        2287,
+        1589
+      ],
+      "crop_size": [
+        176,
+        196
+      ],
+      "tips": [
+        [
+          104,
+          60
+        ],
+        [
+          124,
+          142
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r30",
+      "crop_uid": "d8cb231c4a594068a167ab4ea6b5be53",
+      "genotype": 4,
+      "replicate": 30,
+      "frame_index": 123,
+      "frame_filename": "tray3_0123.jpg",
+      "crop_bbox": [
+        2111,
+        1393,
+        2287,
+        1589
+      ],
+      "crop_size": [
+        176,
+        196
+      ],
+      "tips": [
+        [
+          104,
+          56
+        ],
+        [
+          123,
+          144
+        ],
+        [
+          87,
+          104
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r31",
+      "crop_uid": "62ba6b9dcb2046da97a7b583501efdd9",
+      "genotype": 4,
+      "replicate": 31,
+      "frame_index": 27,
+      "frame_filename": "tray3_0027.jpg",
+      "crop_bbox": [
+        1905,
+        1682,
+        2105,
+        1852
+      ],
+      "crop_size": [
+        200,
+        170
+      ],
+      "tips": [
+        [
+          83,
+          94
+        ],
+        [
+          122,
+          76
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r31",
+      "crop_uid": "62ba6b9dcb2046da97a7b583501efdd9",
+      "genotype": 4,
+      "replicate": 31,
+      "frame_index": 74,
+      "frame_filename": "tray3_0074.jpg",
+      "crop_bbox": [
+        1905,
+        1682,
+        2105,
+        1852
+      ],
+      "crop_size": [
+        200,
+        170
+      ],
+      "tips": [
+        [
+          68,
+          96
+        ],
+        [
+          136,
+          73
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r31",
+      "crop_uid": "62ba6b9dcb2046da97a7b583501efdd9",
+      "genotype": 4,
+      "replicate": 31,
+      "frame_index": 173,
+      "frame_filename": "tray3_0173.jpg",
+      "crop_bbox": [
+        1905,
+        1682,
+        2105,
+        1852
+      ],
+      "crop_size": [
+        200,
+        170
+      ],
+      "tips": [
+        [
+          53,
+          82
+        ],
+        [
+          156,
+          58
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r32",
+      "crop_uid": "d8296c2b034d4f209a6da67242729f9c",
+      "genotype": 4,
+      "replicate": 32,
+      "frame_index": 39,
+      "frame_filename": "tray3_0039.jpg",
+      "crop_bbox": [
+        2111,
+        1864,
+        2347,
+        2138
+      ],
+      "crop_size": [
+        236,
+        274
+      ],
+      "tips": [
+        [
+          76,
+          176
+        ],
+        [
+          115,
+          70
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r32",
+      "crop_uid": "d8296c2b034d4f209a6da67242729f9c",
+      "genotype": 4,
+      "replicate": 32,
+      "frame_index": 110,
+      "frame_filename": "tray3_0110.jpg",
+      "crop_bbox": [
+        2111,
+        1864,
+        2347,
+        2138
+      ],
+      "crop_size": [
+        236,
+        274
+      ],
+      "tips": [
+        [
+          104,
+          230
+        ],
+        [
+          82,
+          96
+        ]
+      ]
+    },
+    {
+      "plant_id": "g4_r32",
+      "crop_uid": "d8296c2b034d4f209a6da67242729f9c",
+      "genotype": 4,
+      "replicate": 32,
+      "frame_index": 163,
+      "frame_filename": "tray3_0163.jpg",
+      "crop_bbox": [
+        2111,
+        1864,
+        2347,
+        2138
+      ],
+      "crop_size": [
+        236,
+        274
+      ],
+      "tips": [
+        [
+          108,
+          248
+        ],
+        [
+          70,
+          84
+        ],
+        [
+          156,
+          152
+        ]
+      ]
+    }
+  ]
+}
